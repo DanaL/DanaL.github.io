@@ -30,7 +30,7 @@ twitter_username: ywgdana
 github_username:  DanaL
 
 # Build settings
-theme: minimal
+theme: Minimal
 plugins:
   - jekyll-feed
 
