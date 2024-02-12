@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div>
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    |
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    |
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    |
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Yet Another Yet Another Roguelike</h1>
+
+    <main>
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#but-why%2C-dana%3F">But why, Dana?</a></li><li><a href="#a-week-into-it">A week into it</a></li><li><a href="#the-future">The future</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div>
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-02-12T00:00:00.000Z">February 12, 2024</time> 
+            <h3 id="but-why%2C-dana%3F" tabindex="-1">But why, Dana?</h3>
+<p>Listen, I love games like <a href="https://nethack.org/">nethack</a>, <a href="https://rephial.org/">Angband</a>, and <a href="https://github.com/tmewett/BrogueCE">brogue</a>. Even some of their gussied-up children like <a href="https://www.supergiantgames.com/games/hades/">Hades</a>. And despite coding being my day job, I still find it a lot of fun, too. And roguelkes and coding are two great tastes that go great together.</p>
+<p>When you're a programmer and you play a game like this, I think it's natural to think about how it is implemented. So, as happens to me periodically, I got the itch the work on a roguelike and this time I decided to scratch that itch. My <a href="https://github.com/DanaL/rogue_village">last attempt</a> was back in 2021 and I'd made some good progress until fighting with Rust just got to be too much. After a couple of months with the language I was still regularly fighting with the compiler and it made working on my game a miserable experience. This time I'm using C# (my day job language, and I genuinely like it as well) and my main goal this time is the game itself and not learning a new programming language.</p>
+<h3 id="a-week-into-it" tabindex="-1">A week into it</h3>
+<p>So far my work has been infrastructure stuff: opening a display, drawing characters on it, moving your avatar around, etc. I implemented brand new dungeon generator and field-of-view algorithms (I mean new to me, not that I invented them!) and translated my old Rust code for generating an over-world wilderness map. As in the past, getting the display has been a dilemma for me. My game uses ASCII characters like a traditional roguelike because (1) I do not have the skill to make my own sprites and (2) for a game like nethack I legit find the ASCII display cleaner and easier to read than squinting at low-res tilesets while trying to figure out what monsters are nearby but figuring out a cross-platform terminal solution can be a pain. In my Rust game, I was using SDL and this time I decided to try a library designed for roguelikes called Bearlibterminal. It does exactly what I want and is quite simple! The fly in the ointment is that whle it's cross-platform, it's an older project and not really updated anymore. I couldn't find binaries for it compiled for Apple silicon and when I compiled it myself, it worked for certain defitions of work, but had bad display glitches. The low-level guts of displaying my game aren't what I'm interested in so I also translated my Rust code for an SDL2 display to C# and got that working! This is good in a way, because it forced me to separate my UI code so that the details of how things are shown on the screen is separated from the game logic and higher-level UI logic. If I want to add true terminal support or even -- heaven forfend -- sprites in the future, it should be fairly easy.</p>
+<p><img src="/images/wilderness.png" alt="In the wilderness">
+<em>In the wilderness. I'm pleased with this colour scheme -- it gives me Ultima IV vibes.</em></p>
+<p><img src="/images/indungeon.png" alt="Exploring a dungeon">
+<em>Exploring a (currently empty) dungeon!</em></p>
+<p>At this point, I've implemented a lot of the basic UI stuff. Menus for your inventory and picking up/dropping items, save and loading game (so it doesn't become a big, tricky thing later). Lots of work to do before thinking about adding actual content to the game...</p>
+<p>One thing I did different than my previous stabs at roguelikes is to have a non-blocking main game loop. What I mean is that the simplest way to implement a turn-based game is to just have the game processing grind to a halt when it's waiting for user input. But in 'real' games this doesn't happen. Even in a turn-based game you may still want to have music playing or animations going while the player is idle. Getting this to work nearly broke my brain, but I did it! I'm not sure what I'll actually use the feature for but it was neat to work on. In the meantime, I implemented clouds that float by on the wilderness map whlie player is idle!</p>
+<p><img src="/images/clouds.gif" alt="Animated gif of clouds drifting across an ASCII landscape">
+<em>I am way too amused by my animated clouds</em></p>
+<p>Next up, I'll probably work on implementing some simple monsters and get them walking around the world.</p>
+<h3 id="the-future" tabindex="-1">The future</h3>
+<p>The thing is, I don't have any grand plans for the game. I'm not like &quot;here's a niche in the genre I want to explore&quot; or &quot;here's what I dislike about nethack&quot;. It's just fun to work on the game and just cool to see my little @ dude walking around in a world that my code created!</p>
+<p>So I'm going to do a fairly generic fantasy roguelike rpg where you need to descend into a dungeon and kill the bad guy lurking in its depths. But I have some ideas to make my game distinct a bit from, say, Angband. There will be a town not far from the dungeon (the premise of the game is that you've arrived to rescue the town from the danger lurking in the dungeon)
+will NPCs who know things about the dungeon. Previous adventurers may have mentioned the vampire on level 7 or the hidden shrine on level 4. The villagers might mentioned an earthquake a few months back (resulting in some of the dungeon levels being partially destroyed and full of rubble). I want a dungeon with some history. Some other vague ideas: the player may find a scrap of a journal from an explorer who talks about how the Rat Prince is immune to fire, etc. So, I'll need to generate most of the dungeon in advance. I'd also like to have a few different end game bosses and as you get deeper in the dungeon the levels become more theme-appropriate. If the final boss is a balrog levels might progressively have more lava and fire-based monsters. If the final boss is a lich, more undead. I haven't played Caves of Qud but I gather it has a very deep, procedurally generated in-game history so that will be a game I need to research (ie., play a bunch).</p>
+<p>I'd like the townsfolk to be fairly rich. I don't know how well that can be done procedurally so perhaps I'll have a pool of NPCs whose dialogue is somewhat hard-coded and then each game will get a random subset of those NPCs. People don't mind interacting with the same characters in multiple play-throughs of, say, Stardew Valley so I don't think that will be too much of a problem. I have no idea yet how to code NPCs and how to store the generated facts about the world in a way the NPCs can use, so that'll be something to research.</p>
+<p>I was also thinking about a grit/stress mechanic similar I guess to games like Darkest Dungeon. So if you spend too long in the dungeon your stress starts to increase and you accrue penalties and status ailments (fear of darkness, nervousness, or you become reckless, stuff like that). I hope this might promote some risk/reward decisions, as in how far does the player push their luck. And it will also hopefully encourage the player to return to the surface to interact with the NPCs since they'll need a spa day to recover. Finally, what if after a certain amount of time has passed, the Boss Monster bursts form from the dungeon and lays waste to the town?</p>
+<p>I'd like the overworld to be somewhat living. As in, there are occasional events on the surface that affect the game. A necromancer might take up residence in a cave and plague the area with zombies. Pirate raiders might come ashore. Townfolks might move in and out, etc, etc. An unnatural winter rolls in.</p>
+<p>These are all pie-in-the-sky ideas for the moment!</p>
+<p>For now, my current goal is to create a Minimum Viable Dungeon: a 10 level main dungeon, a boss at the bottom so there is a win condition, a bit of the aforementioned dungeon theming, and enough content to make those 10 levels not boring. A town with NPCs even if they are dead simple and have a few canned lines to speak. Some shop keepers.</p>
+<p>I haven't named the game yet, but the <a href="https://github.com/DanaL/Yarl2">code is on github</a> under a CC0 license. I consider my code to be in the public domain!</p>
+
+        </article>
+    </div>
+</div>
+    </main>
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>
