@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div>
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    |
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    |
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    |
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Dev Diary 2</h1>
+
+    <main>
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#progress!">Progress!</a></li><li><a href="#the-beginings-of-a-town">The beginings of a town</a></li><li><a href="#minimum-viable-dungeon">Minimum Viable Dungeon</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div>
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-02-21T00:00:00.000Z">February 21, 2024</time> 
+            <h3 id="progress!" tabindex="-1">Progress!</h3>
+<p>Work on my game continues! I'm still in the infrastructure and plumbing phase, ie., working on a lot of things that would be taken care of by a game engine, were I using one. I reworked a bunch of stuff surrounding the user interface; for instance in this week's screen shots you'll see that I'm now displaying messages at the bottom of the game's window and the last few messages are shown along with the most recent. I'm also using pop-up windows for some user interaction but I'm inconsistent at the moment.</p>
+<p>A big new feature is making light sources work, including ones that are independent of the player. This meant thinking about how turns worked in the gameloop. Torches essentially get a turn along with the player and monsters, with their turn consistently of reducing the amount of fuel they have remaining and burning out when their fuel reaches zero. Most recently, I reworked how I implemented items in code. My first instinct had been to have a Torch be a subclass of a general Item class and contain the code for being a light source and tracking fuel, etc. But that turned serialization for saving/reloading the game into a minor nightmare. The C# serialization libraries don't like class hierarchies it seems. My solution was to get rid of subclasses of Item and introduce a list of Traits that each item has. So, a weapon becomes an item with the Melee Attack trait, and a torch is an item with the light source trait. The details aren't too important but this makes serialization/deserialization a lot easier (or at least comprehensible to me). I was annoyed by having to rewrite a bunch of stuff but I think this is a better way to do items anyhow. In the future, a magic sword that glows won't really require any special case code. It's now just an item that has both the Melee Attack and Light Source traits.</p>
+<p>Also for fun, I added an animation to make the torchlight flicker when the player is in the dungeon.</p>
+<p><img src="/images/torchlight.gif" alt="Flickering torchlight!">
+<em>At least, I hope the effect gives the impression of torchlight</em></p>
+<h3 id="the-beginings-of-a-town" tabindex="-1">The beginings of a town</h3>
+<p>My game is going to have a town in the wilderness you will visit in between dungeon dives, and hopefully (eventually) interesting NPCs to interact with. I've started thinking about how they might have some information about the dungeon and the Big Bad and how they might impart that info to the player, and a few other things to do in town. But in the meantime, I have the code working to randomly generate a bunch of buildings and draw the roads between them. It's pretty rudimentary right now but I'll worry about more varying town layouts in the future. Look, look, when drawing the roads in town if the pathfinder crosses a river it adds a bridge. (Which can result in some pretty goofy looking towns depending how the paths between buildings go)</p>
+<p><img src="/images/basictown.png" alt="Buildings in town">
+<em>Future home for adventurers</em></p>
+<h3 id="minimum-viable-dungeon" tabindex="-1">Minimum Viable Dungeon</h3>
+<p>I'm looking forward to finishing up - for now - with the infrastructure-type code and moving on to stuff that's more actual game content! Hopefully this week?</p>
+<p>My next milestone is what I've been thinking of as a Minimum Viable Dungeon. Having enough stuff that it kind of, sort of, feels like an actual computer RPG. Nowhere near a full game, but I'd like you to be able to make a character, enter the dungeon, explore down to level 5, and defeated a boss there. Along the way will be some of the features of the full game. Monsters to fight, treasures to find, a few traps or puzzles. I want to have NPCs in the town and for you to be able to interact with them, even if they're just spouting some canned lines. You'll be able to buy and sell from the smithy as well.</p>
+<p>Another thing I want to have in my game is to generate some history of the dungeon and then seed hints of that throughout its levels. If the dungeon was originally built by a dwarven king or a mad wizard, I want to place some hints about that history. A statue here, a scroll with a fragment of the site's history there, stuff like that. Right now, I'm thinking maybe of generating a founder for the dungeon, a reason why it originally fell to ruin, and maybe a few other randomized historical events. This is stuff I've never attempted to implement in code before so I imagine it's going to be a lot of trial and error. But I want to have a very basic version in the MVD.</p>
+<p>I'm not setting myself a deadline or timeline since this is meant to be a fun project for my spare time. It's been occupying a lot of space in my brain lately but hopefully I'll settle down to working on it for only a few hours a week once the initial lustre of a new project wears off a bit.</p>
+<p>Perhaps by the time I've hit the Minimum Viable Dungeon I'll have even come up with a name for the game!</p>
+
+        </article>
+    </div>
+</div>
+    </main>
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>
