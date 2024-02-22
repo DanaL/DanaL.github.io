@@ -2,9 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://danarama.ca">
     <title>The Danarama blog</title>
     <subtitle>All the Dana news you need</subtitle>
-    <link href="https://danarama.ca/feed.xml" rel="self"/>
+    <id>https://danarama.ca</id>
+    <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-02-22T18:14:49Z</updated>
+    <updated>2024-02-22T18:22:12Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
