@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Dev Diary 3</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#so-what's-new%3F">So what's new?</a></li><li><a href="#character-creation">Character creation</a></li><li><a href="#fight!">Fight!</a></li><li><a href="#and-onward">And onward</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div>
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-03-01T00:00:00.000Z">March 1, 2024</time> 
+            <p>Yarl isn't the name of my game. Yarl is short for Yet Another Roguelike.</p>
+<p>In my head it's also called Untitled Roguelike, which is accurate and also a nod to the first Twilight Movie, whose pre-production code name was 'Untitled Sports Movie', a name I find delightful. I learned this because for a brief time I worked for a VFX company called Frantic Films who did some work on the first two Twilight films. Also: James Cameron allegedly hates baseball caps and when he'd visit a company doing work for him, staff would be reminded to not wear baseball caps that day.</p>
+<p>I'm getting off topic. In fact, haven't even got <em>to</em> topic yet.</p>
+<h3 id="so-what's-new%3F" tabindex="-1">So what's new?</h3>
+<p>First up, I began playing around with generating history for my dungeon, as mentioned last time. Mostly just to play around with how to represent historical 'facts' and use them to generate dungeon features. I'll many types of historical events the RNG will draw from, but for now I am just randomly generating monuments to a battle that happened in the distant past. (The statues and mosaics' descriptions vary depending if the battle was lost or won, and if the ruler was beloved by his people or not)</p>
+<p><img src="/images/statue.png" alt="The player finds a historic statue!">
+<em>The player finds a historic statue</em></p>
+<h3 id="character-creation" tabindex="-1">Character creation</h3>
+<p>After that, I continued coding away, adding features and such to slowly make my game more game-like. First up: character creation. My game is going to have character classes a la bog standard D&amp;D, but for simplicity I've decided to include lineage and career path. (There's precedent for this in one version of Basic D&amp;D!) I'm not sure how many different classes the game will have. That'll depend largely on how much interesting differentiation between character types I can come up with. I'm starting with two warrior-types because then I don't have to think about how spellcasting and magic is going to work in my game...</p>
+<p><img src="/images/charselection.png" alt="Character selection screen">
+<em>The character selection screen</em></p>
+<p>At this point I had to make decisions about how represent stats and such in code. But once the player character had stats, I could begin work on combat!</p>
+<h3 id="fight!" tabindex="-1">Fight!</h3>
+<p>My starting point will be 5e-esque rules (although I'm drawing more specifically on Shadowdark instead of vanilla 5e) and worry about game balance and difficulty much later in the development cycle. For now, I wanted my character to be able to walk around and fight monsters in a basic way. One way I'm varying from standard D&amp;D is instead of rolling a d20 for your attack roll, I'm rolling two d20s and averaging them. This should make dice rolls over the course of them closer to a normal distribution instead of an even distribution you'll see from a single d20 roll. I'm also not doing critical hits and aren't sure if I'll add them in later.</p>
+<p>In the interest of fairness, since the player could hit the monsters, the monsters needed the ability to fight back to. And sadly (sadly?) I needed to write code to handle the player being killed.</p>
+<p><img src="/images/death.png" alt="A character has been killed in my game">
+<em>Don't grieve this character, they're just an early alpha test</em></p>
+<p>So, when I first gave monsters the ability to find the player, move toward them, and attack, they would swarm the player very quickly. My fix for that was to generate most monsters in an Idle state and then have the player's movement wake them up. Right now, what I do to alert monsters is a flood-fill with each step the character takes out to a distance of 15 squares (blocked by walls, doors, etc). 15 was an arbitrary number. But in the future I'll have character classes who are more stealthy -- maybe their footfalls only radiate out to, say, 5 squares. And magic items and spells could also reduce your noisiness. Anyhow, I have a nascent stealth system!</p>
+<p>But then it occurred to me that I could also have the monsters make noise and alert the player. I thought this would be a nice effect since I am limiting the player's vision to range of their torchlight so:</p>
+<p><img src="/images/footsteps.png" alt="The character hears footsteps">
+<em>Ooo -- spooky footsteps in the distance :o</em></p>
+<h3 id="and-onward" tabindex="-1">And onward</h3>
+<p>Right now, all monsters cause 'padding footsteps' but I'll need to provide differing descriptions in my monster definitions. Dire bats, for example, aren't going to make pading footsteps. Next up, I'll add XP for defeating monsters and think about levelling up. Right now, my plan is that upon levelling up is the character will get a random new boon. A stat increase, a special ability from their class, bonus hit points, etc, etc. Some other ideas I had were similar to 5e's Feats, but I'd like those to be less random. Like, if you've been carrying around a greatsword a lot, you may get an ability that makes you better with your greatsword. Or if you've been using a shield, maybe you get shield bash. Just a few ideas. (I'm not sure if/how I want to actually track for how many turns a character has had certain gear equiped)</p>
+<p>Once a player can level up, the next things I'll add to the game are more items like healing potions. At the moment, there's no way for the player to get HP back, which impedes testing a bit :P As part of my push toward Minimum Viable Dungeon, I'll develop up to level 5 characters and populate the dungeon down to level 5. After that I think I'll turn to the village and work on the NPCs the player will get to interact with.</p>
+<p>There's a Game Jam for roguelike development the first week of March called the <a href="https://itch.io/jam/7drl-challenge-2024">Seven Day Roguelike Challenge</a> where you attempt to make an entire roguelike in a week. I'm not taking part because I don't have an idea I think I could complete in seven days, but I have Friday off work so I'm going to spend most of the day working on my game in solidarity.</p>
+
+        </article>
+    </div>
+</div>
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>

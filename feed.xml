@@ -5,11 +5,47 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-02-28T03:50:00Z</updated>
+    <updated>2024-03-02T01:54:01Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Dev Diary 3</title>
+    <link href="https://danarama.ca/posts/2024/post6/"/>
+    <updated>2024-03-01T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2024/post6/</id>
+    <summary>Yarl Update</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;Yarl isn&#39;t the name of my game. Yarl is short for Yet Another Roguelike.&lt;/p&gt;
+&lt;p&gt;In my head it&#39;s also called Untitled Roguelike, which is accurate and also a nod to the first Twilight Movie, whose pre-production code name was &#39;Untitled Sports Movie&#39;, a name I find delightful. I learned this because for a brief time I worked for a VFX company called Frantic Films who did some work on the first two Twilight films. Also: James Cameron allegedly hates baseball caps and when he&#39;d visit a company doing work for him, staff would be reminded to not wear baseball caps that day.&lt;/p&gt;
+&lt;p&gt;I&#39;m getting off topic. In fact, haven&#39;t even got &lt;em&gt;to&lt;/em&gt; topic yet.&lt;/p&gt;
+&lt;h3 id=&quot;so-what&#39;s-new%3F&quot; tabindex=&quot;-1&quot;&gt;So what&#39;s new?&lt;/h3&gt;
+&lt;p&gt;First up, I began playing around with generating history for my dungeon, as mentioned last time. Mostly just to play around with how to represent historical &#39;facts&#39; and use them to generate dungeon features. I&#39;ll many types of historical events the RNG will draw from, but for now I am just randomly generating monuments to a battle that happened in the distant past. (The statues and mosaics&#39; descriptions vary depending if the battle was lost or won, and if the ruler was beloved by his people or not)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/statue.png&quot; alt=&quot;The player finds a historic statue!&quot;&gt;
+&lt;em&gt;The player finds a historic statue&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;character-creation&quot; tabindex=&quot;-1&quot;&gt;Character creation&lt;/h3&gt;
+&lt;p&gt;After that, I continued coding away, adding features and such to slowly make my game more game-like. First up: character creation. My game is going to have character classes a la bog standard D&amp;amp;D, but for simplicity I&#39;ve decided to include lineage and career path. (There&#39;s precedent for this in one version of Basic D&amp;amp;D!) I&#39;m not sure how many different classes the game will have. That&#39;ll depend largely on how much interesting differentiation between character types I can come up with. I&#39;m starting with two warrior-types because then I don&#39;t have to think about how spellcasting and magic is going to work in my game...&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/charselection.png&quot; alt=&quot;Character selection screen&quot;&gt;
+&lt;em&gt;The character selection screen&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;At this point I had to make decisions about how represent stats and such in code. But once the player character had stats, I could begin work on combat!&lt;/p&gt;
+&lt;h3 id=&quot;fight!&quot; tabindex=&quot;-1&quot;&gt;Fight!&lt;/h3&gt;
+&lt;p&gt;My starting point will be 5e-esque rules (although I&#39;m drawing more specifically on Shadowdark instead of vanilla 5e) and worry about game balance and difficulty much later in the development cycle. For now, I wanted my character to be able to walk around and fight monsters in a basic way. One way I&#39;m varying from standard D&amp;amp;D is instead of rolling a d20 for your attack roll, I&#39;m rolling two d20s and averaging them. This should make dice rolls over the course of them closer to a normal distribution instead of an even distribution you&#39;ll see from a single d20 roll. I&#39;m also not doing critical hits and aren&#39;t sure if I&#39;ll add them in later.&lt;/p&gt;
+&lt;p&gt;In the interest of fairness, since the player could hit the monsters, the monsters needed the ability to fight back to. And sadly (sadly?) I needed to write code to handle the player being killed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/death.png&quot; alt=&quot;A character has been killed in my game&quot;&gt;
+&lt;em&gt;Don&#39;t grieve this character, they&#39;re just an early alpha test&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So, when I first gave monsters the ability to find the player, move toward them, and attack, they would swarm the player very quickly. My fix for that was to generate most monsters in an Idle state and then have the player&#39;s movement wake them up. Right now, what I do to alert monsters is a flood-fill with each step the character takes out to a distance of 15 squares (blocked by walls, doors, etc). 15 was an arbitrary number. But in the future I&#39;ll have character classes who are more stealthy -- maybe their footfalls only radiate out to, say, 5 squares. And magic items and spells could also reduce your noisiness. Anyhow, I have a nascent stealth system!&lt;/p&gt;
+&lt;p&gt;But then it occurred to me that I could also have the monsters make noise and alert the player. I thought this would be a nice effect since I am limiting the player&#39;s vision to range of their torchlight so:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/footsteps.png&quot; alt=&quot;The character hears footsteps&quot;&gt;
+&lt;em&gt;Ooo -- spooky footsteps in the distance :o&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;and-onward&quot; tabindex=&quot;-1&quot;&gt;And onward&lt;/h3&gt;
+&lt;p&gt;Right now, all monsters cause &#39;padding footsteps&#39; but I&#39;ll need to provide differing descriptions in my monster definitions. Dire bats, for example, aren&#39;t going to make pading footsteps. Next up, I&#39;ll add XP for defeating monsters and think about levelling up. Right now, my plan is that upon levelling up is the character will get a random new boon. A stat increase, a special ability from their class, bonus hit points, etc, etc. Some other ideas I had were similar to 5e&#39;s Feats, but I&#39;d like those to be less random. Like, if you&#39;ve been carrying around a greatsword a lot, you may get an ability that makes you better with your greatsword. Or if you&#39;ve been using a shield, maybe you get shield bash. Just a few ideas. (I&#39;m not sure if/how I want to actually track for how many turns a character has had certain gear equiped)&lt;/p&gt;
+&lt;p&gt;Once a player can level up, the next things I&#39;ll add to the game are more items like healing potions. At the moment, there&#39;s no way for the player to get HP back, which impedes testing a bit :P As part of my push toward Minimum Viable Dungeon, I&#39;ll develop up to level 5 characters and populate the dungeon down to level 5. After that I think I&#39;ll turn to the village and work on the NPCs the player will get to interact with.&lt;/p&gt;
+&lt;p&gt;There&#39;s a Game Jam for roguelike development the first week of March called the &lt;a href=&quot;https://itch.io/jam/7drl-challenge-2024&quot;&gt;Seven Day Roguelike Challenge&lt;/a&gt; where you attempt to make an entire roguelike in a week. I&#39;m not taking part because I don&#39;t have an idea I think I could complete in seven days, but I have Friday off work so I&#39;m going to spend most of the day working on my game in solidarity.&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
@@ -24,7 +60,7 @@
 &lt;h3 id=&quot;a-little-race-report&quot; tabindex=&quot;-1&quot;&gt;A little race report&lt;/h3&gt;
 &lt;p&gt;I was pretty stoked to start training for this one because my running in summer and fall of 2023 had gone pretty well. So when I signed up, I had in mind 2:30 as a goal time. A little bit ambitious given the paces I&#39;d been hitting during my summer jogs, but it felt possible. In 2021 during the Pandemic I&#39;d run the Hypo as a virtual race and finished in 2:39 plus change and I was in much better shape this year. In fact, I ran 12 miles a couple of Mondays ago as my final long run and was on pace for around 2:35 if I&#39;d kept going.&lt;/p&gt;
 &lt;p&gt;Man makes plans, etc, etc.&lt;/p&gt;
-&lt;p&gt;I was also stoked for this because the Hypothermic Half is one of my favourite races and a few years ago it moved to become sort of part of Festival du Voygaeur, with the race begining and ending at Fort Gibralter. My favourite race! Basically in my backyard! (The worst part of any race is logistics so the start line being a 10 minute walk from home is sweet)&lt;/p&gt;
+&lt;p&gt;I was also stoked for this because the Hypothermic Half is one of my favourite races and a few years ago it moved to become sort of part of Festival du Voyageur, with the race begining and ending at Fort Gibralter. My favourite race! Basically in my backyard! (The worst part of any race is logistics so the start line being a 10 minute walk from home is sweet)&lt;/p&gt;
 &lt;p&gt;It was a great day to run temperature-wise. I think it was around -8 Celsius when we started. A bit breezy but I barely noticed it. Ice was a problem because of all the melting and freezing we had in February but I didn&#39;t have any problems thanks to a pair Icebug Certas. I&#39;ve probably put more miles on them this winter than all previous winters since I bought them several years ago.&lt;/p&gt;
 &lt;p&gt;So, I maintained my goal pace through St Boniface and Ft Rouge, hit the turn around point with a solid minute or so cushion and then...after 9.5 miles I just crapped out. I could barely put one foot in front of another and finally stumbled to the finish line around 2:43. Embarrassing. (That&#39;s my watch time, my chip time will be a few minutes slower beucase I paused my watch when I had to take a bathroom break)&lt;/p&gt;
 &lt;p&gt;Ah well, I&#39;m still pleased to have got at least a half-marathon finish under belt after a few years of pretty crappy running. I think I have the fitness to beat 2:30 but just had a bad day. And now I have spring, summer, and fall to train more and perhaps do another half in October.&lt;/p&gt;
