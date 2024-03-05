@@ -5,7 +5,7 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-03-02T01:54:01Z</updated>
+    <updated>2024-03-05T17:47:19Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
@@ -22,7 +22,7 @@
 &lt;p&gt;In my head it&#39;s also called Untitled Roguelike, which is accurate and also a nod to the first Twilight Movie, whose pre-production code name was &#39;Untitled Sports Movie&#39;, a name I find delightful. I learned this because for a brief time I worked for a VFX company called Frantic Films who did some work on the first two Twilight films. Also: James Cameron allegedly hates baseball caps and when he&#39;d visit a company doing work for him, staff would be reminded to not wear baseball caps that day.&lt;/p&gt;
 &lt;p&gt;I&#39;m getting off topic. In fact, haven&#39;t even got &lt;em&gt;to&lt;/em&gt; topic yet.&lt;/p&gt;
 &lt;h3 id=&quot;so-what&#39;s-new%3F&quot; tabindex=&quot;-1&quot;&gt;So what&#39;s new?&lt;/h3&gt;
-&lt;p&gt;First up, I began playing around with generating history for my dungeon, as mentioned last time. Mostly just to play around with how to represent historical &#39;facts&#39; and use them to generate dungeon features. I&#39;ll many types of historical events the RNG will draw from, but for now I am just randomly generating monuments to a battle that happened in the distant past. (The statues and mosaics&#39; descriptions vary depending if the battle was lost or won, and if the ruler was beloved by his people or not)&lt;/p&gt;
+&lt;p&gt;First up, I began playing around with generating history for my dungeon, as mentioned last time. Mostly just to play around with how to represent historical &#39;facts&#39; and use them to generate dungeon features. I plan to have many types of historical events the RNG will draw from, but for now I am just randomly generating monuments to a battle that happened in the distant past. (The statues and mosaics&#39; descriptions vary depending if the battle was lost or won, and if the ruler was beloved by his people or not)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/statue.png&quot; alt=&quot;The player finds a historic statue!&quot;&gt;
 &lt;em&gt;The player finds a historic statue&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&quot;character-creation&quot; tabindex=&quot;-1&quot;&gt;Character creation&lt;/h3&gt;
