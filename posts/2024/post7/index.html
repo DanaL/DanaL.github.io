@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Dev Diary 4</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#what's-new-in-yarl%3F">What's new in Yarl?</a></li><li><a href="#ooo-vfx!">Ooo VFX!</a></li><li><a href="#leveling-up">Leveling Up</a></li><li><a href="#shopping">Shopping</a></li><li><a href="#topology%3F-geography">Topology? Geography</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-03-09T00:00:00.000Z">March 9, 2024</time> 
+            <p>Before we get to the dev diary, cast your gaze off to the right! (Unless you're on mobile...) My friend <a href="https://ko-fi.com/radiantlethe">Catarina</a> has knocked it out of the park once again, this time with a logo for my Yarl-related posts. I have this expression much of the time I spend working on code. Other top coding expressions: utter bafflement, occasional anger, and occasionally despair.</p>
+<p>No but coding is really very fun!</p>
+<h3 id="what's-new-in-yarl%3F" tabindex="-1">What's new in Yarl?</h3>
+<p>We continue our quest toward the semi-mythical Minimum Viable Dungeon! For me, writing this game feels a bit like exploring a dungeon. I'm venturing into unknown territory obscured by darkness and wandering down many twists and turns, occasionally finding a dead-end and having to backtrack.</p>
+<p>Some roguelikes have chasms where you can fall or jump deeper into the dungeon, which is something I wanted in my game. While, Brogue for instance simply shows dark squares for the chasm, I had the idea that the player would be able to faintly see the level below, so I tried to implement that. In this image, the dark/faint squares to the left and right of the character are actually the next level down. So, once I code in the ability to fall between levels, you'll be able to see what's below should you jump, fall, or get pushed of the edge of a precipice.</p>
+<p><img src="/images/chasm.png" alt="The character crossing a chasm">
+<em>The player is on a wooden bridge spanning a chasm</em></p>
+<p>I haven't finalized the look, yet. I think one some monitors the squares of the level below might be too faint. But I wanted it to be visually obvious that those tiles weren't on your currently level. I might also make the squares that form the edge of the chasm distinct from other floor tiles. Things to think about when I'm polishing the game later on.</p>
+<h3 id="ooo-vfx!" tabindex="-1">Ooo VFX!</h3>
+<p>I had an idea for an animation to add to the game, a visual indication of when someone is hit in melee:</p>
+<p><img src="/images/fightanim.gif" alt="Animation showing his during fights">
+<em>The player and a kobold trading blows</em></p>
+<p>I think the effect works pretty well since players will probably be paying more attention to the characters on the screen instead of the messages in the message area or their HP in the sidebar.</p>
+<h3 id="leveling-up" tabindex="-1">Leveling Up</h3>
+<p>I also began to work on what happens when characters level up. For now I just have the two character classes. Every second level their attack bonus goes up and on the odd levels they get a special feature. Right now, Orcish Reavers receive a random boon from among: a strength increase, a constitution increase, bonus HP, a damage bonus, Cleave, or Impale. Impale means if you hit a monster you may also hit a monster behind them. Cleave means you might hit monsters to the left or right of your opponent. I have to think about the implications of those abilities because I haven't handled the case there a friendly NPC might be in one of the target squares. Likewise, you can Impale or Cleave with any weapon and it doesn't really make sense to, say, Impale with a club. I'm not sure if that really matters, but on the other hand it might offer the player interesting choices about what weapon to wield.</p>
+<p>Dwarf Stalwarts can get: Strength, Constitution, or Piety (think, Wisdom in D&amp;D) boosts, Impale, or an ability called Shield of the Faithful (which is essentially just an armour class bonus). Stalwarts can eventually learn some prayer/spell type abilities but I haven't yet made any concrete decisions about how spellcasting will work in the game. Piety will be a Stalwarts spellcasting ability though.</p>
+<h3 id="shopping" tabindex="-1">Shopping</h3>
+<p>A big step toward MVD was beginning to add NPCs to the town and shopping. First, I gave NPCs barks that they can say while the player is walking around the town. This was a fun addition, and really makes me happy I decided to go with a non-breaking game loop. Here's the town priest:</p>
+<p><img src="/images/bark.png" alt="A priest in the town calling out devotions">
+<em>Huntokar is a placeholder deity. I'll actually generate the gods for my game</em></p>
+<p>Implementing shopping was a fair bit of work and when I first wrote the code for that pop-up window for other stuff, I didn't occur to me that I'd want to highlight things in colour. Hoo-boy, that turned a rabbit hole of hacking around in my code. But here's what the shopping screen looks like:</p>
+<p><img src="/images/shopping.png" alt="Shopping menu in the game"></p>
+<p>The character has chosen a helmet and 1 dagger, but doesn't have the funds for both :(</p>
+<h3 id="topology%3F-geography" tabindex="-1">Topology? Geography</h3>
+<p>Lastly, to add some interest and variety to the dungeon levels, I worked on draw rivers across a level and then adding in bridges so that all areas of the dungeon are still reachable on foot.</p>
+<p><img src="/images/riverbridge.png" alt="Dungoen map with a river and bridges"></p>
+<p>The river drawing code was a bit finicky, but adding the bridges was pretty easy! It's nice when you can just repurpose code you've already written. In this case, to connect areas divided by the river, I pick a point in each of two disjoint regions and use my pathfinding code to find a path between them. I then follow the path and when I encounter a water square, I replace it with a bridge.</p>
+<p>The same river drawing code can be used to draw chasms and lava flows simply by switching the character I draw for the 'river'.</p>
+<p>Oh, and those are wooden bridges! Eventually I'll implement the possibility of bridges being destroyed by fire or such. I need to decide what happens if you fall in the water. (If the bridge is over a chasm, you'll fall to the level below) Falling into lava will probably be very bad...</p>
+<p>So that's what I've worked on over the past week or so!</p>
+<p>The next things I'll work on are implmeenting randomized gods for the town's priest and more dungeon decoration features. If I get a decent way through that, the next thing will be developing a boss monster who'll be waiting for the player on level 5 of the dungeon.</p>
+
+        </article>        
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>

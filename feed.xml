@@ -5,11 +5,53 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-03-05T17:47:19Z</updated>
+    <updated>2024-03-09T17:51:22Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Dev Diary 4</title>
+    <link href="https://danarama.ca/posts/2024/post7/"/>
+    <updated>2024-03-09T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2024/post7/</id>
+    <summary>This week(?) in roguelike dev!</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;Before we get to the dev diary, cast your gaze off to the right! (Unless you&#39;re on mobile...) My friend &lt;a href=&quot;https://ko-fi.com/radiantlethe&quot;&gt;Catarina&lt;/a&gt; has knocked it out of the park once again, this time with a logo for my Yarl-related posts. I have this expression much of the time I spend working on code. Other top coding expressions: utter bafflement, occasional anger, and occasionally despair.&lt;/p&gt;
+&lt;p&gt;No but coding is really very fun!&lt;/p&gt;
+&lt;h3 id=&quot;what&#39;s-new-in-yarl%3F&quot; tabindex=&quot;-1&quot;&gt;What&#39;s new in Yarl?&lt;/h3&gt;
+&lt;p&gt;We continue our quest toward the semi-mythical Minimum Viable Dungeon! For me, writing this game feels a bit like exploring a dungeon. I&#39;m venturing into unknown territory obscured by darkness and wandering down many twists and turns, occasionally finding a dead-end and having to backtrack.&lt;/p&gt;
+&lt;p&gt;Some roguelikes have chasms where you can fall or jump deeper into the dungeon, which is something I wanted in my game. While, Brogue for instance simply shows dark squares for the chasm, I had the idea that the player would be able to faintly see the level below, so I tried to implement that. In this image, the dark/faint squares to the left and right of the character are actually the next level down. So, once I code in the ability to fall between levels, you&#39;ll be able to see what&#39;s below should you jump, fall, or get pushed of the edge of a precipice.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/chasm.png&quot; alt=&quot;The character crossing a chasm&quot;&gt;
+&lt;em&gt;The player is on a wooden bridge spanning a chasm&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I haven&#39;t finalized the look, yet. I think one some monitors the squares of the level below might be too faint. But I wanted it to be visually obvious that those tiles weren&#39;t on your currently level. I might also make the squares that form the edge of the chasm distinct from other floor tiles. Things to think about when I&#39;m polishing the game later on.&lt;/p&gt;
+&lt;h3 id=&quot;ooo-vfx!&quot; tabindex=&quot;-1&quot;&gt;Ooo VFX!&lt;/h3&gt;
+&lt;p&gt;I had an idea for an animation to add to the game, a visual indication of when someone is hit in melee:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/fightanim.gif&quot; alt=&quot;Animation showing his during fights&quot;&gt;
+&lt;em&gt;The player and a kobold trading blows&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I think the effect works pretty well since players will probably be paying more attention to the characters on the screen instead of the messages in the message area or their HP in the sidebar.&lt;/p&gt;
+&lt;h3 id=&quot;leveling-up&quot; tabindex=&quot;-1&quot;&gt;Leveling Up&lt;/h3&gt;
+&lt;p&gt;I also began to work on what happens when characters level up. For now I just have the two character classes. Every second level their attack bonus goes up and on the odd levels they get a special feature. Right now, Orcish Reavers receive a random boon from among: a strength increase, a constitution increase, bonus HP, a damage bonus, Cleave, or Impale. Impale means if you hit a monster you may also hit a monster behind them. Cleave means you might hit monsters to the left or right of your opponent. I have to think about the implications of those abilities because I haven&#39;t handled the case there a friendly NPC might be in one of the target squares. Likewise, you can Impale or Cleave with any weapon and it doesn&#39;t really make sense to, say, Impale with a club. I&#39;m not sure if that really matters, but on the other hand it might offer the player interesting choices about what weapon to wield.&lt;/p&gt;
+&lt;p&gt;Dwarf Stalwarts can get: Strength, Constitution, or Piety (think, Wisdom in D&amp;amp;D) boosts, Impale, or an ability called Shield of the Faithful (which is essentially just an armour class bonus). Stalwarts can eventually learn some prayer/spell type abilities but I haven&#39;t yet made any concrete decisions about how spellcasting will work in the game. Piety will be a Stalwarts spellcasting ability though.&lt;/p&gt;
+&lt;h3 id=&quot;shopping&quot; tabindex=&quot;-1&quot;&gt;Shopping&lt;/h3&gt;
+&lt;p&gt;A big step toward MVD was beginning to add NPCs to the town and shopping. First, I gave NPCs barks that they can say while the player is walking around the town. This was a fun addition, and really makes me happy I decided to go with a non-breaking game loop. Here&#39;s the town priest:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/bark.png&quot; alt=&quot;A priest in the town calling out devotions&quot;&gt;
+&lt;em&gt;Huntokar is a placeholder deity. I&#39;ll actually generate the gods for my game&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Implementing shopping was a fair bit of work and when I first wrote the code for that pop-up window for other stuff, I didn&#39;t occur to me that I&#39;d want to highlight things in colour. Hoo-boy, that turned a rabbit hole of hacking around in my code. But here&#39;s what the shopping screen looks like:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/shopping.png&quot; alt=&quot;Shopping menu in the game&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The character has chosen a helmet and 1 dagger, but doesn&#39;t have the funds for both :(&lt;/p&gt;
+&lt;h3 id=&quot;topology%3F-geography&quot; tabindex=&quot;-1&quot;&gt;Topology? Geography&lt;/h3&gt;
+&lt;p&gt;Lastly, to add some interest and variety to the dungeon levels, I worked on draw rivers across a level and then adding in bridges so that all areas of the dungeon are still reachable on foot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/riverbridge.png&quot; alt=&quot;Dungoen map with a river and bridges&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The river drawing code was a bit finicky, but adding the bridges was pretty easy! It&#39;s nice when you can just repurpose code you&#39;ve already written. In this case, to connect areas divided by the river, I pick a point in each of two disjoint regions and use my pathfinding code to find a path between them. I then follow the path and when I encounter a water square, I replace it with a bridge.&lt;/p&gt;
+&lt;p&gt;The same river drawing code can be used to draw chasms and lava flows simply by switching the character I draw for the &#39;river&#39;.&lt;/p&gt;
+&lt;p&gt;Oh, and those are wooden bridges! Eventually I&#39;ll implement the possibility of bridges being destroyed by fire or such. I need to decide what happens if you fall in the water. (If the bridge is over a chasm, you&#39;ll fall to the level below) Falling into lava will probably be very bad...&lt;/p&gt;
+&lt;p&gt;So that&#39;s what I&#39;ve worked on over the past week or so!&lt;/p&gt;
+&lt;p&gt;The next things I&#39;ll work on are implmeenting randomized gods for the town&#39;s priest and more dungeon decoration features. If I get a decent way through that, the next thing will be developing a boss monster who&#39;ll be waiting for the player on level 5 of the dungeon.&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
