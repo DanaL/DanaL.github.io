@@ -37,7 +37,7 @@
     <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
         <aside>
         <nav class="toc" >
-        <ol><li><a href="#what's-new-in-yarl%3F">What's new in Yarl?</a></li><li><a href="#ooo-vfx!">Ooo VFX!</a></li><li><a href="#leveling-up">Leveling Up</a></li><li><a href="#shopping">Shopping</a></li><li><a href="#topology%3F-geography">Topology? Geography</a></li></ol>
+        <ol><li><a href="#what's-new-in-yarl%3F">What's new in Yarl?</a></li><li><a href="#ooo-vfx!">Ooo VFX!</a></li><li><a href="#leveling-up">Leveling Up</a></li><li><a href="#shopping">Shopping</a></li><li><a href="#topology%3F-geography%3F">Topology? Geography?</a></li></ol>
       </nav>
         </aside>
     </div>
@@ -49,7 +49,7 @@
             <p>Before we get to the dev diary, cast your gaze off to the right! (Unless you're on mobile...) My friend <a href="https://ko-fi.com/radiantlethe">Catarina</a> has knocked it out of the park once again, this time with a logo for my Yarl-related posts. I have this expression much of the time I spend working on code. Other top coding expressions: utter bafflement, occasional anger, and occasionally despair.</p>
 <p>No but coding is really very fun!</p>
 <h3 id="what's-new-in-yarl%3F" tabindex="-1">What's new in Yarl?</h3>
-<p>We continue our quest toward the semi-mythical Minimum Viable Dungeon! For me, writing this game feels a bit like exploring a dungeon. I'm venturing into unknown territory obscured by darkness and wandering down many twists and turns, occasionally finding a dead-end and having to backtrack.</p>
+<p>We continue our quest toward the semi-mythical Minimum Viable Dungeon. For me, writing this game feels a bit like exploring a dungeon. I'm venturing into unknown territory obscured by darkness and wandering down many twists and turns, occasionally finding a dead-end and having to backtrack.</p>
 <p>Some roguelikes have chasms where you can fall or jump deeper into the dungeon, which is something I wanted in my game. While, Brogue for instance simply shows dark squares for the chasm, I had the idea that the player would be able to faintly see the level below, so I tried to implement that. In this image, the dark/faint squares to the left and right of the character are actually the next level down. So, once I code in the ability to fall between levels, you'll be able to see what's below should you jump, fall, or get pushed of the edge of a precipice.</p>
 <p><img src="/images/chasm.png" alt="The character crossing a chasm">
 <em>The player is on a wooden bridge spanning a chasm</em></p>
@@ -69,7 +69,7 @@
 <p>Implementing shopping was a fair bit of work and when I first wrote the code for that pop-up window for other stuff, I didn't occur to me that I'd want to highlight things in colour. Hoo-boy, that turned a rabbit hole of hacking around in my code. But here's what the shopping screen looks like:</p>
 <p><img src="/images/shopping.png" alt="Shopping menu in the game"></p>
 <p>The character has chosen a helmet and 1 dagger, but doesn't have the funds for both :(</p>
-<h3 id="topology%3F-geography" tabindex="-1">Topology? Geography</h3>
+<h3 id="topology%3F-geography%3F" tabindex="-1">Topology? Geography?</h3>
 <p>Lastly, to add some interest and variety to the dungeon levels, I worked on draw rivers across a level and then adding in bridges so that all areas of the dungeon are still reachable on foot.</p>
 <p><img src="/images/riverbridge.png" alt="Dungoen map with a river and bridges"></p>
 <p>The river drawing code was a bit finicky, but adding the bridges was pretty easy! It's nice when you can just repurpose code you've already written. In this case, to connect areas divided by the river, I pick a point in each of two disjoint regions and use my pathfinding code to find a path between them. I then follow the path and when I encounter a water square, I replace it with a bridge.</p>
