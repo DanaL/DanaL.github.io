@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Dev Diary 5</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#throwing-and-targetting">Throwing and targetting</a></li><li><a href="#other-additions">Other additions</a></li><li><a href="#magical%2C-annoying-monsters">Magical, annoying monsters</a></li><li><a href="#upcoming">Upcoming</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-03-21T00:00:00.000Z">March 21, 2024</time> 
+            <p>Since my last post, I've added a fair number of new things to my game, although I'm still quite a ways away from it being an actual game...</p>
+<h3 id="throwing-and-targetting" tabindex="-1">Throwing and targetting</h3>
+<p>I added a Throw command, allowing the player to throw daggers at monsters, torches down hallways, etc, etc. I'm finding one obstacle to development is all the attendant decisions you need to make once you decide to do A Thing. For instance, with throwing stuff I needed to decide things like what happens if you toss an item onto a water square or a chasm? How should I handle that? What consequences will it have down the road. At the moment, an item that lands on a water space 'submerges' which for now means that when picking which glyph to display, a water tile gets priority over items that are at its location. (The opposite is true for most other squares) Right now, there's no way for the player to cross water spaces but I'll eventually have to decide if the player will be able to reach the items in the water or if water can be frozen and the items reached.</p>
+<p>While typing this, I realized that a lit torch thrown onto water won't be extinguished and illuminate the nearby area so that's something I'm going to have to work on. I hadn't intended on thinking about items interacting with terrain yet but I would like to eventually to have fire burn wooden things (like the wooden bridges found in dungeons...), cold will freeze water, etc.</p>
+<p><img src="/images/target.gif" alt="Animated gif showing the targetting interface">
+<em>Here's what the targeting interface looks like</em></p>
+<p>I've come up with a decent targeting interface, I think. Roguelikes seem to do one of two things: pick a direction from among the 8 cardinals and shoot in a straight line or target selection. I've gone with the latter: you can move the pointer around via the game's movement keys or hit Tab to cycle through the monsters on screen. And the game remembers your last target if there is one and auto-selects it the next time you hit the Throw command.</p>
+<p>You'll use the same interface once I add bows to the game. That's another instance of something I have put off making decisions about: bows and ammunition. Should the player have to buy and carry around arrows that are used up when they shoot? Or do they just have unlimited arrows? The former is more ~realistic~ but is it fun? Maybe not, if you want to play an archer-type character. Also, you can't have special ammunition like exploding arrows or arrows that also teleport a monster away. What I'm leaning toward right now is you have unlimited basic arrows but can also find magic arrows. Best of both worlds?</p>
+<h3 id="other-additions" tabindex="-1">Other additions</h3>
+<p>Among other things I've added to the game lately are:</p>
+<ul>
+<li>Enemy archers, who can shoot arrows at you from a distance. It's a bit unfair that at the moment the player doesn't have a way of shooting back but sooner or later I'll add it.</li>
+<li>A day/night cycle and when you are outside of a dungeon I am show the current (in-game) time. I plan to have the villagers follow schedules, so in the evenings their shops will be closed and they might gather in the pub. There could also be things that happen in game that depend on the current time.</li>
+<li>I also added a puppy to the town! He's a good boy who just wanders around. Again, I'm not sure what I'm going to do with it, but in the meantime yes you can pat the dog!</li>
+</ul>
+<p><img src="/images/pup.png" alt="Screenshot showing the player patting a dog">
+<em>ofc you can pat the dog!</em></p>
+<h3 id="magical%2C-annoying-monsters" tabindex="-1">Magical, annoying monsters</h3>
+<p>A big thing I tackled was adding in spells. I want some monsters to have spells and special abilities so I implemented one of the earlier ones you might encounter: the kobold trickster. It can cast Entangle or Fog Cloud, or teleport a short distance away from you. This required a bunch of work under hood and there were some false starts in how I implemented stuff, but I think I have a system that will work for other spells and effects.</p>
+<p><img src="/images/trickster.gif" alt="Animated gif showing a kobold trickster harassing the player"></p>
+<p>You can see the trickster in action in that image. He's pretty irritating right now! I don't know if that's good or bad, but when I manage to kill him it's pretty satisying. In the game's current state, the player doesn't have many options for dealing with a creature like this, but one day. I've implemented Fog Cloud as a items that obscure your vision and dissipate after a few turns. The vines summoned by Entangle are technically monsters that don't do anything other than block your path, forcing you to chop through them.</p>
+<p>The player doesn't have any spells yet (although I did create Scrolls of Blink which do the same thing as the trickster's teleport spell). I haven't decided if I'm going to do the classic RPG thing of the player having spell points or have their spells/special powers be on cooldown timers.</p>
+<p>I have a couple more monsters on my list to build next: goblin firestarters who shoot firebolts at you and giant spiders, who might poison you with their bite or create spider webs.</p>
+<h3 id="upcoming" tabindex="-1">Upcoming</h3>
+<p>What's next?</p>
+<p>Basically more content, largely in the form of more types of monsters! I'll probably need to start thinking about loot and such as well.</p>
+<p>Someone on the roguelikedev discord channel ask me when I thought I'd have something playable, and I mentioned my Minimum Viable Dungeon notion and I suggested I wanted to reach MVD by the end of April so now I feel like I have a bit of a deadline...</p>
+
+        </article>        
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>
