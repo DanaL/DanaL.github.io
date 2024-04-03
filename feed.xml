@@ -5,11 +5,42 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-04-01T02:55:31Z</updated>
+    <updated>2024-04-03T18:14:27Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Fiery Dev Diary</title>
+    <link href="https://danarama.ca/posts/2024/post11/"/>
+    <updated>2024-04-03T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2024/post11/</id>
+    <summary>About some hot new features I&#39;ve implemented</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;I mentioned in the last post that I&#39;d told someone in Discord how I hope to have a demo of my game ready by the end of April, and now that it&#39;s already April 3rd I am feeling some deadline pressure :O I think I&#39;ll work on content for the first three weeks and then spend the last week on testing, bug fixes, and polish. I&#39;ve been facetiously displaying version 0.0.1 in the title bar of game to this point, but once the demo is done I plan to bump that to 0.1.0! I also need to give some thought to an actual name for it...&lt;/p&gt;
+&lt;h3 id=&quot;burn!-burn!-burn!&quot; tabindex=&quot;-1&quot;&gt;Burn! Burn! Burn!&lt;/h3&gt;
+&lt;p&gt;Since my last dev diary, I added a giant spider monster who can inject poison and also spray webs around. The webs are sticky and can prevent you from moving off a webbed location or picking up items from it. You can tear through webs by succeeding on a strength check, but I also decided to make webs burn up if they come into contact with fire. This is the first real environmental effect in my game and implementing it required some decision making about things like: if there&#39;s fire on a square, can it damage items also on the square? Ie., will scrolls and such burn up, etc? Can fire spread?&lt;/p&gt;
+&lt;p&gt;So fire will spread if there are adjacent items that are marked as flammable and/or the terrain type is flammable (more on that in a second). I quite like fire effect that I created, which is very inspired by Brogue, a popular roguelike which has a very beautiful and evocative ASCII-based look. Its visuals and user interface have been very influential.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/fire.gif&quot; alt=&quot;Screen shot of fire burning up webs&quot;&gt;
+&lt;em&gt;Webs burning up&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In the screenshot, the player is burning the webs by tossing a lit torch onto them, but I also added a monster called the kobold firestarter, who can shoot firebolts that can also set things on fire.&lt;/p&gt;
+&lt;p&gt;Fire can also burn trees and grass, and spread to nearby trees and grass but I didn&#39;t want one torch to burn down the entire overworld map, so I&#39;ve made fire very slow to spread. This also makes me think I should one day impement weather in my game...&lt;/p&gt;
+&lt;h3 id=&quot;save-games&quot; tabindex=&quot;-1&quot;&gt;Save games&lt;/h3&gt;
+&lt;p&gt;In a more boring update, I made save games work again! I&#39;d got saving/loading games working fairly early on, but I since I was changing the data structures I use for items and monsters so rapidly, I gave up trying to keep that code up to date. But after doing the work for fire and such, implementing more complicated monsters who can cast spells, I thought that stuff was reasonably stable again and decided to fix up the save game code. Easter was pretty busy with family stuff but over the long weekend I had enough time to get it working once more.&lt;/p&gt;
+&lt;p&gt;This was a nice bit of housekeeping because I also found and pruned some code that had become redundant and saw a few places to make code cleaner. And I also enjoy a chance to do some janitorial work on my code.&lt;/p&gt;
+&lt;h3 id=&quot;ready-for-this-jelly%3F&quot; tabindex=&quot;-1&quot;&gt;Ready for this jelly?&lt;/h3&gt;
+&lt;p&gt;A monster trope in roguelikes is a jelly (I&#39;ve always assumed inpsired by D&amp;amp;D&#39;s ochre jellies and black puddings), a relatively weak monster with the annoying feature of splitting in two when it is hit. Yesterday I decided to make them. Each you strike them with a weapon, they divide in two (essentially I&#39;m spawning a new jelly monster), each with half the hit points of the original. The jelly hits you for acid damage, which has no effect in game other than the HP loss at the moment. But if you are fighting one in a wide open area, things can get a bit out of hand.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/jelly.gif&quot; alt=&quot;Screen shot of player battling jellies&quot;&gt;
+&lt;em&gt;When an amoeba does this, it&#39;s called binary fission&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;m using &#39;b&#39; as the character for the jellies because that&#39;s what nethack uses (the b is for all blob types), although other games use J for jelly. (Nethack reserves J for jabberwockys)&lt;/p&gt;
+&lt;p&gt;I expect when I am actually playtesting the game, I&#39;m going to hate these guys. I hate them in Brogue...&lt;/p&gt;
+&lt;h3 id=&quot;onward!&quot; tabindex=&quot;-1&quot;&gt;Onward!&lt;/h3&gt;
+&lt;p&gt;Okay, that&#39;s what I&#39;ve worked on lately! In addition to even more monsters, I want to add more items and magic to the game and have some monsters drop loot when they are killed.&lt;/p&gt;
+&lt;p&gt;Onward to Untitled Roguelike version 0.1.0!!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>

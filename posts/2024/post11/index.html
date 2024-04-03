@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Fiery Dev Diary</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#burn!-burn!-burn!">Burn! Burn! Burn!</a></li><li><a href="#save-games">Save games</a></li><li><a href="#ready-for-this-jelly%3F">Ready for this jelly?</a></li><li><a href="#onward!">Onward!</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-04-03T00:00:00.000Z">April 3, 2024</time> 
+            <p>I mentioned in the last post that I'd told someone in Discord how I hope to have a demo of my game ready by the end of April, and now that it's already April 3rd I am feeling some deadline pressure :O I think I'll work on content for the first three weeks and then spend the last week on testing, bug fixes, and polish. I've been facetiously displaying version 0.0.1 in the title bar of game to this point, but once the demo is done I plan to bump that to 0.1.0! I also need to give some thought to an actual name for it...</p>
+<h3 id="burn!-burn!-burn!" tabindex="-1">Burn! Burn! Burn!</h3>
+<p>Since my last dev diary, I added a giant spider monster who can inject poison and also spray webs around. The webs are sticky and can prevent you from moving off a webbed location or picking up items from it. You can tear through webs by succeeding on a strength check, but I also decided to make webs burn up if they come into contact with fire. This is the first real environmental effect in my game and implementing it required some decision making about things like: if there's fire on a square, can it damage items also on the square? Ie., will scrolls and such burn up, etc? Can fire spread?</p>
+<p>So fire will spread if there are adjacent items that are marked as flammable and/or the terrain type is flammable (more on that in a second). I quite like fire effect that I created, which is very inspired by Brogue, a popular roguelike which has a very beautiful and evocative ASCII-based look. Its visuals and user interface have been very influential.</p>
+<p><img src="/images/fire.gif" alt="Screen shot of fire burning up webs">
+<em>Webs burning up</em></p>
+<p>In the screenshot, the player is burning the webs by tossing a lit torch onto them, but I also added a monster called the kobold firestarter, who can shoot firebolts that can also set things on fire.</p>
+<p>Fire can also burn trees and grass, and spread to nearby trees and grass but I didn't want one torch to burn down the entire overworld map, so I've made fire very slow to spread. This also makes me think I should one day impement weather in my game...</p>
+<h3 id="save-games" tabindex="-1">Save games</h3>
+<p>In a more boring update, I made save games work again! I'd got saving/loading games working fairly early on, but I since I was changing the data structures I use for items and monsters so rapidly, I gave up trying to keep that code up to date. But after doing the work for fire and such, implementing more complicated monsters who can cast spells, I thought that stuff was reasonably stable again and decided to fix up the save game code. Easter was pretty busy with family stuff but over the long weekend I had enough time to get it working once more.</p>
+<p>This was a nice bit of housekeeping because I also found and pruned some code that had become redundant and saw a few places to make code cleaner. And I also enjoy a chance to do some janitorial work on my code.</p>
+<h3 id="ready-for-this-jelly%3F" tabindex="-1">Ready for this jelly?</h3>
+<p>A monster trope in roguelikes is a jelly (I've always assumed inpsired by D&amp;D's ochre jellies and black puddings), a relatively weak monster with the annoying feature of splitting in two when it is hit. Yesterday I decided to make them. Each you strike them with a weapon, they divide in two (essentially I'm spawning a new jelly monster), each with half the hit points of the original. The jelly hits you for acid damage, which has no effect in game other than the HP loss at the moment. But if you are fighting one in a wide open area, things can get a bit out of hand.</p>
+<p><img src="/images/jelly.gif" alt="Screen shot of player battling jellies">
+<em>When an amoeba does this, it's called binary fission</em></p>
+<p>I'm using 'b' as the character for the jellies because that's what nethack uses (the b is for all blob types), although other games use J for jelly. (Nethack reserves J for jabberwockys)</p>
+<p>I expect when I am actually playtesting the game, I'm going to hate these guys. I hate them in Brogue...</p>
+<h3 id="onward!" tabindex="-1">Onward!</h3>
+<p>Okay, that's what I've worked on lately! In addition to even more monsters, I want to add more items and magic to the game and have some monsters drop loot when they are killed.</p>
+<p>Onward to Untitled Roguelike version 0.1.0!!</p>
+
+        </article>        
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>
