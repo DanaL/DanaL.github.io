@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Dev diary!</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#new-stuff">New Stuff</a></li><li><a href="#a-name%3F">A name?</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2024-04-11T00:00:00.000Z">April 11, 2024</time> 
+            <p>We're already almost halfway through April and I am beginning to feel like weight of my (albeit self-imposted) deadline to release a demo of my game! And I feel as though progress has been a bit slow.</p>
+<p>On the other hand, I feel like there's a bunch of content creation I need to do: more monsters and the like that won't require a lot of new code to be written. Just filling out my roster of available enemies to populate the first five levels of the dungeon.</p>
+<h3 id="new-stuff" tabindex="-1">New Stuff</h3>
+<p>But I have added some stuff to the game! Kobold foremen, who can summon other kobolds. When they summon I kobold I have them say &quot;Break's over!&quot; and after that my head canon became that the kobolds are unionized, and now I sort of want to lean into that joke. I also created ogres, who can knock you back when they hit you.</p>
+<p>But the big, code-intenstive change I made was to begin to implement NPC dialogues. I already had shops and talking to shopkeepers working, but this is NPCs where you have dialogue options and 'converse' with them.</p>
+<p><img src="/images/chat.gif" alt="Screen shot of chatting with an NPC">
+<em>Chatting with a villager</em></p>
+<p>This NPC fell in love with an adventurer who also sought their fortune in the nearby dungeon. The conversation tree is quite small right now, but the dialgoue/chatting UI seems to be working.</p>
+<p>I'm not planning on trying to implement procedural generation of diaglogue trees. I'm not sure it would be very good. My ultimate plan is to eventually write many NPCs and then each time a new game begins, randomly select a few villagersto populate the town with. I figure people are happy to replay games with fixed dialogue options (think Stardew, etc) and don't mind seeing the same NPCs again so long as the writing is good.</p>
+<p>At the moment I have the dialogue and options directly in the game's code, but ideally most of the dialogue text would be in files that can be edited without recompiling the game, but that's complicated with branching conversation paths that might depend on the NPC's state or previous conversation choices the player has made.</p>
+<h3 id="a-name%3F" tabindex="-1">A name?</h3>
+<p>Obviously if I am going to release a demo of my game, it needs an actual name that isn't &quot;Yet Another Roguelike&quot; (which is actually what the github repo is named...) or &quot;Untitled Roguelike&quot;.</p>
+<p>Commercial roguelikes strive for markeatable, or at least distinct, names to stand out on Steam, but the older ones tended to simple names. (Often because their name came from their unix filename) The original, of course, was rogue and one of the earliest rogue-likes was hack (from hack-and-slash). My beloved nethack got its name because it was formed from a collection of patches to hack and collaborated on via the Internet. (Hence, net-hack)</p>
+<p>Brogue, a popular, modern trad-roguelike is &quot;Brian's Rogue&quot; shortened. By modern I mean of course that brogue is only 15 years old :P</p>
+<p>Another lineage of traditional roguelikes begins with Moria (dating back to 1983) when Robert Koeneke wanted to make his own version of rogue, and decided his would be about descending into Moria (of Tolkien fame) to defeat the Balrog. From Moria we get Angband and about a million variants like ZAngband, Fangband, Pernband, and on and on.</p>
+<p>Another major branch of the RL family tree began with Linley's Dungeon Crawl. It was mostly referred to as Crawl and when its creator began college and stopped working on the game, a few efforts to continue development began. Most of the player base collalesced around a variant called Dungeon Crawl Stone Soup.</p>
+<p>I want to hew to tradition and have a simple name, but it's hard to find something that works that isn't taken. I came up with Delve (as in, Dungeon Delve), but it looks as though there are already a few differnt games on itchio.io named Delve. So, I think I am tentatively naming my game: <strong>Dana's Delve</strong>!</p>
+<p>Delve, or ddelve for short I suppose.</p>
+<p>Actually naming the game feels like a big step to me, and I'm nervous about it :O</p>
+
+        </article>        
+
+    <div>
+      <p class="italic">Dana's Delve is open source under the Creative Commons CC0 1.0 Universal license and its source coude is <a href="https://github.com/DanaL/Yarl2/">is available on GitHub</a>.
+    </div>
+
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>

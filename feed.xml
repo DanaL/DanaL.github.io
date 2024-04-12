@@ -5,11 +5,41 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-04-05T19:24:52Z</updated>
+    <updated>2024-04-12T15:02:02Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Dev diary!</title>
+    <link href="https://danarama.ca/posts/2024/post13/"/>
+    <updated>2024-04-11T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2024/post13/</id>
+    <summary>My latest game news!</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;We&#39;re already almost halfway through April and I am beginning to feel like weight of my (albeit self-imposted) deadline to release a demo of my game! And I feel as though progress has been a bit slow.&lt;/p&gt;
+&lt;p&gt;On the other hand, I feel like there&#39;s a bunch of content creation I need to do: more monsters and the like that won&#39;t require a lot of new code to be written. Just filling out my roster of available enemies to populate the first five levels of the dungeon.&lt;/p&gt;
+&lt;h3 id=&quot;new-stuff&quot; tabindex=&quot;-1&quot;&gt;New Stuff&lt;/h3&gt;
+&lt;p&gt;But I have added some stuff to the game! Kobold foremen, who can summon other kobolds. When they summon I kobold I have them say &amp;quot;Break&#39;s over!&amp;quot; and after that my head canon became that the kobolds are unionized, and now I sort of want to lean into that joke. I also created ogres, who can knock you back when they hit you.&lt;/p&gt;
+&lt;p&gt;But the big, code-intenstive change I made was to begin to implement NPC dialogues. I already had shops and talking to shopkeepers working, but this is NPCs where you have dialogue options and &#39;converse&#39; with them.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/chat.gif&quot; alt=&quot;Screen shot of chatting with an NPC&quot;&gt;
+&lt;em&gt;Chatting with a villager&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This NPC fell in love with an adventurer who also sought their fortune in the nearby dungeon. The conversation tree is quite small right now, but the dialgoue/chatting UI seems to be working.&lt;/p&gt;
+&lt;p&gt;I&#39;m not planning on trying to implement procedural generation of diaglogue trees. I&#39;m not sure it would be very good. My ultimate plan is to eventually write many NPCs and then each time a new game begins, randomly select a few villagersto populate the town with. I figure people are happy to replay games with fixed dialogue options (think Stardew, etc) and don&#39;t mind seeing the same NPCs again so long as the writing is good.&lt;/p&gt;
+&lt;p&gt;At the moment I have the dialogue and options directly in the game&#39;s code, but ideally most of the dialogue text would be in files that can be edited without recompiling the game, but that&#39;s complicated with branching conversation paths that might depend on the NPC&#39;s state or previous conversation choices the player has made.&lt;/p&gt;
+&lt;h3 id=&quot;a-name%3F&quot; tabindex=&quot;-1&quot;&gt;A name?&lt;/h3&gt;
+&lt;p&gt;Obviously if I am going to release a demo of my game, it needs an actual name that isn&#39;t &amp;quot;Yet Another Roguelike&amp;quot; (which is actually what the github repo is named...) or &amp;quot;Untitled Roguelike&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Commercial roguelikes strive for markeatable, or at least distinct, names to stand out on Steam, but the older ones tended to simple names. (Often because their name came from their unix filename) The original, of course, was rogue and one of the earliest rogue-likes was hack (from hack-and-slash). My beloved nethack got its name because it was formed from a collection of patches to hack and collaborated on via the Internet. (Hence, net-hack)&lt;/p&gt;
+&lt;p&gt;Brogue, a popular, modern trad-roguelike is &amp;quot;Brian&#39;s Rogue&amp;quot; shortened. By modern I mean of course that brogue is only 15 years old :P&lt;/p&gt;
+&lt;p&gt;Another lineage of traditional roguelikes begins with Moria (dating back to 1983) when Robert Koeneke wanted to make his own version of rogue, and decided his would be about descending into Moria (of Tolkien fame) to defeat the Balrog. From Moria we get Angband and about a million variants like ZAngband, Fangband, Pernband, and on and on.&lt;/p&gt;
+&lt;p&gt;Another major branch of the RL family tree began with Linley&#39;s Dungeon Crawl. It was mostly referred to as Crawl and when its creator began college and stopped working on the game, a few efforts to continue development began. Most of the player base collalesced around a variant called Dungeon Crawl Stone Soup.&lt;/p&gt;
+&lt;p&gt;I want to hew to tradition and have a simple name, but it&#39;s hard to find something that works that isn&#39;t taken. I came up with Delve (as in, Dungeon Delve), but it looks as though there are already a few differnt games on itchio.io named Delve. So, I think I am tentatively naming my game: &lt;strong&gt;Dana&#39;s Delve&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;Delve, or ddelve for short I suppose.&lt;/p&gt;
+&lt;p&gt;Actually naming the game feels like a big step to me, and I&#39;m nervous about it :O&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
