@@ -5,7 +5,7 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-04-12T15:02:02Z</updated>
+    <updated>2024-04-16T14:20:20Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
@@ -30,7 +30,7 @@
 &lt;p&gt;At the moment I have the dialogue and options directly in the game&#39;s code, but ideally most of the dialogue text would be in files that can be edited without recompiling the game, but that&#39;s complicated with branching conversation paths that might depend on the NPC&#39;s state or previous conversation choices the player has made.&lt;/p&gt;
 &lt;h3 id=&quot;a-name%3F&quot; tabindex=&quot;-1&quot;&gt;A name?&lt;/h3&gt;
 &lt;p&gt;Obviously if I am going to release a demo of my game, it needs an actual name that isn&#39;t &amp;quot;Yet Another Roguelike&amp;quot; (which is actually what the github repo is named...) or &amp;quot;Untitled Roguelike&amp;quot;.&lt;/p&gt;
-&lt;p&gt;Commercial roguelikes strive for markeatable, or at least distinct, names to stand out on Steam, but the older ones tended to simple names. (Often because their name came from their unix filename) The original, of course, was rogue and one of the earliest rogue-likes was hack (from hack-and-slash). My beloved nethack got its name because it was formed from a collection of patches to hack and collaborated on via the Internet. (Hence, net-hack)&lt;/p&gt;
+&lt;p&gt;Commercial roguelikes strive for marketable, or at least distinct, names to stand out on Steam, but the older ones tended to simple names. (Often because their name came from their unix filename) The original, of course, was rogue and one of the earliest rogue-likes was hack (from hack-and-slash). My beloved nethack got its name because it was formed from a collection of patches to hack and collaborated on via the Internet. (Hence, net-hack)&lt;/p&gt;
 &lt;p&gt;Brogue, a popular, modern trad-roguelike is &amp;quot;Brian&#39;s Rogue&amp;quot; shortened. By modern I mean of course that brogue is only 15 years old :P&lt;/p&gt;
 &lt;p&gt;Another lineage of traditional roguelikes begins with Moria (dating back to 1983) when Robert Koeneke wanted to make his own version of rogue, and decided his would be about descending into Moria (of Tolkien fame) to defeat the Balrog. From Moria we get Angband and about a million variants like ZAngband, Fangband, Pernband, and on and on.&lt;/p&gt;
 &lt;p&gt;Another major branch of the RL family tree began with Linley&#39;s Dungeon Crawl. It was mostly referred to as Crawl and when its creator began college and stopped working on the game, a few efforts to continue development began. Most of the player base collalesced around a variant called Dungeon Crawl Stone Soup.&lt;/p&gt;
