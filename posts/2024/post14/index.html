@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Miscellaneous updates</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#delving">Delving</a></li><li><a href="#moria">Moria</a></li><li><a href="#running">Running</a></li><li><a href="#projects">Projects</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div>
+        <article class="my-4">
+            <time class="text-xs" datetime="2024-04-17T00:00:00.000Z">April 17, 2024</time> 
+            <p>A smorsgasbord? Charcuterie?</p>
+<p>I've been writing the last few posts in nvim and if I continue, I'm going to have to figure out a spellchecker if I'm going to try to type words like smorgasbord and charcuterie. I got potpourri correct on my first try, though 😎</p>
+<h3 id="delving" tabindex="-1">Delving</h3>
+<p>Progress continues on Dana's Delve, my roguelike game! It's not getting its own post this time because I've mostly been adding a bunch of creatures to the game, some of whom I'd like to avoid spoiling, in case someone who reads my posts ends up playing. Part of the fun of roguelike games is the exploration and discovery of things. Of course, they should be replayable and fun for veteran players but the &quot;Oh shit, what's that??&quot; moments are also special. Thus, this short update that's light on Secret Details.</p>
+<p>A big rework from this weekend was changing how I do my 'monster decks' for populating the dungeon levels. When I first starting mucking around, I had the encounter tables in code, but I've since moved them to text files so I can make changes without recompiling the program. The decks are basically lists of monsters that might appear on a level, so it might look like:</p>
+<ul>
+<li>Level 1</li>
+<li>gobilin 8</li>
+<li>wolf 2</li>
+<li>bandit 2</li>
+<li>giant spider 1</li>
+</ul>
+<p>To populate dungeon level 1, I shuffle 8 goblins, etc into a deck and select monsters. When the deck runs out, I reshuffle it. This is an easy way to make a level have a theme (mostly goblins in this case) but still be randomized. And, if there is something interesting about the level, say, a lava flow, I can add a bunch of fire-related monsters to the deck.</p>
+<p>I'm still hoping to have a prototype to release by the end of the month, but also feel like I have a ton of work left to do!</p>
+<h3 id="moria" tabindex="-1">Moria</h3>
+<p>On a somewhat related topic, I learned a little while ago that someone had taken the source to <a href="https://en.wikipedia.org/wiki/Moria_(1983_video_game)">Moria</a> -- perhaps the first roguelike after rogue -- and clean it up to make it run on mondern OSes so I've been playing a bit of it!</p>
+<p>I played a bunch of Moria as a teenager on my 286 but never managed to win. It's been fun so far -- it's lacking a bunch of modern UI nicities that have evolved in the genre over time and has some features that people have decided just aren't that much fun. Ie., recent versions of Angband (a descendent of Moria) don't make you haggle with shopkeepers over prices or constantly, mindlessly, search.</p>
+<p>Moria is much smaller in scope than Angband so I'm hoping over the next few weeks I can manage win a game. My 286 was barely able to handle Moria and monsters that could reproduce were a major tactical problem because if too many monsters spawned on a level the game would become so slow as to be unplayable :P</p>
+<h3 id="running" tabindex="-1">Running</h3>
+<p>Oof, my interval and tempo workouts continue to be tough, maybe a little too tough. I was able to do last week's speedwork, but last night my progression tempo run collapsed into a sad fartlek run.</p>
+<p>I'm not sure if I picked too ambitious a goal for the training plan or was just having an off day (I was also very tired on my easy run on Monday). I suspect base on my resting heartrate and HRV over the last few days that I'm a bit over-tired and not fully recovering between hard workouts. But I was fighting off a cold last week and my sleep hasn't been great.</p>
+<p>I guess I'll see how intervals on Thursday go and if that one sucks perhaps ask Runna to recalculate the plan with a slower 5k goal.</p>
+<p>What's of primary importance is that doing any kind of speedwork is going to make me faster and stronger. A specific time goal doesn't really matter all that much. Or shouldn't...</p>
+<h3 id="projects" tabindex="-1">Projects</h3>
+<p>I've been trying to do some habit-tracking in a loosey-goosey way. One thing I've realized that a physical notebook is what works best for me. I'm not sure why I just can't get into something like Org Mode or even a plaintext TTD app; maybe I just like the tactile nature of paper and pens too much. So, in addition to scribbling down notes and ideas and thoughts (mostly for my game), the past couple months I've been marking down days when I work on some core things. It looks like this:</p>
+<p><img src="/images/journal.jpg" alt="Photo of my planning journal"></p>
+<p>So for each day of the month I have a space to write down something I want to remember or something cool that happened and for my habits I am tracking I want I have a table I can colour in boxes on days when I do the thing. Yarl (my roguelike), Reading (at least 30 mins), Chores (at least 30 mins), and Cario.</p>
+<p>I've also been picking a bonus project to focus on for the month. As you can see, kettlebell swings have not been going well in April...</p>
+<p>I am trying to decide what my May bonus project will be. Some options I've considered are: finally working through <a href="https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs">Structure and Interpretation of Computer Programs</a>, a classic comp sci text, <a href="https://craftinginterpreters.com/">Crafting Interpreters</a> by Bob Nystrom, or implementing a Z-Machine in Rust (sigh, I still want to learn Rust properly). But those are all programming things and I'll still be working on Delve and I feel like I should pick something that isn't programming.</p>
+<p>So maybe <a href="https://www.goodreads.com/book/show/60658614-the-joy-of-abstraction">The Joy of Abstraction</a>, a book on Category Theory I picked up a while ago. I'm no good at math, but I think math is neat and always want to know more about it!</p>
+<p>But I'd also like some project/hobby topics that are even further afield from computer programming 🤔</p>
+<p>Although come to think of it, gardening season is nearly upon us!</p>
+
+        </article>
+    </div>
+</div>
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>

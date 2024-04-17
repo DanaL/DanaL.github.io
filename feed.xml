@@ -5,11 +5,54 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-04-16T14:20:20Z</updated>
+    <updated>2024-04-17T16:41:26Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Miscellaneous updates</title>
+    <link href="https://danarama.ca/posts/2024/post14/"/>
+    <updated>2024-04-17T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2024/post14/</id>
+    <summary>A potpourri of updates, if you will</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;A smorsgasbord? Charcuterie?&lt;/p&gt;
+&lt;p&gt;I&#39;ve been writing the last few posts in nvim and if I continue, I&#39;m going to have to figure out a spellchecker if I&#39;m going to try to type words like smorgasbord and charcuterie. I got potpourri correct on my first try, though 😎&lt;/p&gt;
+&lt;h3 id=&quot;delving&quot; tabindex=&quot;-1&quot;&gt;Delving&lt;/h3&gt;
+&lt;p&gt;Progress continues on Dana&#39;s Delve, my roguelike game! It&#39;s not getting its own post this time because I&#39;ve mostly been adding a bunch of creatures to the game, some of whom I&#39;d like to avoid spoiling, in case someone who reads my posts ends up playing. Part of the fun of roguelike games is the exploration and discovery of things. Of course, they should be replayable and fun for veteran players but the &amp;quot;Oh shit, what&#39;s that??&amp;quot; moments are also special. Thus, this short update that&#39;s light on Secret Details.&lt;/p&gt;
+&lt;p&gt;A big rework from this weekend was changing how I do my &#39;monster decks&#39; for populating the dungeon levels. When I first starting mucking around, I had the encounter tables in code, but I&#39;ve since moved them to text files so I can make changes without recompiling the program. The decks are basically lists of monsters that might appear on a level, so it might look like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Level 1&lt;/li&gt;
+&lt;li&gt;gobilin 8&lt;/li&gt;
+&lt;li&gt;wolf 2&lt;/li&gt;
+&lt;li&gt;bandit 2&lt;/li&gt;
+&lt;li&gt;giant spider 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To populate dungeon level 1, I shuffle 8 goblins, etc into a deck and select monsters. When the deck runs out, I reshuffle it. This is an easy way to make a level have a theme (mostly goblins in this case) but still be randomized. And, if there is something interesting about the level, say, a lava flow, I can add a bunch of fire-related monsters to the deck.&lt;/p&gt;
+&lt;p&gt;I&#39;m still hoping to have a prototype to release by the end of the month, but also feel like I have a ton of work left to do!&lt;/p&gt;
+&lt;h3 id=&quot;moria&quot; tabindex=&quot;-1&quot;&gt;Moria&lt;/h3&gt;
+&lt;p&gt;On a somewhat related topic, I learned a little while ago that someone had taken the source to &lt;a href=&quot;https://en.wikipedia.org/wiki/Moria_(1983_video_game)&quot;&gt;Moria&lt;/a&gt; -- perhaps the first roguelike after rogue -- and clean it up to make it run on mondern OSes so I&#39;ve been playing a bit of it!&lt;/p&gt;
+&lt;p&gt;I played a bunch of Moria as a teenager on my 286 but never managed to win. It&#39;s been fun so far -- it&#39;s lacking a bunch of modern UI nicities that have evolved in the genre over time and has some features that people have decided just aren&#39;t that much fun. Ie., recent versions of Angband (a descendent of Moria) don&#39;t make you haggle with shopkeepers over prices or constantly, mindlessly, search.&lt;/p&gt;
+&lt;p&gt;Moria is much smaller in scope than Angband so I&#39;m hoping over the next few weeks I can manage win a game. My 286 was barely able to handle Moria and monsters that could reproduce were a major tactical problem because if too many monsters spawned on a level the game would become so slow as to be unplayable :P&lt;/p&gt;
+&lt;h3 id=&quot;running&quot; tabindex=&quot;-1&quot;&gt;Running&lt;/h3&gt;
+&lt;p&gt;Oof, my interval and tempo workouts continue to be tough, maybe a little too tough. I was able to do last week&#39;s speedwork, but last night my progression tempo run collapsed into a sad fartlek run.&lt;/p&gt;
+&lt;p&gt;I&#39;m not sure if I picked too ambitious a goal for the training plan or was just having an off day (I was also very tired on my easy run on Monday). I suspect base on my resting heartrate and HRV over the last few days that I&#39;m a bit over-tired and not fully recovering between hard workouts. But I was fighting off a cold last week and my sleep hasn&#39;t been great.&lt;/p&gt;
+&lt;p&gt;I guess I&#39;ll see how intervals on Thursday go and if that one sucks perhaps ask Runna to recalculate the plan with a slower 5k goal.&lt;/p&gt;
+&lt;p&gt;What&#39;s of primary importance is that doing any kind of speedwork is going to make me faster and stronger. A specific time goal doesn&#39;t really matter all that much. Or shouldn&#39;t...&lt;/p&gt;
+&lt;h3 id=&quot;projects&quot; tabindex=&quot;-1&quot;&gt;Projects&lt;/h3&gt;
+&lt;p&gt;I&#39;ve been trying to do some habit-tracking in a loosey-goosey way. One thing I&#39;ve realized that a physical notebook is what works best for me. I&#39;m not sure why I just can&#39;t get into something like Org Mode or even a plaintext TTD app; maybe I just like the tactile nature of paper and pens too much. So, in addition to scribbling down notes and ideas and thoughts (mostly for my game), the past couple months I&#39;ve been marking down days when I work on some core things. It looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/journal.jpg&quot; alt=&quot;Photo of my planning journal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;So for each day of the month I have a space to write down something I want to remember or something cool that happened and for my habits I am tracking I want I have a table I can colour in boxes on days when I do the thing. Yarl (my roguelike), Reading (at least 30 mins), Chores (at least 30 mins), and Cario.&lt;/p&gt;
+&lt;p&gt;I&#39;ve also been picking a bonus project to focus on for the month. As you can see, kettlebell swings have not been going well in April...&lt;/p&gt;
+&lt;p&gt;I am trying to decide what my May bonus project will be. Some options I&#39;ve considered are: finally working through &lt;a href=&quot;https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&quot;&gt;Structure and Interpretation of Computer Programs&lt;/a&gt;, a classic comp sci text, &lt;a href=&quot;https://craftinginterpreters.com/&quot;&gt;Crafting Interpreters&lt;/a&gt; by Bob Nystrom, or implementing a Z-Machine in Rust (sigh, I still want to learn Rust properly). But those are all programming things and I&#39;ll still be working on Delve and I feel like I should pick something that isn&#39;t programming.&lt;/p&gt;
+&lt;p&gt;So maybe &lt;a href=&quot;https://www.goodreads.com/book/show/60658614-the-joy-of-abstraction&quot;&gt;The Joy of Abstraction&lt;/a&gt;, a book on Category Theory I picked up a while ago. I&#39;m no good at math, but I think math is neat and always want to know more about it!&lt;/p&gt;
+&lt;p&gt;But I&#39;d also like some project/hobby topics that are even further afield from computer programming 🤔&lt;/p&gt;
+&lt;p&gt;Although come to think of it, gardening season is nearly upon us!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
