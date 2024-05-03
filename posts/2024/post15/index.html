@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Deadline go whoosh!</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#so-demo-when%3F">So demo when?</a></li><li><a href="#you-can-examine-things!">You can examine things!</a></li><li><a href="#character-creation">Character creation</a></li><li><a href="#wrap-up">Wrap-up</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2024-05-03T00:00:00.000Z">May 3, 2024</time> 
+            <p>As I said, I'd been hoping to complete enough of the game to feel comfortable releasing a demo/early prototype for other people to try out and perhaps get a bit of feedback on what I've done so far. I'd even booked April 29th and 30th off work to spend a couple days grinding on it.</p>
+<p>A couple of wrenches, though, got tossed into the works. The first was that I wanted to rework how I was doing character progression. Instad of having character classes, I'd let the player drive their character development by offering them a series of 5e D&amp;D Feat-esque features as you level up. In a large part this is because I was starting to think about how spellcasting might work and it seemed silly to me to implement a huge number of gameplay features that only the wizard class might have access to. Hopefully I can come up with a system whereby you could mostly be a fighter but learn a few spells on the side. I didn't need to do this for my demo release, but I may as well get feedback on the direction I plan to go early on.</p>
+<p>The other big wrench was that the morning on my first day off, I got my second shingles vaccine shot and it utterly wrecked me. I had a fairly productive Monday afternoon but felt like garbage by the evening, went to bed at like 8:00pm, and spent much of Tuesday in bed. What a waste of perfectly good vacation days, and dev time :'(</p>
+<p>I did get the beginnings of the in-game help menu working, which was a big step toward feeling okay letting other people try it out.</p>
+<h3 id="so-demo-when%3F" tabindex="-1">So demo when?</h3>
+<p>On the bright side I have a list of things I want to finish before making the release and it isn't <em>so</em> long:</p>
+<ul>
+<li>Finish my new character progression system and some of the abilities you can learn. (Characters will be capped at level 5 for the demo so I don't have to create and test too many abilities)</li>
+<li>Implement a few magic wands. I haven't decided what to do about identification of potions, scrolls, and wands. I enjoy the ID mini-game in nethack but hate it in almost every other roguelike. At the moment scrolls and potions are just known to the player.</li>
+<li>I need to work out some bookkeeping details like where to put save files. I've just been writing them to the same folder the game's executable file lives in, but I have to make that a configurable option with a better default if I'm going to give this thing to others.</li>
+<li>I'd like to try to have some primitive error reporting so that if an Exception that'll crash the game is generated I can at least print out like &quot;Hey, game's gonna crash, sorry! Here's a stack trace and the rng seed. Please email it to Dana.&quot;</li>
+<li>Movement via the keypad. I prefer vi/rogue-style movement keys but I want to be inclusive of others' weirdo beliefs.</li>
+<li>Bows, which I keep forgetting about...</li>
+<li>I want to have at least a few days worth of testing to catch as many bugs as I can.</li>
+</ul>
+<p>I think this is maybe a week's worth of stuff? I have a lot of social obligations coming up, but hopefully I'll have something presentable no later than mid-May.</p>
+<h3 id="you-can-examine-things!" tabindex="-1">You can examine things!</h3>
+<p>One feature I had fun implementing was the Examine command. Hit 'X' and you can tab between interesting things on screen to get info about them. Monsters and items mostly, but some terrain features on the map as well. Here's what it looks like in game:</p>
+<p><img src="/images/examine.png" alt="Screen shot of the Examine command in my game"></p>
+<p>I have a bunch of content to finish for all the monsters I have in the game so far...</p>
+<h3 id="character-creation" tabindex="-1">Character creation</h3>
+<p>Here are the character creation screens when you begin a new game. I've noticed that the longer I work on the game, the sillier I get:</p>
+<p><img src="/images/lineage.png" alt="Screen shot of menu for picking your lineage"></p>
+<p><img src="/images/lineage.png" alt="Screen shot of menu for picking your major"></p>
+<p>Some other ideas I have for majors are Comparative Religions and Necromancy but those'll be for the future.</p>
+<h3 id="wrap-up" tabindex="-1">Wrap-up</h3>
+<p>So that's where I'm at in Delve development right now! I hope that in an a week or two I'll make a post to the effect of: Hey try out my game you guys!!!</p>
+
+        </article>        
+
+    <div>
+      <p class="italic">Dana's Delve is open source under the Creative Commons CC0 1.0 Universal license and its source code is <a href="https://github.com/DanaL/Yarl2/">is available on GitHub</a>.
+    </div>
+
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2024 by Danarama Productions </footer>
+</body>
+</html>

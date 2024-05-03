@@ -5,11 +5,49 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-04-17T16:41:26Z</updated>
+    <updated>2024-05-03T16:16:32Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Deadline go whoosh!</title>
+    <link href="https://danarama.ca/posts/2024/post15/"/>
+    <updated>2024-05-03T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2024/post15/</id>
+    <summary>So I didn&#39;t quite meet that deadline...</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;As I said, I&#39;d been hoping to complete enough of the game to feel comfortable releasing a demo/early prototype for other people to try out and perhaps get a bit of feedback on what I&#39;ve done so far. I&#39;d even booked April 29th and 30th off work to spend a couple days grinding on it.&lt;/p&gt;
+&lt;p&gt;A couple of wrenches, though, got tossed into the works. The first was that I wanted to rework how I was doing character progression. Instad of having character classes, I&#39;d let the player drive their character development by offering them a series of 5e D&amp;amp;D Feat-esque features as you level up. In a large part this is because I was starting to think about how spellcasting might work and it seemed silly to me to implement a huge number of gameplay features that only the wizard class might have access to. Hopefully I can come up with a system whereby you could mostly be a fighter but learn a few spells on the side. I didn&#39;t need to do this for my demo release, but I may as well get feedback on the direction I plan to go early on.&lt;/p&gt;
+&lt;p&gt;The other big wrench was that the morning on my first day off, I got my second shingles vaccine shot and it utterly wrecked me. I had a fairly productive Monday afternoon but felt like garbage by the evening, went to bed at like 8:00pm, and spent much of Tuesday in bed. What a waste of perfectly good vacation days, and dev time :&#39;(&lt;/p&gt;
+&lt;p&gt;I did get the beginnings of the in-game help menu working, which was a big step toward feeling okay letting other people try it out.&lt;/p&gt;
+&lt;h3 id=&quot;so-demo-when%3F&quot; tabindex=&quot;-1&quot;&gt;So demo when?&lt;/h3&gt;
+&lt;p&gt;On the bright side I have a list of things I want to finish before making the release and it isn&#39;t &lt;em&gt;so&lt;/em&gt; long:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Finish my new character progression system and some of the abilities you can learn. (Characters will be capped at level 5 for the demo so I don&#39;t have to create and test too many abilities)&lt;/li&gt;
+&lt;li&gt;Implement a few magic wands. I haven&#39;t decided what to do about identification of potions, scrolls, and wands. I enjoy the ID mini-game in nethack but hate it in almost every other roguelike. At the moment scrolls and potions are just known to the player.&lt;/li&gt;
+&lt;li&gt;I need to work out some bookkeeping details like where to put save files. I&#39;ve just been writing them to the same folder the game&#39;s executable file lives in, but I have to make that a configurable option with a better default if I&#39;m going to give this thing to others.&lt;/li&gt;
+&lt;li&gt;I&#39;d like to try to have some primitive error reporting so that if an Exception that&#39;ll crash the game is generated I can at least print out like &amp;quot;Hey, game&#39;s gonna crash, sorry! Here&#39;s a stack trace and the rng seed. Please email it to Dana.&amp;quot;&lt;/li&gt;
+&lt;li&gt;Movement via the keypad. I prefer vi/rogue-style movement keys but I want to be inclusive of others&#39; weirdo beliefs.&lt;/li&gt;
+&lt;li&gt;Bows, which I keep forgetting about...&lt;/li&gt;
+&lt;li&gt;I want to have at least a few days worth of testing to catch as many bugs as I can.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think this is maybe a week&#39;s worth of stuff? I have a lot of social obligations coming up, but hopefully I&#39;ll have something presentable no later than mid-May.&lt;/p&gt;
+&lt;h3 id=&quot;you-can-examine-things!&quot; tabindex=&quot;-1&quot;&gt;You can examine things!&lt;/h3&gt;
+&lt;p&gt;One feature I had fun implementing was the Examine command. Hit &#39;X&#39; and you can tab between interesting things on screen to get info about them. Monsters and items mostly, but some terrain features on the map as well. Here&#39;s what it looks like in game:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/examine.png&quot; alt=&quot;Screen shot of the Examine command in my game&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I have a bunch of content to finish for all the monsters I have in the game so far...&lt;/p&gt;
+&lt;h3 id=&quot;character-creation&quot; tabindex=&quot;-1&quot;&gt;Character creation&lt;/h3&gt;
+&lt;p&gt;Here are the character creation screens when you begin a new game. I&#39;ve noticed that the longer I work on the game, the sillier I get:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/lineage.png&quot; alt=&quot;Screen shot of menu for picking your lineage&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/lineage.png&quot; alt=&quot;Screen shot of menu for picking your major&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Some other ideas I have for majors are Comparative Religions and Necromancy but those&#39;ll be for the future.&lt;/p&gt;
+&lt;h3 id=&quot;wrap-up&quot; tabindex=&quot;-1&quot;&gt;Wrap-up&lt;/h3&gt;
+&lt;p&gt;So that&#39;s where I&#39;m at in Delve development right now! I hope that in an a week or two I&#39;ll make a post to the effect of: Hey try out my game you guys!!!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
