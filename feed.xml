@@ -5,11 +5,75 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2024-05-03T16:25:35Z</updated>
+    <updated>2026-01-18T22:34:43Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>A dialogue on dialogues</title>
+    <link href="https://danarama.ca/posts/2026/post1/"/>
+    <updated>2026-06-18T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post1/</id>
+    <summary>Delve&#39;s Dialogue &quot;Engine&quot;</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;First off, hey guess what I remembered I had a site where I had a blog! I&#39;m going to try to write write more longer posts about Delve and maybe other things and you know what? Here&#39;s a good spot
+for when my thoughts get a bit too long for &lt;a href=&quot;https://bsky.app/profile/danarama.bsky.social&quot;&gt;bluesky&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;npc-dialogue&quot; tabindex=&quot;-1&quot;&gt;NPC Dialogue&lt;/h3&gt;
+&lt;p&gt;Long ago, in the ancient days (late spring/early summer 2024) of Delve&#39;s development, I was at a point where there were enough NPCs that I wanted to ditch handling dialogue in pure C# (this was always the plan of course). I wanted to be able to edit NPC scripts without needing to recompile the game. I did some very perfunctory researched before settling writing my own script system. I don&#39;t remember finding any good examples of open source games with a Stardew or RPG-esque dialogue system I could crib notes from and &lt;a href=&quot;https://www.inklestudios.com/ink/&quot;&gt;Ink&lt;/a&gt; seemed big and complicated. I felt like I could just write my own baby dialogue system in less time than it would take to integrate someone else&#39;s. I&#39;d also finished working through Part 1 of &lt;a href=&quot;https://craftinginterpreters.com/&quot;&gt;Crafting Interpreters&lt;/a&gt; and that may have biased my thinking...&lt;/p&gt;
+&lt;p&gt;What I came up with was a syntax that was loosely based on Scheme/lisp. Despite having not too much experience in Scheme. I did work through the Little Schemer a few years back, and as I went along implemented a (very, very bad) top &lt;a href=&quot;https://github.com/DanaL/notion&quot;&gt;Scheme interpreter&lt;/a&gt;. I need to revisit the Little Schemer because the chapter on the y-combinator went totally over my head.&lt;/p&gt;
+&lt;p&gt;A sample script might look like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(
+  (say 
+    (pick
+      (&amp;quot;I thought I&#39;d make a few zorkmids selling gear to adventurers, but this dungeon is way too dangerous!&amp;quot;
+      &amp;quot;Go to where the customers are, they said. Location is key, they said.&amp;quot;
+      &amp;quot;I&#39;m selling off my remaining stock at a discount and getting out of here.&amp;quot;)
+    )
+  )
+  (shop-menu)
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This just picks a random line of dialogue to say to the player (and displays a shop menu since this NPC is a travelling peddler).&lt;/p&gt;
+&lt;p&gt;Not going to lie, this feels like tech debt, but I had a lot of fun writing the parser and mini-interpreter that handles NPC dialogue. In my initial version, I never actually allowed
+definable variables. There were hard-coded variables so you could do things like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(
+  (cond
+    ((= MET_PLAYER false) 
+      ( 
+        (say &amp;quot;I used to be an adventurer like you! Sure the top floors of the dungeon are all #EARLY_DENIZEN and rats, but then things get a lot worse.&amp;quot;)
+        (set MET_PLAYER true)
+  ...
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, today I was wanting to do things like add more options to lists of dialogue longs based on conditions in the game. Up to now, I was very awkwardly using cond expressions to select from entirely separately lists. But it would be much easier to just do this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  (def lines &#39;(&amp;quot;It is my duty to look after the spiritual well-being of #TOWN_NAME.&amp;quot; 
+          &amp;quot;Have you heard the good word about Huntokar?&amp;quot;
+          &amp;quot;I feel in my bones that the [BRIGHTRED old evil] begins to stir once more.&amp;quot;
+          &amp;quot;Long ago, the ruins were a mighty kingdom. But then a great evil arose deep underground.&amp;quot;
+          &amp;quot;Adventurers defeated the evil but it appears to be waking again, endangering #TOWN_NAME.&amp;quot;
+          &amp;quot;Huntokar grants mightier blessings to loyal followers.&amp;quot;
+          &amp;quot;Huntokar weeps for those whose bones lay in the depths without having proper funerary rites.&amp;quot;
+          &amp;quot;There were shrines to Huntokar below ground, but foul monsters have desecrated them. A terrible sin!&amp;quot;)
+  )
+  (cond
+    ((= ORCHARD_EXISTS true) 
+      (append lines &amp;quot;It is said in ancient days the elves of old would grow magic fruit in their secret orchards.&amp;quot;)
+    )
+  )
+
+  (say (pick lines))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ie., set a list of lines to pick from and conditionally add more before picking one to say. I had been loathe to make the dialogue system too much like a real programming language but this felt like a necessary addition because I was beginning to avoid making dialogue changes because they were too annoying.&lt;/p&gt;
+&lt;p&gt;A rule I follow for when I am going to do a bit addition, refactor, or rewrite is when a part of my codebase is annoying me to work on, I know it&#39;s probably time.&lt;/p&gt;
+&lt;p&gt;So this afternoon, I added in user-definable lists as shown above. It actually wasn&#39;t too much work! My script language still isn&#39;t Turing complete. There is no looping or recursion and god help me, there never will be.&lt;/p&gt;
+&lt;p&gt;Now after that little side trek back to working on NPC dialogue!&lt;/p&gt;
+&lt;h3 id=&quot;delve-0.5.0&quot; tabindex=&quot;-1&quot;&gt;Delve 0.5.0&lt;/h3&gt;
+&lt;p&gt;I&#39;ve mentioned it on bluesky, but the next release of Delve will be on January 31st!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
