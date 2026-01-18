@@ -749,6 +749,13 @@ td {
   padding-right: 0.5rem;
 }
 
+pre {
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">A dialogue on dialogues</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#npc-dialogue">NPC Dialogue</a></li><li><a href="#delve-0.5.0">Delve 0.5.0</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2026-06-18T00:00:00.000Z">June 18, 2026</time> 
+            <p>First off, hey guess what I remembered I had a site where I had a blog! I'm going to try to write write more longer posts about Delve and maybe other things and you know what? Here's a good spot
+for when my thoughts get a bit too long for <a href="https://bsky.app/profile/danarama.bsky.social">bluesky</a></p>
+<h3 id="npc-dialogue" tabindex="-1">NPC Dialogue</h3>
+<p>Long ago, in the ancient days (late spring/early summer 2024) of Delve's development, I was at a point where there were enough NPCs that I wanted to ditch handling dialogue in pure C# (this was always the plan of course). I wanted to be able to edit NPC scripts without needing to recompile the game. I did some very perfunctory researched before settling writing my own script system. I don't remember finding any good examples of open source games with a Stardew or RPG-esque dialogue system I could crib notes from and <a href="https://www.inklestudios.com/ink/">Ink</a> seemed big and complicated. I felt like I could just write my own baby dialogue system in less time than it would take to integrate someone else's. I'd also finished working through Part 1 of <a href="https://craftinginterpreters.com/">Crafting Interpreters</a> and that may have biased my thinking...</p>
+<p>What I came up with was a syntax that was loosely based on Scheme/lisp. Despite having not too much experience in Scheme. I did work through the Little Schemer a few years back, and as I went along implemented a (very, very bad) top <a href="https://github.com/DanaL/notion">Scheme interpreter</a>. I need to revisit the Little Schemer because the chapter on the y-combinator went totally over my head.</p>
+<p>A sample script might look like:</p>
+<pre><code>(
+  (say 
+    (pick
+      (&quot;I thought I'd make a few zorkmids selling gear to adventurers, but this dungeon is way too dangerous!&quot;
+      &quot;Go to where the customers are, they said. Location is key, they said.&quot;
+      &quot;I'm selling off my remaining stock at a discount and getting out of here.&quot;)
+    )
+  )
+  (shop-menu)
+)
+</code></pre>
+<p>This just picks a random line of dialogue to say to the player (and displays a shop menu since this NPC is a travelling peddler).</p>
+<p>Not going to lie, this feels like tech debt, but I had a lot of fun writing the parser and mini-interpreter that handles NPC dialogue. In my initial version, I never actually allowed
+definable variables. There were hard-coded variables so you could do things like:</p>
+<pre><code>(
+  (cond
+    ((= MET_PLAYER false) 
+      ( 
+        (say &quot;I used to be an adventurer like you! Sure the top floors of the dungeon are all #EARLY_DENIZEN and rats, but then things get a lot worse.&quot;)
+        (set MET_PLAYER true)
+  ...
+)
+</code></pre>
+<p>However, today I was wanting to do things like add more options to lists of dialogue longs based on conditions in the game. Up to now, I was very awkwardly using cond expressions to select from entirely separately lists. But it would be much easier to just do this:</p>
+<pre><code>  (def lines '(&quot;It is my duty to look after the spiritual well-being of #TOWN_NAME.&quot; 
+          &quot;Have you heard the good word about Huntokar?&quot;
+          &quot;I feel in my bones that the [BRIGHTRED old evil] begins to stir once more.&quot;
+          &quot;Long ago, the ruins were a mighty kingdom. But then a great evil arose deep underground.&quot;
+          &quot;Adventurers defeated the evil but it appears to be waking again, endangering #TOWN_NAME.&quot;
+          &quot;Huntokar grants mightier blessings to loyal followers.&quot;
+          &quot;Huntokar weeps for those whose bones lay in the depths without having proper funerary rites.&quot;
+          &quot;There were shrines to Huntokar below ground, but foul monsters have desecrated them. A terrible sin!&quot;)
+  )
+  (cond
+    ((= ORCHARD_EXISTS true) 
+      (append lines &quot;It is said in ancient days the elves of old would grow magic fruit in their secret orchards.&quot;)
+    )
+  )
+
+  (say (pick lines))
+</code></pre>
+<p>Ie., set a list of lines to pick from and conditionally add more before picking one to say. I had been loathe to make the dialogue system too much like a real programming language but this felt like a necessary addition because I was beginning to avoid making dialogue changes because they were too annoying.</p>
+<p>A rule I follow for when I am going to do a bit addition, refactor, or rewrite is when a part of my codebase is annoying me to work on, I know it's probably time.</p>
+<p>So this afternoon, I added in user-definable lists as shown above. It actually wasn't too much work! My script language still isn't Turing complete. There is no looping or recursion and god help me, there never will be.</p>
+<p>Now after that little side trek back to working on NPC dialogue!</p>
+<h3 id="delve-0.5.0" tabindex="-1">Delve 0.5.0</h3>
+<p>I've mentioned it on bluesky, but the next release of Delve will be on January 31st!</p>
+
+        </article>        
+
+    <div>
+      <p class="italic">Dana's Delve is open source under the Creative Commons CC0 1.0 Universal license and its source code <a href="https://github.com/DanaL/Yarl2/">is available on GitHub</a>.
+    </div>
+
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2026 by Danarama Productions </footer>
+</body>
+</html>
