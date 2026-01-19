@@ -754,6 +754,8 @@ pre {
   overflow-x: auto;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .hover\:text-black:hover {
