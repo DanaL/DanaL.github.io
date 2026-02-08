@@ -5,11 +5,40 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2026-01-28T13:43:04Z</updated>
+    <updated>2026-02-08T18:17:45Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Next steps for Delve</title>
+    <link href="https://danarama.ca/posts/2026/post2/"/>
+    <updated>2026-02-08T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post2/</id>
+    <summary>Talking about Delve 0.6.0 and beyond</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;Last weekend I released Delve 0.5 and spent the week fixing a few bugs and adding one big feature: the ability to remap Delve&#39;s keybindings to a player&#39;s preference. I also released a linux build of the game and apparently I shouldn&#39;t have been sleeping on that. More than half the downloads of 0.5.x have been the linux version!&lt;/p&gt;
+&lt;h3 id=&quot;character-progression-in-d%26d&quot; tabindex=&quot;-1&quot;&gt;Character progression in D&amp;amp;D&lt;/h3&gt;
+&lt;p&gt;My goal for the next release is to finally decide (and implement) how character progress will work in Delve. I feel like the default thing to do in a traditional roguelike is to do D&amp;amp;D-style classes, levels, and XP. It makes sense -- the original rogue was an attempt to make a computer version of D&amp;amp;D. I started off with this too. Largely because it &lt;em&gt;is&lt;/em&gt; the default and I didn&#39;t have strong ideas in this area. (Delve really began its life as &amp;quot;I bet it would be fun to write a roguelike!&amp;quot;)&lt;/p&gt;
+&lt;p&gt;But it&#39;s worth discussing the implications of a D&amp;amp;D&#39;s class/XP system and how I actually want gameplay to go in Delve and what it is meant to do. I think the class design is often considered bad (but I also think people like to rag on D&amp;amp;D sometimes simply because it&#39;s biggest system) but it makes sense in the context of original D&amp;amp;D. &lt;a href=&quot;https://en.wikipedia.org/wiki/Dungeons_%26_Dragons_(1974)&quot;&gt;OD&amp;amp;D&lt;/a&gt; in its original conception sounded rather like an analog MMO. Instead of following a storyline with a small group playing mostly the same characters, you would get a group of players together and form a party to, in effect, do a raid on the mega-dungeon the DM had created. Your goals were simply to gain treasure and magic items and find your way deeper into the dungeon. The designers realized early on that having class levels was good motivation. We knew from early in gaming that players like it when number goes up. In order to incentivize the players to explore deeper, the amount of XP you needed to advance rougly doubled each character level. You couldn&#39;t just lurk on level one slaughtering weak rats and kobolds over and over to level up. Gygax and Arneson didn&#39;t want grinding to be viable. In fact, most of your XP didn&#39;t come from monsters. It came from the gold you hauled out of the dungeon. One gold piece was one experience point. And to get the tens of thousands of gold/XP you would need to reach higher levels, you needed to delve into the deeper, more dangerous, and more lucrative levels. An important implication of this detail is that stealing treasure hoards via trickery, threats, etc instead of just battling the more dangerous monsters becomes a viable -- even preferable playstyle. (This is also makes random encounters make more sense -- they were generally low-reward distractions that depleted a party&#39;s resources. Skillful play avoided getting tangled up in them)&lt;/p&gt;
+&lt;h3 id=&quot;roguelikes&quot; tabindex=&quot;-1&quot;&gt;Roguelikes&lt;/h3&gt;
+&lt;p&gt;My favourite roguelike &lt;a href=&quot;https://www.nethack.org/&quot;&gt;nethack&lt;/a&gt; as well as DCSS and Angand hew pretty close to the D&amp;amp;D model, albeit more modern D&amp;amp;D. The bulk of your XP comes from defeating monsters. (Although 5e seems to be moving more toward &#39;milestone&#39; leveling where the DM grants levels at moments convenient to the plot) A major result of this design that I see is that it doesn&#39;t really allow for play styles other than kill lots of monsters and requires additional work to discourage a player from grinding on weak monsters to gain power. &lt;a href=&quot;https://github.com/tmewett/BrogueCE&quot;&gt;Brogue&lt;/a&gt; solves this by eliminating experience points and character levels (apparently it was more traditional early in its development?). Your advancement comes from finding and upgrading gear, and drinking potions which raise your HP and your strength. It doesn&#39;t even have a concept of classes. If you find a staff that casts firebolts, you can try to build your character around that and thus play a fire wizard sort of character.&lt;/p&gt;
+&lt;h3 id=&quot;delve&quot; tabindex=&quot;-1&quot;&gt;Delve&lt;/h3&gt;
+&lt;p&gt;I am very bad at Brogue but it has had a fair amount of influence on Delve, starting with it was the first roguelike I played that tried to make the ASCII actually beautiful. Seeing it was a real &amp;quot;What, you can do that??&amp;quot; moment. And much like Brogue, I ditched D&amp;amp;D style levels and classes (mostly). My hope is that if character advancement doesn&#39;t rely solely on killing monsters, I&#39;ll be able to allow other play styles like stealth and such.&lt;/p&gt;
+&lt;p&gt;Ideally, monsters in delve&#39;s dungeons will be obstacles (or better, puzzles) to overcome or avoid rather than a resource you need to farm.&lt;/p&gt;
+&lt;p&gt;The problem is that I have years (decades!) of time playing D&amp;amp;D and heavily D&amp;amp;D-coded computer games so that style is familiar and natural to me. I am a bit more at sea when it comes to a more Brogue-style game.&lt;/p&gt;
+&lt;p&gt;Currently, Delve has a few ways to boost your stats, improve your items and get some other buffs. You pick your major at the start of game that would originally have been your character class, but I am leaving them in to allow the player to nudge their character a bit in a particular direction. The scholar background begins knowing a little magic, but you can still learn spells if you take the  There are talismans you can equip to gain special abilities and a very inchoate magic system. But it&#39;s all very haphazard; I&#39;ve just been adding items as buffs as they occur to me.&lt;/p&gt;
+&lt;h3 id=&quot;version-0.6.0&quot; tabindex=&quot;-1&quot;&gt;Version 0.6.0&lt;/h3&gt;
+&lt;p&gt;So, my goal for the next big release is to nail down advancement. Figure out the various ways the player will be able to upgrade and at what pace they should earn them. There&#39;s a lot of stuff I need to think about. In Brogue, the items you find are pretty random and the emphasis seems to be making do with what you get. For Delve, I want the player having a little more agency in what sort of character they play.&lt;/p&gt;
+&lt;p&gt;My ideas right now are that your &#39;build&#39; will be heavily influenced by the blessings you take from the town priest (and eventually there will be 4 different gods whose paths you can choose to follow). Currently, the town priest offers blessings that lend to a paladin/heroic knight sort of character. The other gods offer more of a barbarian/reaver style, one that emphasizes stealth and trickery, and one that&#39;s more of an &#39;evil&#39; path.&lt;/p&gt;
+&lt;p&gt;There will also be more of a pure wizard/spellcaster path, but I think I will leave fleshing out the magic system until 0.7.0.&lt;/p&gt;
+&lt;p&gt;Your build will also be influenced by gear that you find and I&#39;d like to include a few points where you can chose from specific buffs and upgrades.&lt;/p&gt;
+&lt;p&gt;I am hoping all this design and implementation work will only take 2 months and there probably won&#39;t be another release of Delve until that&#39;s done and I have something to show.&lt;/p&gt;
+&lt;p&gt;As always, thanks for following my gamedev journey and giving Delve a try!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>

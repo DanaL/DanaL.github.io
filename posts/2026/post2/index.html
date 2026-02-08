@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Next steps for Delve</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#character-progression-in-d%26d">Character progression in D&amp;D</a></li><li><a href="#roguelikes">Roguelikes</a></li><li><a href="#delve">Delve</a></li><li><a href="#version-0.6.0">Version 0.6.0</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2026-02-08T00:00:00.000Z">February 8, 2026</time> 
+            <p>Last weekend I released Delve 0.5 and spent the week fixing a few bugs and adding one big feature: the ability to remap Delve's keybindings to a player's preference. I also released a linux build of the game and apparently I shouldn't have been sleeping on that. More than half the downloads of 0.5.x have been the linux version!</p>
+<h3 id="character-progression-in-d%26d" tabindex="-1">Character progression in D&amp;D</h3>
+<p>My goal for the next release is to finally decide (and implement) how character progress will work in Delve. I feel like the default thing to do in a traditional roguelike is to do D&amp;D-style classes, levels, and XP. It makes sense -- the original rogue was an attempt to make a computer version of D&amp;D. I started off with this too. Largely because it <em>is</em> the default and I didn't have strong ideas in this area. (Delve really began its life as &quot;I bet it would be fun to write a roguelike!&quot;)</p>
+<p>But it's worth discussing the implications of a D&amp;D's class/XP system and how I actually want gameplay to go in Delve and what it is meant to do. I think the class design is often considered bad (but I also think people like to rag on D&amp;D sometimes simply because it's biggest system) but it makes sense in the context of original D&amp;D. <a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons_(1974)">OD&amp;D</a> in its original conception sounded rather like an analog MMO. Instead of following a storyline with a small group playing mostly the same characters, you would get a group of players together and form a party to, in effect, do a raid on the mega-dungeon the DM had created. Your goals were simply to gain treasure and magic items and find your way deeper into the dungeon. The designers realized early on that having class levels was good motivation. We knew from early in gaming that players like it when number goes up. In order to incentivize the players to explore deeper, the amount of XP you needed to advance rougly doubled each character level. You couldn't just lurk on level one slaughtering weak rats and kobolds over and over to level up. Gygax and Arneson didn't want grinding to be viable. In fact, most of your XP didn't come from monsters. It came from the gold you hauled out of the dungeon. One gold piece was one experience point. And to get the tens of thousands of gold/XP you would need to reach higher levels, you needed to delve into the deeper, more dangerous, and more lucrative levels. An important implication of this detail is that stealing treasure hoards via trickery, threats, etc instead of just battling the more dangerous monsters becomes a viable -- even preferable playstyle. (This is also makes random encounters make more sense -- they were generally low-reward distractions that depleted a party's resources. Skillful play avoided getting tangled up in them)</p>
+<h3 id="roguelikes" tabindex="-1">Roguelikes</h3>
+<p>My favourite roguelike <a href="https://www.nethack.org/">nethack</a> as well as DCSS and Angand hew pretty close to the D&amp;D model, albeit more modern D&amp;D. The bulk of your XP comes from defeating monsters. (Although 5e seems to be moving more toward 'milestone' leveling where the DM grants levels at moments convenient to the plot) A major result of this design that I see is that it doesn't really allow for play styles other than kill lots of monsters and requires additional work to discourage a player from grinding on weak monsters to gain power. <a href="https://github.com/tmewett/BrogueCE">Brogue</a> solves this by eliminating experience points and character levels (apparently it was more traditional early in its development?). Your advancement comes from finding and upgrading gear, and drinking potions which raise your HP and your strength. It doesn't even have a concept of classes. If you find a staff that casts firebolts, you can try to build your character around that and thus play a fire wizard sort of character.</p>
+<h3 id="delve" tabindex="-1">Delve</h3>
+<p>I am very bad at Brogue but it has had a fair amount of influence on Delve, starting with it was the first roguelike I played that tried to make the ASCII actually beautiful. Seeing it was a real &quot;What, you can do that??&quot; moment. And much like Brogue, I ditched D&amp;D style levels and classes (mostly). My hope is that if character advancement doesn't rely solely on killing monsters, I'll be able to allow other play styles like stealth and such.</p>
+<p>Ideally, monsters in delve's dungeons will be obstacles (or better, puzzles) to overcome or avoid rather than a resource you need to farm.</p>
+<p>The problem is that I have years (decades!) of time playing D&amp;D and heavily D&amp;D-coded computer games so that style is familiar and natural to me. I am a bit more at sea when it comes to a more Brogue-style game.</p>
+<p>Currently, Delve has a few ways to boost your stats, improve your items and get some other buffs. You pick your major at the start of game that would originally have been your character class, but I am leaving them in to allow the player to nudge their character a bit in a particular direction. The scholar background begins knowing a little magic, but you can still learn spells if you take the  There are talismans you can equip to gain special abilities and a very inchoate magic system. But it's all very haphazard; I've just been adding items as buffs as they occur to me.</p>
+<h3 id="version-0.6.0" tabindex="-1">Version 0.6.0</h3>
+<p>So, my goal for the next big release is to nail down advancement. Figure out the various ways the player will be able to upgrade and at what pace they should earn them. There's a lot of stuff I need to think about. In Brogue, the items you find are pretty random and the emphasis seems to be making do with what you get. For Delve, I want the player having a little more agency in what sort of character they play.</p>
+<p>My ideas right now are that your 'build' will be heavily influenced by the blessings you take from the town priest (and eventually there will be 4 different gods whose paths you can choose to follow). Currently, the town priest offers blessings that lend to a paladin/heroic knight sort of character. The other gods offer more of a barbarian/reaver style, one that emphasizes stealth and trickery, and one that's more of an 'evil' path.</p>
+<p>There will also be more of a pure wizard/spellcaster path, but I think I will leave fleshing out the magic system until 0.7.0.</p>
+<p>Your build will also be influenced by gear that you find and I'd like to include a few points where you can chose from specific buffs and upgrades.</p>
+<p>I am hoping all this design and implementation work will only take 2 months and there probably won't be another release of Delve until that's done and I have something to show.</p>
+<p>As always, thanks for following my gamedev journey and giving Delve a try!</p>
+
+        </article>        
+
+    <div>
+      <p class="italic">Dana's Delve is open source under the Creative Commons CC0 1.0 Universal license and its source code <a href="https://github.com/DanaL/Yarl2/">is available on GitHub</a>.
+    </div>
+
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2026 by Danarama Productions </footer>
+</body>
+</html>
