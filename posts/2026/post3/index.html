@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">LLMs, software dev, and me</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#llms-in-general">LLMs in general</a></li><li><a href="#dipping-my-toe-in">Dipping my toe in</a></li><li><a href="#but-i-like-coding...">But I like coding...</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div>
+        <article class="my-4">
+            <time class="text-xs" datetime="2026-02-17T00:00:00.000Z">February 17, 2026</time> 
+            <p>I've been meaning to jot down some of my feelings on LLMs, at least in regards to software development and my job. I don't think I have any unique insights on all this and most of it has been said elsewhere (and better). But writing this up will maybe help me order my own thoughts and feelings. Perhaps I'll be more articulate when the topic comes up in conversation.</p>
+<h3 id="llms-in-general" tabindex="-1">LLMs in general</h3>
+<p>Before I begin, a word on LLMs general. By and large, I consider generative AI to be a scourge. I'm sick of the hype, sick of AI non-features being crammed into every bit of software and website. Instagram? Summarizing a text message from a friend? <em>NOTEPAD??</em> I hate having to be suspicious of everything I see online and constantly having to think &quot;Is this real?&quot;. It's exhausting. A big concern of mine is not that LLMs will put be able to do every job effectively and cause mass layoffs, but that people are going to lose their jobs and well be offered shitty, second-rate services instead. And eventually just come to accept shitty second-rate services. What happens if AI truly is a bubble that bursts and devestates the global economy?</p>
+<p>And this is to say nothing of executives and techbros salivating about replacing the creative work of artists, writers, and musicians with -- at best -- weak simulacra of art. All by training models on stolen work. At least in the software world you could argue that training input came from open source projects on Github and posts on Stack Overflow. Mind you, feeding the revenue engines of mega-corporations is perhaps not what many free software devs had in mind when they released their stuff under an open source or Free Software license...</p>
+<h3 id="dipping-my-toe-in" tabindex="-1">Dipping my toe in</h3>
+<p>Outside of coding, generative AI has been mostly hype or straight-up garbage and yet...and yet... It's a legitimately useful tool for software developers. Beyond that I see so many folks who are all-in on vibe-coding and agentic development. Telling us if we still bother reading source code or even using an editor in your development, you are a pathetic dinosaur doomed to be replaced in mere weeks. I remain skeptical on the more breathless claims but at the same time I do wonder: Am I going to end up a slide-rule expert in the era of calculators and computers? Where in the range of &quot;AI code is garbage&quot; to &quot;All vibes, all the time baby!&quot; is reality, and how fast is that reality changing?</p>
+<p>On the other hand, if software development is now orders of magnitude faster, where is all the software? We should be leaping ahead with new products, new apps, better versions of existing apps. Why hasn't a small team vibed-up a replacement for Photoshop yet?</p>
+<p>The CEO of Shopify claimed their devs who embraced AI are 100X more productive. One hundred times! I hear that and think, &quot;If these folks who were probably already top-notch developers are doing in one year the amount of work they could previously have done IN AN ENTIRE CENTURY...where are the results.&quot; I feel like even one dev working 40 hours a week for 100 years could produce SO MUCH. Shouldn't we be seeing -- well -- results?&quot;</p>
+<p>Shouldn't bugs be being fixed 100X faster? Do you feel like all the software you use is improving 100X faster than before? Do you feel like it's improving at all? The general mood I see on Bluesky is that most of the programs we use are getting shittier and shitter.</p>
+<p>Is this just the 90/10? Rule? The last 10% of a project takes 90% of the work and perhaps LLMs are just really good at the 90 part? Reading about peoples' usage on Hacker News and elsewhere, I have the impression people are cranking out prototypes and throw-away personal projects. But where are the finished, polished projects?</p>
+<p>I dunno.</p>
+<p>As for me, my department head at work has become enamoured with Copilot and had been suggesting to my manager we get me using AI. And so a couple of weeks ago I found myself with a Claude subscription. Claude is...useful?</p>
+<p>I don't seem to be quite the LLM-whisperer that others claim to be. I use Claude to do tasks that would just be lots of typing. It's pretty good at SQL. But I regularly find it does just fail at some tasks and still needs babysitting. Even tasks I know it should be able to do -- has been able to do -- it sometimes falls into fail spirals. I guess that's what you can expect when in some respects, you are using a code-generating slot machine. Even one that has favourable odds.</p>
+<p>It somestimes saves me time, sometimes wastes my time. I couldn't say how much time it saves overall. I appreciate being able to use it to do things I wouldn't enjoy myself. My experiments in full-on vibe-coding projects at work have also been a mixed bag.</p>
+<h3 id="but-i-like-coding..." tabindex="-1">But I like coding...</h3>
+<p>So LLMs are much, much better at coding than they were in 2023. Will they continue to get better? Maybe? I'm not qualified to say. The people with the loudest voices are either trying to sell you AI products or veyr idealogically anti-gen-AI.</p>
+<p>I'm not especially worried about my own job. I am the only developer at a medium-sized organization and so long as we need software written, I'm probably going to be the one to do it simply because <em>someone</em> has to. In my experience, even other low-code tools and things like PowerBI, it ends up being the IT department uses these tools on behalf of the rest of the organization. Cobol and SQL were both tools intended to enable non-specialist laypeople to write their own software. So was UML and all the 'visual' tools from the 90s. And yet, programming and programmers persist. Even if we get to the point where LLMs are writing 99+% of actual code, I suspect I'll still be the one doing it, if only because I'm already in the role. Fingers crossed anyhow!</p>
+<p>On the other hand, spending my workdays typing prompts in to Claude, or directing agents sounds very unsatisfying. I have never been interested in being a manager or telling people what to do. I enjoy the crunchy feeling of coding. Figuring things out is fun. Thinking about good ways to lay out programs and data structures is satisyfing. I appreciate tidy code and enjoy making my own code readable and maintainable. If all that's now obsolete, the enjoyment I get from my job is going to plummet.</p>
+<p>Like I said, I am the only developer at my work and for the time being it's pretty much up to me how much I do or do not use generative-AI in my job. But if I can say, &quot;Claude here's the address for a vendor's API, we need to fetch JSON data from it and save it to our database for later processing. Suggest a schema to use.&quot; and it will do most of the work it would be foolish not to use it at work. I'd be doing a disservice to my employer.</p>
+<p>I'll level with you: I like my job! I have a pretty good time at it most days and am in the privileged position of looking forward to my work days. It's nice building systems and tools that people in my org find useful. I like being helpful. But much of the appeal is getting paid to write programs (which I find really fun!). I guess I'm less enamoured with the products I produce that the act of writing code? This goes all the way back to when I was 10 yeares old and discovered BASIC on our family's Vic-20. I read Derek Yu's (the creator of Spelunky) book wherein he talked about how he doesn't really enjoy programming, but does it because that's how you make video games. I'm curious about his take on LLMs. Are they a godsend that alleviates the parts of game dev he finds to be drudgery? If you are primarily interested in producing software products, generative-AI must be a boon (regardless of how much of the hype is real) But for me, if LLMs take over most of the coding part of job... I guess I'll still take some satisfaction from building stuff for work, but I don't think I'll have nearly as much fun at work. A job that has devolved into mostly just typing prompts into Claude Caude sounds much more dull and tedious.</p>
+<p>So what then? I still have hobby coding! <a href="https://danarama.itch.io/delve">Delve</a> exists because I wanted an interesting project to work on and building a roguelike seemed fun. (And it is!) But the world doesn't really need Yet Another Roguelike. I've often said that Delve is my equivalent of a model train set that I love tinkering with. If I just want a roguelike to play, nethack already exists. There are hundreds of roguelikes for me to play. Programming might become an archaic, and pointless skill (I am not fully convinced but sometimes I worry), but then again humans didn't abandon chess when it became impossible for even the greatest players to win against chess software. There are lots of things I would like to work on, but mainly because I enjoy working on them. People still do woodworking as a hobby even though you can buy a chair or table at Ikea for a few bucks.</p>
+<p>I guess I'll keep on experimenting with Claude at work and being very smug those times I need to step in and clean up its messes or write something it keeps tripping over. My job might be less fun, but I suppose all that means is I become like 80% of people who do their job for the paycheque and not because the love it.</p>
+
+        </article>
+    </div>
+</div>
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2026 by Danarama Productions </footer>
+</body>
+</html>
