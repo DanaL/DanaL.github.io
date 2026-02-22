@@ -5,11 +5,49 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2026-02-17T17:40:11Z</updated>
+    <updated>2026-02-22T15:45:00Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>linux??</title>
+    <link href="https://danarama.ca/posts/2026/post4/"/>
+    <updated>2026-02-22T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post4/</id>
+    <summary>I low-key switched to linux</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;Since about 2004 or so, I&#39;ve mostly used Apple machines and macOS at home. I can&#39;t why the switch. Most likely I needed a new computer and was intrigued by the unix core that underpinned macOS (then OS X) and having easier access to compilers and other dev tools. That said, I was never a Windows-hater despite being an avid Slashdot reader in the 90s. And I of course continued to use Windows in my day jobs. I&#39;ve never been an ideologue and I think I managed to avoid making my OS of choice part of my personality.&lt;/p&gt;
+&lt;p&gt;I&#39;d tried linux a few times over the years but it never really stuck. Back in the late 90s and the 00s linux for personal was in my opinion a great operating system if your hobby was configuring and troubleshooting your operating system. I&#39;d probably have been in love in linux had existed when I was teenager. That said, I was always happy linux existed. I loved the idea of an operating system whose source code was available to read and to learn from, that was free in both the sense of cost and the Freedom sense.&lt;/p&gt;
+&lt;p&gt;But Apple produces good hardware (well, except for mice...), especially in the Apple Silicon era. The operating system was unix-y enough for what I wanted to do and it mostly worked pretty well. There are valid complaints that it&#39;s locked down, not for power users, but honestly it never impacted me.&lt;/p&gt;
+&lt;h3 id=&quot;delve&quot; tabindex=&quot;-1&quot;&gt;Delve&lt;/h3&gt;
+&lt;p&gt;But then...&lt;/p&gt;
+&lt;p&gt;As Delve&#39;s development trundled along, I&#39;d received a few requests for a linux version. I knew in principle that this shouldn&#39;t be too difficult since Microsoft had ported the .net runtime to linux, but I didn&#39;t have a way to build and test it. I understand I could have used Github Actions or something to set up linux builds, but I&#39;d still want to be able to play the game to properly test it. I also could have set up a VM on my macbook but I&#39;ll level with you: whenever I tried reading about VM software and the instructions for setting one up, my eyes would glaze over. Devops is not my passion.&lt;/p&gt;
+&lt;p&gt;So before Christmas I decided to dust off an old (by old I mean from 2019) iMac that I had sitting around and install linux on it.&lt;/p&gt;
+&lt;h3 id=&quot;mint&quot; tabindex=&quot;-1&quot;&gt;Mint&lt;/h3&gt;
+&lt;p&gt;I gather this is where I&#39;m supposed to say &amp;quot;I use Arch, by the way.&amp;quot; Except I don&#39;t. After minutes of research (ie., googling &amp;quot;What&#39;s a good distro for an older computer?&amp;quot;) I settled on Linux Mint. Arch and some of the others seemed geared for people who wanted to nitpick over every aspect of their OS configuration. All I needed was a terminal where I could type in &amp;quot;dotnet build&amp;quot;.&lt;/p&gt;
+&lt;p&gt;The Mint setup was smooth. Just make a bootable usb stick, reboot, and answer a few more questions. It had been more than a decade, maybe closer to two, since the last time I installed linux and there was no more &amp;quot;How big should your swap partition be?&amp;quot; or &amp;quot;Please select a bunch of kernel options you don&#39;t understand.&amp;quot; Finally linux for people who don&#39;t want to do linux as a fulltime job!&lt;/p&gt;
+&lt;p&gt;Though there were wrinkles...&lt;/p&gt;
+&lt;p&gt;First off, my iMac&#39;s wireless card wasn&#39;t working. Oddly (to me), tethering my iPhone to the machine worked instantly and got me internet access. After a bunch of googling, in the end it was Claude that rescued me -- chock one up for the clankers. It turns out (according to Claude) my wireless card needed proprietary drivers, but I was able to boot into the macOS recovery partition that Apple sets up on their computers and copy the drivers from there to my linux partition. Only took a couple of hours of troubleshooting spent...&lt;/p&gt;
+&lt;p&gt;However, the soundcard, headphone jack, and internal speakers still do not work. At one point, while following instructions to build and install a modified kernel that a forum post said &lt;em&gt;might&lt;/em&gt; get them working, I rendered my linux install unbootable and had to reinstall from scratch. Luckily I&#39;d written down the instructions for what I did for the wireless drivers...&lt;/p&gt;
+&lt;p&gt;Linux: much easier to set up than it used to be, but sometimes I see people suggest it for non-technical people as a Windows replacement and I think those people must be sociopaths. Or in the linux tech support business.&lt;/p&gt;
+&lt;p&gt;Fine, fine. I had a pair of external speakers that worked. Well, worked once I bought a headphone jack-to-USB adapter. Now I could listen to music on my linux machine while building and testing Delve.&lt;/p&gt;
+&lt;p&gt;Which works just fine by the way! I picked C# as my language for Deleve because it&#39;s the one I know best, but Microsoft has done a great job making the .net environment and dev tools work on every major platform.&lt;/p&gt;
+&lt;h3 id=&quot;and-then-i-began-using-it&quot; tabindex=&quot;-1&quot;&gt;And then I began using it&lt;/h3&gt;
+&lt;p&gt;Once Mint was running and I was doing some Delve development on it, I realized that pretty much anything I was doing on my laptop, I could do on it, with a larger screen too! And I don&#39;t have very intense computing needs, to be honest. I need a few dev tools (the .net stuff and I&#39;ll sometimes mess around in C or other languages) and a text editor. Toss in a functioning web browser and that covers 99% of what I do on a computer. I also don&#39;t tend to customize too much on any computer I&#39;m using and keep things pretty stock. If anything, my setup on a new machine consists mainly of turning features off so Mint was a smooth transition. I already hop between Windows at work and macOS at home; a little friction from the differences between OSes doesn&#39;t really me.&lt;/p&gt;
+&lt;p&gt;What WAS surprising is how well Mint ran on the older hardware! Now don&#39;t get me wrong: I know if I were doing intense math computation, 3D editing, video editing, etc, the M1 macbook air would blow away the iMac. But the OS itself feels must snappier. Walking from sleep is instantaneous compared to macOS where it often takes several seconds before I can even type my password. The entire Mint install took up about 20GB of disk space whereas on my laptop the system files are like 80 or 90GB! I knew linux was less bloated and more performant, but I was still quite pleasantly surprised.&lt;/p&gt;
+&lt;p&gt;So, a couple weeks ago I decided to give it a try as my main machine. This maybe was partially motivated because I bought myself a mechanical keyboard that&#39;s fun to type on...&lt;/p&gt;
+&lt;h3 id=&quot;free-as-in-free-from-slop&quot; tabindex=&quot;-1&quot;&gt;Free as in free from slop&lt;/h3&gt;
+&lt;p&gt;It&#39;s a truth universally acknowledged that Windows is a shit-show now, perhaps unrecoverably so. AI features crammed into everything, Ads in the Start Menu (I&#39;m spared from this because I only have to do with the Enterprise version), rampant bugs. The taskbar barely works for me anymore. Patches that brick machines. Forcing you to create a Microsoft to install.&lt;/p&gt;
+&lt;p&gt;macOS remains much better in that regard. Apple still pays lip service to privacy and a good user experience. But each new version has become buggier. Tahoe came with a clunky UI &amp;quot;Liquid Glass&amp;quot; reskin that most people seem to hate. You see articles like &lt;a href=&quot;https://kirkville.com/i-now-assume-that-all-ads-on-apple-news-are-scams/&quot;&gt;I Now Assume That All Ads on Apple News Are Scams&lt;/a&gt; and Apple is trying to cram AI into everything. The keyboard on iOS has been buggy for months, maybe years. It&#39;s clear they&#39;ve begun their slide down the enshitification slope.&lt;/p&gt;
+&lt;p&gt;So that&#39;s one more perk to linux: all of the telemetry, the dark patterns, ads, and bloat is simply not there. Or in the worse case, if one distro adds some, you&#39;ll be able to remove it. Or change distros. There are plenty that focus on privacy.&lt;/p&gt;
+&lt;h3 id=&quot;onward-and-upward&quot; tabindex=&quot;-1&quot;&gt;Onward and upward&lt;/h3&gt;
+&lt;p&gt;I&#39;m going to stick with linux for the time being at home. I still have my macbook air that I&#39;ll use for couch coding and working out of the house (sometimes I like a change of scenery and head up to the library or a coffee shop). Like I said a few paragraphs up, I am not fussy about my OS and setup. Give me an editor and the dev tools for the project I&#39;m working on and I&#39;m good to go. So all this made the transition easy. There are annoyances and things I miss. I&#39;m not sure what I&#39;m going to do to replace iCloud for an easy &amp;quot;my stuff is backed-up&amp;quot; solution. I&#39;m sure there are plenty of options, I just haven&#39;t looked into it yet.&lt;/p&gt;
+&lt;p&gt;That said, maybe one day I&#39;ll finally learn what a tiling window manager is and why everyone on linux loves them so...&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
