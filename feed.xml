@@ -5,11 +5,38 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2026-02-26T17:46:47Z</updated>
+    <updated>2026-02-27T17:38:38Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Snerk the Sneak</title>
+    <link href="https://danarama.ca/posts/2026/post6/"/>
+    <updated>2026-02-27T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post6/</id>
+    <summary>I wrote a pre-game jam micro-roguelike</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;Next week I&#39;m taking part in a game jam, the venerable &lt;a href=&quot;https://itch.io/jam/7drl-challenge-2026&quot;&gt;Seven Day Roguelike Challenge&lt;/a&gt;. Build a small roguelike in just one week! The real challenge is an exercise in keeping your scope restrained. It&#39;s so easy to plan to do too much and software developers are notoriously bad at estimating how long things take. I am absolutely bad at it. But I have a (bad) idea for a game and three days booked off for vacation next week! Basically unstoppable! My game is going to be a sci-fi/cyberpunk roguelike where you have to hack and control robots to infiltrate an underground facility.&lt;/p&gt;
+&lt;h3 id=&quot;i-needed-a-dev-stack&quot; tabindex=&quot;-1&quot;&gt;I needed a dev stack&lt;/h3&gt;
+&lt;p&gt;My initial instinct was to just gut Delve&#39;s code and reuse the UI, display stuff, field-of-view, and pathfnding algorithms I&#39;ve already written. But I really wanted my game to be easily playable in the browser from the itch.io page. Reduce friction for someone who might want to try it out! When I looked a bit into emscripten and building C#/.net projects for WASM it seemed possible but potentially a little janky. I didn&#39;t want to spend precious jam time troubleshooting weird web quirks. Then I remembered a library I&#39;d starred on Github a million years ago called &lt;a href=&quot;https://ondras.github.io/rot.js/hp/&quot;&gt;rot.js&lt;/a&gt; developed by &lt;a href=&quot;https://ondras.zarovi.cz/&quot;&gt;Ondřej Žára&lt;/a&gt;, which is a pure javascript library for building ascii roguelikes that play right in the browser! Perfect for me! What&#39;s nice too is that comes with lighting, pathfinding, and turn scheduling built in. Fantastic! Stuff I don&#39;t need to write! It also does map generation, but I probably will be rolling my own.&lt;/p&gt;
+&lt;p&gt;I wanted to try out the stack before the game jam begins, make sure I knew how to deploy it to itch, and maybe have some of the display and UI elements (like pop-ups and menus) already written. Don&#39;t come at me: this is well within the rules and the spirit of 7DRL! We&#39;re allowed to use existing assets, libraries, and code. You can even hack up an existing project so long as you are building something new. And you can do all of your design in advance. To my mind, the goal is to implement all the new and unique game elements within the the seven days of the challenge.&lt;/p&gt;
+&lt;p&gt;And I want to spend as much time as possible on the game mechanics and content I have planned. (By planned I mean half-formed ideas scribbled in my notebook)&lt;/p&gt;
+&lt;h3 id=&quot;snerk&quot; tabindex=&quot;-1&quot;&gt;Snerk&lt;/h3&gt;
+&lt;p&gt;So I decided to do a small project, barely a game at all, to test drive rot.js and get a taste of Typescript. I came up with a silly little game where you are a kobold who has to sneak into a village and retrieve an egg that adventurers stole from your dragon overlord. Figure out where your goal is, evade or distract the guards, and grab the egg!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://danarama.itch.io/snerk&quot;&gt;You can play Snerk the Sneak on itch.io&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/snerk.png&quot; alt=&quot;Screenshot of gameplay from Snerk where the player has been spotted by a guard!&quot;&gt;
+&lt;em&gt;The game in action&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This was pretty fun to build! And I still trouble with scope creep, having to remind myself this was just a tech demo for the Typescript/rot.js stack. This wasn&#39;t the game I am making. But I keep thinking about things I might add. And one of the egg locations is trivially easy to win. I think maybe there&#39;s a germ of an actual game in there and I could see it becoming an Untitled Goose Game sort of thing with more complicated interactions with the villagers. And I think it would be cute with some pixel art instead of ascii... But gotta stay focused on my game jam!&lt;/p&gt;
+&lt;p&gt;I did use Claude to help out a bit with Snerk. This was my first real project in Typescript and with the decay of Stack Overflow and Google search, sometimes the best way to ask code questions is to just do, &amp;quot;Claude, what is the Typescript equivalent of...&amp;quot; or &amp;quot;Is there a Typescript function for...&amp;quot;, and having a window in VS Code to ask those questions is awful convenient. I also had Claude translate some of the code I&#39;d written for Delve from C# to Typescript. Stuff like a floodfill function and some finicky code I wrote for word-wrapping text in pop-up windows. Now grant you, I would have learned more Typescript by translating the code by hand, but I didn&#39;t want to invest all that much time in a quick prototype. I&#39;ve &lt;a href=&quot;https://www.danarama.ca/posts/2026/post3/&quot;&gt;posted about&lt;/a&gt; my ambiguous feelings about using genAI for coding, especially personal projects, but this is kind of what I want from LLms. &amp;quot;Hey write the tedious parts that I don&#39;t want to bother with.&amp;quot;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;I&#39;d call this a success! I made a teeny tiny micro-game in a couple days, I know how to make a game using rot.js and deploy it to itch.io and Snerk is playable right in your browser. And I have a bit of project infrastructure for my upcoming game. Especially the menus and pop-ups, which is stuff I don&#39;t want to waste time on.&lt;/p&gt;
+&lt;p&gt;I&#39;m not sure if my idea is going to pan out as a game that&#39;s fun to play but I&#39;m pretty stoked to get started going!&lt;/p&gt;
+&lt;p&gt;7DRL takes place over nine days, but you are supposed to pick a seven day window to work on the game. I&#39;ll be starting Sunday March 1st and hopefully have my game done before midnight of the following Saturday! Wish me luck! If I am not feeling too much time pressure I might do a mid-week post about how it&#39;s going.&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>

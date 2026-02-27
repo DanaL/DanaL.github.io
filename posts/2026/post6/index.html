@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Snerk the Sneak</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#i-needed-a-dev-stack">I needed a dev stack</a></li><li><a href="#snerk">Snerk</a></li><li><a href="#conclusion">Conclusion</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2026-02-27T00:00:00.000Z">February 27, 2026</time> 
+            <p>Next week I'm taking part in a game jam, the venerable <a href="https://itch.io/jam/7drl-challenge-2026">Seven Day Roguelike Challenge</a>. Build a small roguelike in just one week! The real challenge is an exercise in keeping your scope restrained. It's so easy to plan to do too much and software developers are notoriously bad at estimating how long things take. I am absolutely bad at it. But I have a (bad) idea for a game and three days booked off for vacation next week! Basically unstoppable! My game is going to be a sci-fi/cyberpunk roguelike where you have to hack and control robots to infiltrate an underground facility.</p>
+<h3 id="i-needed-a-dev-stack" tabindex="-1">I needed a dev stack</h3>
+<p>My initial instinct was to just gut Delve's code and reuse the UI, display stuff, field-of-view, and pathfnding algorithms I've already written. But I really wanted my game to be easily playable in the browser from the itch.io page. Reduce friction for someone who might want to try it out! When I looked a bit into emscripten and building C#/.net projects for WASM it seemed possible but potentially a little janky. I didn't want to spend precious jam time troubleshooting weird web quirks. Then I remembered a library I'd starred on Github a million years ago called <a href="https://ondras.github.io/rot.js/hp/">rot.js</a> developed by <a href="https://ondras.zarovi.cz/">Ondřej Žára</a>, which is a pure javascript library for building ascii roguelikes that play right in the browser! Perfect for me! What's nice too is that comes with lighting, pathfinding, and turn scheduling built in. Fantastic! Stuff I don't need to write! It also does map generation, but I probably will be rolling my own.</p>
+<p>I wanted to try out the stack before the game jam begins, make sure I knew how to deploy it to itch, and maybe have some of the display and UI elements (like pop-ups and menus) already written. Don't come at me: this is well within the rules and the spirit of 7DRL! We're allowed to use existing assets, libraries, and code. You can even hack up an existing project so long as you are building something new. And you can do all of your design in advance. To my mind, the goal is to implement all the new and unique game elements within the the seven days of the challenge.</p>
+<p>And I want to spend as much time as possible on the game mechanics and content I have planned. (By planned I mean half-formed ideas scribbled in my notebook)</p>
+<h3 id="snerk" tabindex="-1">Snerk</h3>
+<p>So I decided to do a small project, barely a game at all, to test drive rot.js and get a taste of Typescript. I came up with a silly little game where you are a kobold who has to sneak into a village and retrieve an egg that adventurers stole from your dragon overlord. Figure out where your goal is, evade or distract the guards, and grab the egg!</p>
+<p><a href="https://danarama.itch.io/snerk">You can play Snerk the Sneak on itch.io</a></p>
+<p><img src="/images/snerk.png" alt="Screenshot of gameplay from Snerk where the player has been spotted by a guard!">
+<em>The game in action</em></p>
+<p>This was pretty fun to build! And I still trouble with scope creep, having to remind myself this was just a tech demo for the Typescript/rot.js stack. This wasn't the game I am making. But I keep thinking about things I might add. And one of the egg locations is trivially easy to win. I think maybe there's a germ of an actual game in there and I could see it becoming an Untitled Goose Game sort of thing with more complicated interactions with the villagers. And I think it would be cute with some pixel art instead of ascii... But gotta stay focused on my game jam!</p>
+<p>I did use Claude to help out a bit with Snerk. This was my first real project in Typescript and with the decay of Stack Overflow and Google search, sometimes the best way to ask code questions is to just do, &quot;Claude, what is the Typescript equivalent of...&quot; or &quot;Is there a Typescript function for...&quot;, and having a window in VS Code to ask those questions is awful convenient. I also had Claude translate some of the code I'd written for Delve from C# to Typescript. Stuff like a floodfill function and some finicky code I wrote for word-wrapping text in pop-up windows. Now grant you, I would have learned more Typescript by translating the code by hand, but I didn't want to invest all that much time in a quick prototype. I've <a href="https://www.danarama.ca/posts/2026/post3/">posted about</a> my ambiguous feelings about using genAI for coding, especially personal projects, but this is kind of what I want from LLms. &quot;Hey write the tedious parts that I don't want to bother with.&quot;</p>
+<h3 id="conclusion" tabindex="-1">Conclusion</h3>
+<p>I'd call this a success! I made a teeny tiny micro-game in a couple days, I know how to make a game using rot.js and deploy it to itch.io and Snerk is playable right in your browser. And I have a bit of project infrastructure for my upcoming game. Especially the menus and pop-ups, which is stuff I don't want to waste time on.</p>
+<p>I'm not sure if my idea is going to pan out as a game that's fun to play but I'm pretty stoked to get started going!</p>
+<p>7DRL takes place over nine days, but you are supposed to pick a seven day window to work on the game. I'll be starting Sunday March 1st and hopefully have my game done before midnight of the following Saturday! Wish me luck! If I am not feeling too much time pressure I might do a mid-week post about how it's going.</p>
+
+        </article>        
+
+    <div>
+      <p class="italic">Dana's Delve is open source under the Creative Commons CC0 1.0 Universal license and its source code <a href="https://github.com/DanaL/Yarl2/">is available on GitHub</a>.
+    </div>
+
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2026 by Danarama Productions </footer>
+</body>
+</html>
