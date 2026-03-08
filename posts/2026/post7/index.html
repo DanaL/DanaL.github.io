@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">Seven Day Roguelike Game Jam</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#rogue-type">rogue type</a></li><li><a href="#but-how-did-it-go%3F">But how did it go?</a></li><li><a href="#sidebar-about-level-gen">Sidebar about level gen</a></li><li><a href="#technicalities">Technicalities</a></li><li><a href="#conclusion">Conclusion</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2026-03-08T00:00:00.000Z">March 8, 2026</time> 
+            <p>I did it! I spent (wasted?!) an entire week making a small computer game! Being
+7DRL it was a small roguelike game, or at least something that is roguelike-adjacent...</p>
+<p>I thought I would write up a bit of a post-mortem about it. If nothing else, it will be useful for
+me to review the next time I intend on participating in one.</p>
+<p>First of all, I had a blast. Just taking a full week to work intensely on a personal, hobby project was a ton of
+fun. I had some vacation days to burn so I took Wednesday, Thursday, and Friday off and mostly worked all
+day long. There's also a pretty active community on bluesky and discord and it was great having other
+participants to chat and commiserate with and bounce ideas off of. If I knew some local participants and we
+had in-person events, I think it would have recalled the NaNoWriMo heydays for me!</p>
+<p>That said, working 12-16 hours a day even for fun is pretty tiring, especially for my poor, middle-aged body and brain...</p>
+<h3 id="rogue-type" tabindex="-1">rogue type</h3>
+<p>I talked about my concept a bunch of bluesky so I'll just give a brief summary. My idea was a
+sci-fi/cyberpunk game where you are a hacker infiltrating a secure facility to infect a mainframe with a
+virus. (The vague backstory I'd had in mind was an AI gone mad and you have to destroy it). You would
+navigate the 'dungeon' by taking control of robots and you could hop from bot to bot.</p>
+<p>The main unique hook was that hacking would be handled by a typing contest since in shows the best hackers are the fastest typists.</p>
+<p><img src="/images/type_battle.png" alt="Screen shot from showing typing challenge between player and a robot">
+<em>Here's what a typing challenge looks like</em></p>
+<p>The plan was a game that was less kill-all-the-monsters than a classic RL with more emphasis on using robots
+solve puzzles and sneak around your environment. That was my Grand Vision anyhow!</p>
+<p>You can play <a href="https://danarama.itch.io/roguetype">rogue type on itch.io</a> and take a look at its (hastily written, obviously) <a href="https://github.com/DanaL/RogueType">source code</a> on github.</p>
+<h3 id="but-how-did-it-go%3F" tabindex="-1">But how did it go?</h3>
+<p>Unfortunately, overall I think it's pretty weak as a game. I enjoy the typing challenge parts and I'm glad that part came together well
+but all in all I don't think rogue type is all that much fun. Considering it honestly, with just a week to work on the game, I wasn't
+able to really flesh out either the roguelike elements or the puzzle elements sufficiently and both aspects ended up
+pretty weak. Also, it's very easy &gt;.&gt; Unless you set the typing speed difficulty to be very challenging for
+you, there's not much stopping you from being able to finish.</p>
+<p>My puzzles (mostly centered around open gates to access parts of the danger) don't have enough variety.
+I had vague ideas of security zones where you would have to figure out ways to gain access to but didn't
+get a chance to develop them.</p>
+<p><img src="/images/colour_tile_puzzle.png" alt="Screen shot showing the player standing beside a 9x9 grid of colour tiles, one of the puzzles in type rogue">
+<em>I came up with a colour tile puzzle on the last day and am pleased with how it turned out</em></p>
+<p>One idea that I think had potential is letting you install or uninstall software packages on robots. The main
+use in the current version is deleting the movement software from a robot you are controlling so you can
+leave them parked on a floor trigger that opens a gate. It would be neat to be able to install software
+on robots that let them perform tasks independently from you as part of the puzzles, or attack and distract other robots.</p>
+<p>If I were to really lean into the puzzle aspect, the game would be much stronger with hand-designed levels rather procedurally generated ones. You <em>can</em> do proc-gen puzzles but I think hand-crafted ones will almost always be stronger and more interesting. Of course, that
+wouldn't really have been appropriate for this particular game jam. If I were to keep working on rogue type, hand-designed levels are
+definitely the direction I would take the game in.</p>
+<p>All that said, <em>I</em> have fun while playing it, but I think this may be a face-only-a-mother-can-love situation. I mean, I still just find making teeny
+little game worlds and having my little guy walking around in them is an utter delight! My reactions of &quot;I MADE this! Neat-o!&quot; make it hard to be
+objective.</p>
+<h3 id="sidebar-about-level-gen" tabindex="-1">Sidebar about level gen</h3>
+<p>Roguelike developers have a bit of a preoccupation with map-making algorithms and I was surprised how many compliments I got
+when I posted screencaps of my on bluesky and Discord.</p>
+<p><img src="/images/rogue_type_dungeon.png" alt="A basic dungeon for a roguelike game rendered in ascii">
+<em>example of rogue type's dungeons</em></p>
+<p>This was unexpected and kind of funny to me because I spent almost no time on rogue type's maps. I needed the levels to be
+divided cleanly into two halves with a choke point room with a gate because I wanted to force the player to solve a puzzle to progress. To make
+make the maps, I did the simplest thing I could think of: plop down a bunch of rooms and then do a breadth-first search starting at each door
+and walking until another door was found and drawing a hallway backwards along the shortest path back to the starting door. Repeat until you've tried to draw a corridor from each door. (With a few extra rules like tiles inside a room are impassable and stop if you reach a previously drawn corridor)</p>
+<p>That said, I do like how the maps look and I'll probably port the level generation code into C# and use it for some of Delve's dungeons.</p>
+<p>One thing that <strong>was</strong> a bit of a game changer was using room templates, especially for the choke point rooms. This never occurred to me to
+do in Delve (well sort of, the buildings in the town are drawn from templates), probably because of its very iterative development. For Delve, I started out with little more than &quot;Making a roguelike will be fun&quot; so everything progressed in layers. I wrote the dungeon map generator with
+little thought yet to what would be in the dungeon so later on when I started adding special rooms types and encounters I had to write
+hundreds of lines of code for functions to search an already existing map for a good spot for a particular encounter or room. Rogue type's templates
+completely side-step all that and I don't think there are any downsides to this approach. It's far easier and cleaner (and likely results in better
+dungeons) to pick special rooms for a level and then build the rest of the dungeon around it.</p>
+<p>Future roguelike projects will definitely be done this way and likely same for any new dungeons/biomes that get added to Delve.</p>
+<h3 id="technicalities" tabindex="-1">Technicalities</h3>
+<p>Typescript as a language was fiiiiine but suffers from a lot of warts, many of which I think are its javascript underbelly showing through.
+I dislike that it lacks proper tuples, don't understand enums (they exist but you aren't supposed to use them?), and I got tripped up by for-of
+versus for-in loops so many times leading to bugs that baffled me every time. ROT.js was pretty good as a library but I felt like it (and me) were
+fighting against the inherently asynchronious nature of web browsers. Trying to fit a turn-based game and fake-out a game loop felt brittle and I
+found all that code hard to reason around. Part of that was the product of being very rushed and not wanting to spend time on the nuts-and-bolts and
+low-level game bits. I wanted to focus on content.</p>
+<p>Maybe I'll try to extract and improve a bunch of the game 'engine' parts so I can reuse it easily for future mini-roguelikes.</p>
+<p>I used Claude a fair bit! I had it translate several functions from Delve's codebase into Typescript and spent a TON of time asking it,
+&quot;How do I do this in typescript?&quot; or &quot;What's the typescript equivalent to...&quot; The latter is almost mandatory these days even for
+non-vibe-coders with how much google search and Stack Overflow has decayed. To be fair, I would know Typescript much better if I struggled and
+figured out that stuff on my own, but this endeavour wasn't about learning a new programming language. I did sometimes have it write code that were
+going to be very finicky or a modifying existing code. Stuff like &quot;Can you make a subclass of the Popup class that accepts a yes/no answer&quot; and it
+was able to spot a few subtle bugs for me. But part of the reason I do hobby coding is simply because I find programming fun! Letting Claude write
+code I might not enjoy but need - freeing me to work on fun stuff - feels like a good use of coding agents, at least for personal projects.</p>
+<h3 id="conclusion" tabindex="-1">Conclusion</h3>
+<p>If I sounded down on type rogue above, rest assured I had a great time this week and am pleased with my efforts. Time spent on a creative project
+is always a win for anyone, in my book. But more importantly, game design a skill and like any skill needs to be practiced. You don't usually get
+better at something without sucking first. If anything, participating has got me fired up both to get back to work on Delve and on other smaller
+projects. I might even finally start a Godot tutorial...</p>
+<p>I haven't decided if I'll work on it after the game jam's evaluation period ends. I'll let it sit for a few weeks and seek if I have burning
+inspiration for more content for it.</p>
+<p>Please give rogue type a try!</p>
+
+        </article>        
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2026 by Danarama Productions </footer>
+</body>
+</html>

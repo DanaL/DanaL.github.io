@@ -5,11 +5,104 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2026-02-27T17:38:38Z</updated>
+    <updated>2026-03-08T21:20:56Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Seven Day Roguelike Game Jam</title>
+    <link href="https://danarama.ca/posts/2026/post7/"/>
+    <updated>2026-03-08T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post7/</id>
+    <summary>I took part in my first official game jam!</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;I did it! I spent (wasted?!) an entire week making a small computer game! Being
+7DRL it was a small roguelike game, or at least something that is roguelike-adjacent...&lt;/p&gt;
+&lt;p&gt;I thought I would write up a bit of a post-mortem about it. If nothing else, it will be useful for
+me to review the next time I intend on participating in one.&lt;/p&gt;
+&lt;p&gt;First of all, I had a blast. Just taking a full week to work intensely on a personal, hobby project was a ton of
+fun. I had some vacation days to burn so I took Wednesday, Thursday, and Friday off and mostly worked all
+day long. There&#39;s also a pretty active community on bluesky and discord and it was great having other
+participants to chat and commiserate with and bounce ideas off of. If I knew some local participants and we
+had in-person events, I think it would have recalled the NaNoWriMo heydays for me!&lt;/p&gt;
+&lt;p&gt;That said, working 12-16 hours a day even for fun is pretty tiring, especially for my poor, middle-aged body and brain...&lt;/p&gt;
+&lt;h3 id=&quot;rogue-type&quot; tabindex=&quot;-1&quot;&gt;rogue type&lt;/h3&gt;
+&lt;p&gt;I talked about my concept a bunch of bluesky so I&#39;ll just give a brief summary. My idea was a
+sci-fi/cyberpunk game where you are a hacker infiltrating a secure facility to infect a mainframe with a
+virus. (The vague backstory I&#39;d had in mind was an AI gone mad and you have to destroy it). You would
+navigate the &#39;dungeon&#39; by taking control of robots and you could hop from bot to bot.&lt;/p&gt;
+&lt;p&gt;The main unique hook was that hacking would be handled by a typing contest since in shows the best hackers are the fastest typists.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/type_battle.png&quot; alt=&quot;Screen shot from showing typing challenge between player and a robot&quot;&gt;
+&lt;em&gt;Here&#39;s what a typing challenge looks like&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The plan was a game that was less kill-all-the-monsters than a classic RL with more emphasis on using robots
+solve puzzles and sneak around your environment. That was my Grand Vision anyhow!&lt;/p&gt;
+&lt;p&gt;You can play &lt;a href=&quot;https://danarama.itch.io/roguetype&quot;&gt;rogue type on itch.io&lt;/a&gt; and take a look at its (hastily written, obviously) &lt;a href=&quot;https://github.com/DanaL/RogueType&quot;&gt;source code&lt;/a&gt; on github.&lt;/p&gt;
+&lt;h3 id=&quot;but-how-did-it-go%3F&quot; tabindex=&quot;-1&quot;&gt;But how did it go?&lt;/h3&gt;
+&lt;p&gt;Unfortunately, overall I think it&#39;s pretty weak as a game. I enjoy the typing challenge parts and I&#39;m glad that part came together well
+but all in all I don&#39;t think rogue type is all that much fun. Considering it honestly, with just a week to work on the game, I wasn&#39;t
+able to really flesh out either the roguelike elements or the puzzle elements sufficiently and both aspects ended up
+pretty weak. Also, it&#39;s very easy &amp;gt;.&amp;gt; Unless you set the typing speed difficulty to be very challenging for
+you, there&#39;s not much stopping you from being able to finish.&lt;/p&gt;
+&lt;p&gt;My puzzles (mostly centered around open gates to access parts of the danger) don&#39;t have enough variety.
+I had vague ideas of security zones where you would have to figure out ways to gain access to but didn&#39;t
+get a chance to develop them.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/colour_tile_puzzle.png&quot; alt=&quot;Screen shot showing the player standing beside a 9x9 grid of colour tiles, one of the puzzles in type rogue&quot;&gt;
+&lt;em&gt;I came up with a colour tile puzzle on the last day and am pleased with how it turned out&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;One idea that I think had potential is letting you install or uninstall software packages on robots. The main
+use in the current version is deleting the movement software from a robot you are controlling so you can
+leave them parked on a floor trigger that opens a gate. It would be neat to be able to install software
+on robots that let them perform tasks independently from you as part of the puzzles, or attack and distract other robots.&lt;/p&gt;
+&lt;p&gt;If I were to really lean into the puzzle aspect, the game would be much stronger with hand-designed levels rather procedurally generated ones. You &lt;em&gt;can&lt;/em&gt; do proc-gen puzzles but I think hand-crafted ones will almost always be stronger and more interesting. Of course, that
+wouldn&#39;t really have been appropriate for this particular game jam. If I were to keep working on rogue type, hand-designed levels are
+definitely the direction I would take the game in.&lt;/p&gt;
+&lt;p&gt;All that said, &lt;em&gt;I&lt;/em&gt; have fun while playing it, but I think this may be a face-only-a-mother-can-love situation. I mean, I still just find making teeny
+little game worlds and having my little guy walking around in them is an utter delight! My reactions of &amp;quot;I MADE this! Neat-o!&amp;quot; make it hard to be
+objective.&lt;/p&gt;
+&lt;h3 id=&quot;sidebar-about-level-gen&quot; tabindex=&quot;-1&quot;&gt;Sidebar about level gen&lt;/h3&gt;
+&lt;p&gt;Roguelike developers have a bit of a preoccupation with map-making algorithms and I was surprised how many compliments I got
+when I posted screencaps of my on bluesky and Discord.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/rogue_type_dungeon.png&quot; alt=&quot;A basic dungeon for a roguelike game rendered in ascii&quot;&gt;
+&lt;em&gt;example of rogue type&#39;s dungeons&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This was unexpected and kind of funny to me because I spent almost no time on rogue type&#39;s maps. I needed the levels to be
+divided cleanly into two halves with a choke point room with a gate because I wanted to force the player to solve a puzzle to progress. To make
+make the maps, I did the simplest thing I could think of: plop down a bunch of rooms and then do a breadth-first search starting at each door
+and walking until another door was found and drawing a hallway backwards along the shortest path back to the starting door. Repeat until you&#39;ve tried to draw a corridor from each door. (With a few extra rules like tiles inside a room are impassable and stop if you reach a previously drawn corridor)&lt;/p&gt;
+&lt;p&gt;That said, I do like how the maps look and I&#39;ll probably port the level generation code into C# and use it for some of Delve&#39;s dungeons.&lt;/p&gt;
+&lt;p&gt;One thing that &lt;strong&gt;was&lt;/strong&gt; a bit of a game changer was using room templates, especially for the choke point rooms. This never occurred to me to
+do in Delve (well sort of, the buildings in the town are drawn from templates), probably because of its very iterative development. For Delve, I started out with little more than &amp;quot;Making a roguelike will be fun&amp;quot; so everything progressed in layers. I wrote the dungeon map generator with
+little thought yet to what would be in the dungeon so later on when I started adding special rooms types and encounters I had to write
+hundreds of lines of code for functions to search an already existing map for a good spot for a particular encounter or room. Rogue type&#39;s templates
+completely side-step all that and I don&#39;t think there are any downsides to this approach. It&#39;s far easier and cleaner (and likely results in better
+dungeons) to pick special rooms for a level and then build the rest of the dungeon around it.&lt;/p&gt;
+&lt;p&gt;Future roguelike projects will definitely be done this way and likely same for any new dungeons/biomes that get added to Delve.&lt;/p&gt;
+&lt;h3 id=&quot;technicalities&quot; tabindex=&quot;-1&quot;&gt;Technicalities&lt;/h3&gt;
+&lt;p&gt;Typescript as a language was fiiiiine but suffers from a lot of warts, many of which I think are its javascript underbelly showing through.
+I dislike that it lacks proper tuples, don&#39;t understand enums (they exist but you aren&#39;t supposed to use them?), and I got tripped up by for-of
+versus for-in loops so many times leading to bugs that baffled me every time. ROT.js was pretty good as a library but I felt like it (and me) were
+fighting against the inherently asynchronious nature of web browsers. Trying to fit a turn-based game and fake-out a game loop felt brittle and I
+found all that code hard to reason around. Part of that was the product of being very rushed and not wanting to spend time on the nuts-and-bolts and
+low-level game bits. I wanted to focus on content.&lt;/p&gt;
+&lt;p&gt;Maybe I&#39;ll try to extract and improve a bunch of the game &#39;engine&#39; parts so I can reuse it easily for future mini-roguelikes.&lt;/p&gt;
+&lt;p&gt;I used Claude a fair bit! I had it translate several functions from Delve&#39;s codebase into Typescript and spent a TON of time asking it,
+&amp;quot;How do I do this in typescript?&amp;quot; or &amp;quot;What&#39;s the typescript equivalent to...&amp;quot; The latter is almost mandatory these days even for
+non-vibe-coders with how much google search and Stack Overflow has decayed. To be fair, I would know Typescript much better if I struggled and
+figured out that stuff on my own, but this endeavour wasn&#39;t about learning a new programming language. I did sometimes have it write code that were
+going to be very finicky or a modifying existing code. Stuff like &amp;quot;Can you make a subclass of the Popup class that accepts a yes/no answer&amp;quot; and it
+was able to spot a few subtle bugs for me. But part of the reason I do hobby coding is simply because I find programming fun! Letting Claude write
+code I might not enjoy but need - freeing me to work on fun stuff - feels like a good use of coding agents, at least for personal projects.&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;If I sounded down on type rogue above, rest assured I had a great time this week and am pleased with my efforts. Time spent on a creative project
+is always a win for anyone, in my book. But more importantly, game design a skill and like any skill needs to be practiced. You don&#39;t usually get
+better at something without sucking first. If anything, participating has got me fired up both to get back to work on Delve and on other smaller
+projects. I might even finally start a Godot tutorial...&lt;/p&gt;
+&lt;p&gt;I haven&#39;t decided if I&#39;ll work on it after the game jam&#39;s evaluation period ends. I&#39;ll let it sit for a few weeks and seek if I have burning
+inspiration for more content for it.&lt;/p&gt;
+&lt;p&gt;Please give rogue type a try!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
