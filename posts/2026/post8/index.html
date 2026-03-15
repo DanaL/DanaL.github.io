@@ -47,7 +47,7 @@
     <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
         <aside>
         <nav class="toc" >
-        <ol><li><a href="#basic">Basic</a></li><li><a href="#but-i-had-made-a-teeny%2C-tiny-world!">But I had made a teeny, tiny world!</a></li><li><a href="#sort-of-graphics">Sort of graphics</a></li><li><a href="#ultima-iv">Ultima IV</a></li><li><a href="#exploration">Exploration</a></li></ol>
+        <ol><li><a href="#basic">Basic</a></li><li><a href="#but-i-had-made-a-teeny%2C-tiny-world!">But I had made a teeny, tiny world!</a></li><li><a href="#sort-of-graphics">Sort of graphics</a></li><li><a href="#ultima-iv">Ultima IV</a></li><li><a href="#i-%3C3-exploration">I &lt;3 Exploration</a></li></ol>
       </nav>
         </aside>
     </div>
@@ -56,23 +56,32 @@
         <div class="flex flex-col">
         <article class="mt-4">
             <time class="text-xs" datetime="2026-03-08T00:00:00.000Z">March 8, 2026</time> 
-            <p>My first computer was a Commodore Vic-20, followed a few years later by a Commodore 64 and if you were a nerdy
-kid fascinated by the machines, you perused the spiral-bound manuals that game with them and discovered
-the Basic programming language, which effectively was the C64's shell. I remember the C64 manual had chapters
-on sprite graphics, which I messed around with and did some simple animations, but I never fully grokked what
-was going on with them.</p>
-<p>To be honest, I was more interested in playing games than making them. Partly because it's way easier to play games than to make me, but also it seemed like Basic was for baby, toy stuff and <strong>real</strong> programs were
-written in 6502 assembly, and assembly was Mysterious and Difficult and For Adults. That said I learned
-much later on that a bunch of commercial adventure games were in fact written in Basic! I just wasn't precocious enough I guess.</p>
+            <p>My first computer was a Commodore Vic-20, followed a couple years later by a Commodore 64. I'd actually asked for an
+Atari 2600 for Christmas, but after very brief disappointment of seeing the Vic-20, I learned it also could play games.
+And if you were at all fascinated by the computers of the day (I was), you perused the spiral-bound manuals that game with
+them and discovered the Basic programming language. Honestly, I was still much more interested in playing games than
+Basic or programming, but nevertheless I was soon writing little programs. I wish I'd been more precocious though. I remember
+the C64 manual had chapters on sprite graphics, which I messed around with and did some simple animations, but back then I never fully
+grokked what was going on.</p>
+<h3 id="basic" tabindex="-1">Basic</h3>
+<p>Nevertheless, I mucked around with a Basic a bunch. Like lots of nascent programmers, I was intrigued how
+you could give the computer commands and it would do the things I asked it do. How cool! I remember making
+little programs that would ask your name and say hello, painstakingly making an ASCII animation of a stickman
+throwing a ball through a basketball hoop. (The C64's ASCII variant was pretty robust) Those are highlights that stick
+out in mind, but I made lots of dumb little programs.</p>
+<pre><code>10 PRINT &quot;MY SISTER IS GROSS!&quot;
+20 GOTO 10
+</code></pre>
+<p>I typed in <em>so</em> many programs from magazines like Ahoy! and Compute! Gazette, sometimes modifying them a bit and messing around.
+But Basic was a toy language for baby, toy stuff, or so I thought. <strong>Real</strong> programs were written in 6502 assembly, and assembly
+was Mysterious and Difficult and For Adults. I learned much later on that a bunch of commercial adventure games were in fact written
+in Basic!</p>
 <p>By the way, <a href="https://if50.textories.com/">50 Years of Text Games</a> is a very cool read if you are into this
 genre, and the history of computer games in general.</p>
-<h3 id="basic" tabindex="-1">Basic</h3>
-<p>Nevertheless, I mucked around with a Basic a bunch. Like lots of nascent programmers, I did find it really
-cool that I could give the computer commands and it would do the things I asked it do. I remember making
-little programs that would ask your name and say hello, a painstaking ASCII animation of a stickman
-throwing a ball through a basketball hoop. (The C64's ASCII variant was pretty robust) I would type in
-programs from magazines and modify them a bit.</p>
-<p>I played a lot of text adventures back then and attempted to make my own little games. My first efforts were
+<p>I remember the C64 manual had chapters on sprite graphics, which I messed around with and did some simple animations, but I never fully
+grokked what was going on with them at the time.</p>
+<p>All this to say that I mucked around with Basic but programming didn't become a more serious hobby for me until much later on.</p>
+<p>I played a lot of text adventures back then and did attempt to make my own little games. My first efforts were
 just question/answer things. Like:</p>
 <pre><code>You are in a cave. There is an orc here.
 
@@ -80,23 +89,25 @@ Attack the orc? (y/n)
 </code></pre>
 <p>Come to think of it, the popular Choose Your Own Adventure books and the Steve Jackson Fighting Fantasy
 books were probably also an influence/inspiration.</p>
-<p>However, those 'games' where extremely simplistic and never felt like 'real' games to me.</p>
+<p>However, those 'games' where extremely simplistic and never felt like real games to me.</p>
 <p>I'm not sure if I ever played any Infocom games on my C64, but I remember playing one about a pirate and
-another about a vampire, which I think must have been the ones made my <a href="https://en.wikipedia.org/wiki/Adventure_International">Adventure International</a>.</p>
+another about a vampire, which I think must have been made by <a href="https://en.wikipedia.org/wiki/Adventure_International">Adventure International</a>.</p>
 <p>Those were much cooler than my question/answer games because you typed in instructions to the game and
 the (sometimes snarky) narrator responded as though you were having a conversation with it.</p>
-<pre><code>You are in a cave. There is an angry orc sharpening his axe.
+<pre><code>You are in a cave. There is an angry troll sharpening his axe.
 
-&gt; attack orc
+&gt; attack troll
 
-How do you attack the orc?
+How do you attack the troll?
 
 &gt; throw rock at rock
 
-You throw a rock at the rock. He yelps and runs away deeper into the cavern.
+You throw a rock at the troll. He yelps and runs away deeper into the cavern.
 </code></pre>
+<p>In fact the first Interactive Fiction game, Colossal Cave Adventure, was an attemp to replicate playing D&amp;D on
+computers. Same goal as the original Rogue and other early computer games, but a completely different approach.</p>
 <p>At some point I figured out how to parse strings – this is such a trivial bit of code but at the time it
-felt like a major level up to me, I was so stoked – and make a very simple two word parser. I could handle
+felt like a major level up to me. I was so stoked! I was able to make a very simple two-word parser. It could handle
 commands like:</p>
 <pre><code>&gt; west
 
@@ -104,25 +115,33 @@ You walk to the west. There is a lantern here.
 
 &gt; get lantern
 </code></pre>
-<p>But more complicated parsing like the Infocom games did was beyond me.</p>
+<p>More complicated parsing like the Infocom games did was beyond me. In my defense, Zork was written by a bunch of
+PhD and grad students working at MIT's AI lab...</p>
 <h3 id="but-i-had-made-a-teeny%2C-tiny-world!" tabindex="-1">But I had made a teeny, tiny world!</h3>
-<p>So once I got basic parsing working, I made a teeny little game. Well, I wouldn't call it a game since there
+<p>So once I got basic parsing working, I made a teeny little game. Well, maybe game is a strong word since there
 was nothing to do in it. A tech demo? But I scribbled down a little map of my 'world' on graph paper (my
-first game design??). It would have been a 4x4 grid or 5x5 grid of locations. I wrote descriptions for each
+first game design!). It was a 4x4 grid or 5x5 grid of locations. I wrote descriptions for each
 location and wrote up a little text adventure-esque thing where you could walk around and look at stuff.</p>
+<pre><code>You are in a field. To the south you see mountains and to the east a forest.
+
+&gt; west
+
+Tall mountains loom overhead.
+</code></pre>
 <p>But let me tell you, actually being able to WALK AROUND this little world I had created felt amazing. My
 own teeny little pocket universe.</p>
 <p>After that, I wrote a few small text adventures where you had a goal and things to do, items and an
 inventory. They weren't very good but were fun to make.</p>
 <h3 id="sort-of-graphics" tabindex="-1">Sort of graphics</h3>
-<p>One neat feature of the C64 was that you could replace the default in-memory font with your own. I can't
-remember exactly how it worked, but I remember discovering this and then setting out to make a 'graphical'
+<p>One neat feature of the C64 was that a program could replace the default in-memory font. I've forgotten
+the details of how it worked, but I remember learning this and setting out to make a 'graphical'
 RPG. Something along the lines of <a href="https://en.wikipedia.org/wiki/Phantasie">Phantasie</a>, I think the first
-crpg I ever played, and possibly my first exposure to rpgs at all. A family friend briefly introduced me to
+crpg I ever played. Possibly my very first exposure to rpgs of any kind! A family friend briefly introduced me to
 D&amp;D around the same time, but I can't actually remember which happened first.</p>
-<p>So, I created my own font and little 8x8 pixel art glyphs for trees, mountains, monsters, the player, etc.
-IIRC, I implemented basic character creature, a small wilderness area you could explore and the first
-dungeon. This wasn't a roguelike, the wilderness and dungeon were all hand-written in the Basic code.</p>
+<p>So, I created my own font that had little 8x8 pixel art glyphs for trees, mountains, monsters, the player, etc.
+IIRC, I implemented basic character creation, a town, a small wilderness area you could explore, and the first
+dungeon. This wasn't a roguelike. The wilderness and dungeon were all hand-coded and didn't change game to game.
+There was a port of Rogue for the C64 but I don't think I ever played it.</p>
 <p>Once again, it was absolutely thrilling having my own little, kind-of graphical world to walk around it
 with a monster or two to fight and some gold to pick up.</p>
 <p>I wish I still had the source code for that one! In my dim memories, I kind of simulated having functions
@@ -130,53 +149,55 @@ via GOTO statements. I was careful to have a 'main' program and you'd GOTO the c
 Commodore Basic had only global variables so you had to be careful about everything and you wanted to avoid
 dreaded <em>spaghetti code</em> where you GOTO everywhere and your program becomes a mess to debug. There wasn't
 even a real code editor. You'd just type lines of Basic on the C64's command line and they'd be added to
-whatever Basic program you had in memory. It was a pretty painstaking way to code and when I discovered
-Pascal on the Mac our high school had it was a real revelation.</p>
+whatever Basic program you had in memory. It was a pretty painstaking way to develop and when I later discovered
+Pascal on our high school's Mac it was a real revelation.</p>
 <h3 id="ultima-iv" tabindex="-1">Ultima IV</h3>
-<p>A hugely influential game was Ultima IV. I'll level with you: my copy was a pirated copy. It was just part
+<p>A hugely influential game was Ultima IV. I'll level with you: my copy was pirated. It was just part
 of the C64 culture that you had boxes and boxes of copied 5 1/4&quot; floppy disks. If your friend had a game
-you didn't, OF COURSE they'd make a copy for you. What 13 year old had money for games?? Apparently on
-release in 1985 Ultima IV cost $59.95 USD :O Pretty wild how the cost of games has barely changed numerically in 40 years. I'll need to remember this when I feel sticker shock at $90 (Canadian) prices...</p>
+you didn't, OF COURSE they'd make a copy for you. What 13 year old had money for games?? I looked it up and upon
+release in 1985 Ultima IV cost $59.95 USD :O Pretty wild how the cost of games has barely changed numerically in 40 years.
+I'll need to remember this when I feel sticker shock at $90 (Canadian) prices these days...</p>
 <p>I'm sorry Lord British, I have bought Ultima IV more than once since then and Ultima VI was one of the first
 games I ever saved up for and purchased...</p>
-<p>But one side effect of playing a pirated copy was that I did not have the map that game with a legal copy of
-the game. I had to wander around the game world exploring, eventually getting the lay of the land and just
-discovering routes between the towns. Eventually you could get a ship and sail around and get a better sense
+<p>That said, one side effect of playing a pirated copy was that I did not have the map a legal copy of
+the game came with. I just wandered around the game world exploring, eventually getting the lay of the land and
+discovering routes between the towns. Eventually you got a ship and could sail around to get a better sense
 of how the world was shaped.</p>
 <p>Importantly, the act of simply exploring the world and slowly learning about it was as fascinating to me
 at the plot of the game. I'd do entire sessions just walking around, fighting random monsters and seeing
 the sights. What's on the other side of those mountains? If I sail my boat up the river will I find
 some new secret?</p>
 <p>Another 80s game I absolutely loved back then was Seven Cities of Gold. It had procedurally generated worlds
-and I had the same fascination with sailing around and uncovering its world. &quot;What's over here? Does this river
-go anywhere cool?&quot; In Seven Cities of Gold you were playing a Spanish conquistador and these days it
+and I had the same fascination with sailing around and uncovering its geography. &quot;What's over here? Does this river
+go anywhere cool?&quot; Of course, in Seven Cities of Gold you were playing a Spanish conquistador and these days it
 should be regarded as rather problematic. Apparently the main designer intended the game to encourage
-friendly contact with the indigenous villages you found but...I don't remember that reflected at all in
+friendly contact over war with the indigenous villages you met but...I don't remember that reflected at all in
 the gameplay...</p>
-<h3 id="exploration" tabindex="-1">Exploration</h3>
+<h3 id="i-%3C3-exploration" tabindex="-1">I &lt;3 Exploration</h3>
 <p>The colour scheme I've picked for Delve's overworld is, I'm pretty sure, an echo of Ultima IV's wilderness.
 Or at least trying to recreate the feeling and texture of it. What I'd would really love to recreate is that
 feeling I had of a world you could explore, that sense that there might be secrets just up the road, around
 the bend.</p>
-<p>I don't think that game is Delve since I think I've settled on its scope. But for a different game I wonder
-how far you could get with procedural generation without running into the
+<p>I don't think that game is Delve since I think I've settled on its somewhat narrow scope. But for a different game I
+wonder how far you could get with procedural generation without running into the
 <a href="https://emshort.blog/2016/09/21/bowls-of-oatmeal-and-text-generation/">10,000 bowls of oatmeal</a> problem.
 I'm imaging a game with a larger wilderness, several villages you could travel between and little dungeons
 and ruined towers and such. Games like Qud and Dwarf Fortress show you can generate histories, but I haven't
-played enough to know if they overcome the oatmeal.</p>
+played enough to know if they overcome the oatmeal situation.</p>
 <p>But can you generate a dungeon that has things like So-and-so's Blade of Blading in it and then seed rumours
-among the nearby villagers? Generate micro-plots like goblins or bandits attacking the nearby village
-and the player can help out?</p>
-<p>I think if I made a game like this, I would enjoy it, but in part because I know I'll be thrilled by having
-created a little world that my little guy can walk around in an explore. I wonder if it could be sufficiently
-to other people?</p>
-<p>Can a world be generated that is sufficiently fresh each you play and can elements be remixed in interesting
-ways to hold up to many, many replays?</p>
+among the nearby villagers? Create micro-plots like goblins or bandits attacking the nearby village
+and the player can help out? Will that stuff feel meaningful after you've played the game many times.</p>
+<p>When I start up a new run in Delve I'm still enthralled just walking around with my little guy, exploring around the little world
+created by my code. I wonder if proc-gen techniques are sufficient to create interesting enough worlds for other people? (I think
+my impressions of my own games will always be a little coloured by &quot;Woah! <strong>I</strong> made this!&quot;)</p>
+<p>Assuming your intent is simply to generate a game world that's fun just to explore, a sandbox instead of having a fixed goal
+like most roguelikes, I wonder if you can sustain that feeling of discovery over repeated runs? It's a project I'd love to
+take on.</p>
 <p>That's for the future, once Delve is post 1.0 and I don't feel guilty for not focusing my main efforts on
-that. I feel like I'd need to spend a lot more time on design and planning and prototyping various systems.</p>
-<p>Mainly, I wanted to put into words how motivating and fun just making your own little world is, even if it is
-tiny (like 16 locations in a not-quite-a-game text adventure). And also just to notice that aspect of computer
-games – exploring a fresh new world – that really appeals to me.</p>
+that. I'd need to spend so much more time on design and planning and prototyping various systems than I ever did for Delve.</p>
+<p>This was another ramble but I wanted to put into words how motivating and fun just making your own little world is, even if it is
+tiny (like 16 locations in a not-quite-a-game text adventure). And also record a reminder for Future Dana that
+exploring and discovering a fresh new world is an aspect of computer games that really appeals to me.</p>
 
         </article>        
 
