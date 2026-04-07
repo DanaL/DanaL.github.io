@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Danarama</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    
+    <meta property="og:image" content="https://www.danarama.ca/images/9_preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.danarama.ca/images/9_preview.png" />
+    
+
+    <meta property="og:title" content="An alternative Delve" />
+    <meta property="og:url" content="https://www.danarama.ca/posts/2026/post9/" />
+    <meta property="og:type" content="article" />
+</head>
+
+<body class="mx-2 md:mx-36 mt-4">
+    <header class="border-b-2 border-gray-200">
+        <div class="flex flex-row mb-2">
+            <div class="pr-4"><a href="/"><img src="/images/danalogo.png" alt="cartoon pic of site's author" class="h-16" /></a></div>
+            <div>
+                <div class="text-4xl font-semibold"><a href="/" class="text-black hover:text-black">danarama</a></div>
+                <div class="flex flex-row align-middle">
+                    <a class="text-black hover:text-green-800" href="/Blog">Blog</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Dungeons">D&amp;D Stuff</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/About">About</a>
+                    &nbsp;|&nbsp;
+                    <a class="text-black hover:text-green-800" href="/Other">Other Places</a>
+                    &nbsp;|&nbsp;
+                    <a href="/feed.xml"><img src="/images/rss.png" alt="rss logo" h="4" /></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-3xl font-semibold px-2 pb-2">An alternative Delve</h1>
+
+    <main class="px-2">
+        
+<div class="flex flex-row">
+    
+    <div class="hidden md:block whitespace-nowrap pt-24 mr-4 border-r pr-2">
+        <aside>
+        <nav class="toc" >
+        <ol><li><a href="#side-quests-all-the-way-down">Side quests all the way down</a></li><li><a href="#what-to-do%3F">What to do?</a></li></ol>
+      </nav>
+        </aside>
+    </div>
+    
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+        <article class="mt-4">
+            <time class="text-xs" datetime="2026-04-07T00:00:00.000Z">April 7, 2026</time> 
+            <p>I've said before that I didn't have a real plan or strong vision for Delve when I began coding.
+I figured I'd have some fun coding up a roguelike game and see how far I could get. The local
+directory (and github repo) I build in is &quot;yarl2&quot; (yet another roguelike)...</p>
+<p>That said, I did set out with the vague idea I wanted to have an overworld with a village with NPCs the player
+could interact with. And I had in mind a game play loop where the player explores a bit, returns to town,
+explores deeper. Kind of like Darkest Dungeon maybe, or how I played older games like Bard's Tale. In CRPGs,
+I enjoy having a to-do list or a small goal as part of a larger mission. &quot;This session I want to find the stairs to the
+next floor&quot;, &quot;Let me get enough XP to level up my wizard&quot;, &quot;Try to find the place to use this crystal key I found.&quot;, &quot;The
+blacksmith wants you to find her dog who disappeared into the dungeon&quot;</p>
+<p>Unlike real life, video game chores are just very satisfying to complete.</p>
+<p>In traditional roguelikes you tend to just plunge into the dungeon. Many of them have no town or overworld and
+there's usually minimal backtracking. Even in Angband the usual advice is to explore as deep as possible and only return
+to town when you need absolutely need to. And recent versions have eliminated hauling expensive items out of the dungeon to sell,
+reducing motivation for returning to town.</p>
+<p>So since I began development without a strong vision of what the game would be, I mostly did things the way the
+traditional roguelikes I loved did things. I built Delve with a pretty standard roguelike dungeon, but in the back of my mind
+I also wanted that explored/retreat game loop and looked for ways to incentivize returning to the town. This was why I added
+the half-assed stress mechanic (stolen from Darkest Dungeon) and eventually split the main dungeon into a few smaller ones.</p>
+<p>I'm not sure I really like the stress mechanic. It isn't fleshed out and I don't know that it fits well with the sillier
+tone I began to add to the game's text.</p>
+<h2 id="side-quests-all-the-way-down" tabindex="-1">Side quests all the way down</h2>
+<p>I do wish I'd spent more time thinking about the kind of game I wanted to make before I began coding.
+But to be fair, this was began on a whim. I had no idea how much effort I was going to put into this.</p>
+<p>Apparently quite a bit, it turns out...</p>
+<p>Needless to say, with more forethought I'd likely have come up with a different game.</p>
+<p>So I've been mulling this all over. I have this vision of a game that's a little like...Stardew Valley maybe?
+A village full of NPCs to interact with. Some of the villagers give you quests within the dungeon along with
+the over-arching goal of exploring deeper to eventually deal with the evil demon monster or whatever that lurks
+at the very bottom. You'd unlock and expand the town with new shops and such. Repeated chats and such with villagers
+might unlock more sidequests and story.</p>
+<p>I wouldn't attempt proc-gen dialogue and villagers because hand-written ones will always be more compelling. Ideally,
+I'd have a roster of villagers and at the start of the game select a few of them for that run. And Stardrew Valley
+demonstrates that if the characters are well-written, people will be happy seeing the same ones over and over.</p>
+<p>I think this game would not have persistent levels. Each time you entered the dungeon, the levels would be generated anew.
+You'd explore for a while and when your HP gets low, return to town and rest at the inn.</p>
+<h2 id="what-to-do%3F" tabindex="-1">What to do?</h2>
+<p>So that's kind of my dilemma. Do I steer Delve in this direction? Do I finish Delve in a more classical roguelike form and
+then make a whole other game? What if I want to move on and work on a non-game project after this? What if I push Delve in
+this other direction and then decide I don't like it? (I mean, I have git but it would feel real bad to waste days or
+weeks of effort)</p>
+<p>I won't really know what is the right decision for a few weeks of development time and it's a little scary :O I'm not sure
+if this post is me trying to talk myself into it, or out of it...</p>
+
+        </article>        
+
+    <div>
+      <p class="italic">Dana's Delve is open source under the Creative Commons CC0 1.0 Universal license and its source code <a href="https://github.com/DanaL/Yarl2/">is available on GitHub</a>.
+    </div>
+
+
+        </div>
+        <img src="/images/yarldana.png" class="hidden lg:block h-96" />      
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-xs text-right border-t-2 border-gray-200 mt-4 mb-2">copyright © 2026 by Danarama Productions </footer>
+</body>
+</html>
