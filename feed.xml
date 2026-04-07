@@ -5,11 +5,313 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2026-02-27T17:38:38Z</updated>
+    <updated>2026-04-07T19:43:20Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>The game loop</title>
+    <link href="https://danarama.ca/posts/2026/post10/"/>
+    <updated>2026-04-11T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post10/</id>
+    <summary>I wanted to write down some notes about Delve&#39;s game loop</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;The game loop is one of the core pieces of a game and Delve&#39;s has evolved quite a bit over its development. I made some tweaks to it the other
+day and thought I&#39;d write down some notes about it while it was on my mind. It&#39;s one of those pieces that bumped against my skill level and, well,
+my IQ (for lack of a better term).&lt;/p&gt;
+&lt;p&gt;In princple, the game loop is pretty simple:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1) Handle player input
+2) Update the world/model
+3) Redraw the screen
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the very first version of Delve&#39;s game loop was pretty much that. And in fact the Handle-player-input part was specifically,
+&amp;quot;Wait for player input, then process it&amp;quot;. This is a pretty simple first idea and for some turn-based games can get you pretty far. It&#39;s also
+pleasantly simple.&lt;/p&gt;
+&lt;p&gt;However, it&#39;s likely that you don&#39;t want the game to grind to halt while waiting for the player to tap a key and perform their next action. You
+might want to be updating the UI or perform animations or do some background processing.&lt;/p&gt;
+</content>
+</entry>
+
+
+
+ <entry>
+    <title>An alternative Delve</title>
+    <link href="https://danarama.ca/posts/2026/post9/"/>
+    <updated>2026-04-07T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post9/</id>
+    <summary>Writing about a game design I might have explored</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;I&#39;ve said before that I didn&#39;t have a real plan or strong vision for Delve when I began coding.
+I figured I&#39;d have some fun coding up a roguelike game and see how far I could get. The local
+directory (and github repo) I build in is &amp;quot;yarl2&amp;quot; (yet another roguelike)...&lt;/p&gt;
+&lt;p&gt;That said, I did set out with the vague idea I wanted to have an overworld with a village with NPCs the player
+could interact with. And I had in mind a game play loop where the player explores a bit, returns to town,
+explores deeper. Kind of like Darkest Dungeon maybe, or how I played older games like Bard&#39;s Tale. In CRPGs,
+I enjoy having a to-do list or a small goal as part of a larger mission. &amp;quot;This session I want to find the stairs to the
+next floor&amp;quot;, &amp;quot;Let me get enough XP to level up my wizard&amp;quot;, &amp;quot;Try to find the place to use this crystal key I found.&amp;quot;, &amp;quot;The
+blacksmith wants you to find her dog who disappeared into the dungeon&amp;quot;&lt;/p&gt;
+&lt;p&gt;Unlike real life, video game chores are just very satisfying to complete.&lt;/p&gt;
+&lt;p&gt;In traditional roguelikes you tend to just plunge into the dungeon. Many of them have no town or overworld and
+there&#39;s usually minimal backtracking. Even in Angband the usual advice is to explore as deep as possible and only return
+to town when you need absolutely need to. And recent versions have eliminated hauling expensive items out of the dungeon to sell,
+reducing motivation for returning to town.&lt;/p&gt;
+&lt;p&gt;So since I began development without a strong vision of what the game would be, I mostly did things the way the
+traditional roguelikes I loved did things. I built Delve with a pretty standard roguelike dungeon, but in the back of my mind
+I also wanted that explored/retreat game loop and looked for ways to incentivize returning to the town. This was why I added
+the half-assed stress mechanic (stolen from Darkest Dungeon) and eventually split the main dungeon into a few smaller ones.&lt;/p&gt;
+&lt;p&gt;I&#39;m not sure I really like the stress mechanic. It isn&#39;t fleshed out and I don&#39;t know that it fits well with the sillier
+tone I began to add to the game&#39;s text.&lt;/p&gt;
+&lt;h2 id=&quot;side-quests-all-the-way-down&quot; tabindex=&quot;-1&quot;&gt;Side quests all the way down&lt;/h2&gt;
+&lt;p&gt;I do wish I&#39;d spent more time thinking about the kind of game I wanted to make before I began coding.
+But to be fair, this was began on a whim. I had no idea how much effort I was going to put into this.&lt;/p&gt;
+&lt;p&gt;Apparently quite a bit, it turns out...&lt;/p&gt;
+&lt;p&gt;Needless to say, with more forethought I&#39;d likely have come up with a different game.&lt;/p&gt;
+&lt;p&gt;So I&#39;ve been mulling this all over. I have this vision of a game that&#39;s a little like...Stardew Valley maybe?
+A village full of NPCs to interact with. Some of the villagers give you quests within the dungeon along with
+the over-arching goal of exploring deeper to eventually deal with the evil demon monster or whatever that lurks
+at the very bottom. You&#39;d unlock and expand the town with new shops and such. Repeated chats and such with villagers
+might unlock more sidequests and story.&lt;/p&gt;
+&lt;p&gt;I wouldn&#39;t attempt proc-gen dialogue and villagers because hand-written ones will always be more compelling. Ideally,
+I&#39;d have a roster of villagers and at the start of the game select a few of them for that run. And Stardrew Valley
+demonstrates that if the characters are well-written, people will be happy seeing the same ones over and over.&lt;/p&gt;
+&lt;p&gt;I think this game would not have persistent levels. Each time you entered the dungeon, the levels would be generated anew.
+You&#39;d explore for a while and when your HP gets low, return to town and rest at the inn.&lt;/p&gt;
+&lt;h2 id=&quot;what-to-do%3F&quot; tabindex=&quot;-1&quot;&gt;What to do?&lt;/h2&gt;
+&lt;p&gt;So that&#39;s kind of my dilemma. Do I steer Delve in this direction? Do I finish Delve in a more classical roguelike form and
+then make a whole other game? What if I want to move on and work on a non-game project after this? What if I push Delve in
+this other direction and then decide I don&#39;t like it? (I mean, I have git but it would feel real bad to waste days or
+weeks of effort)&lt;/p&gt;
+&lt;p&gt;I won&#39;t really know what is the right decision for a few weeks of development time and it&#39;s a little scary :O I&#39;m not sure
+if this post is me trying to talk myself into it, or out of it...&lt;/p&gt;
+</content>
+</entry>
+
+
+
+ <entry>
+    <title>Idle thoughts about writing games</title>
+    <link href="https://danarama.ca/posts/2026/post8/"/>
+    <updated>2026-03-15T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post8/</id>
+    <summary>I was thinking about some of my very early efforts at game making</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;My first computer was a Commodore Vic-20, followed a few years later by a Commodore 64 and if you were a nerdy
+kid fascinated by the machines, you perused the spiral-bound manuals that game with them and discovered
+the Basic programming language, which effectively was the C64&#39;s shell. I remember the C64 manual had chapters
+on sprite graphics, which I messed around with and did some simple animations, but I never fully grokked what
+was going on with them.&lt;/p&gt;
+&lt;p&gt;To be honest, I was more interested in playing games than making them. Partly because it&#39;s way easier to play games than to make me, but also it seemed like Basic was for baby, toy stuff and &lt;strong&gt;real&lt;/strong&gt; programs were
+written in 6502 assembly, and assembly was Mysterious and Difficult and For Adults. That said I learned
+much later on that a bunch of commercial adventure games were in fact written in Basic! I just wasn&#39;t precocious enough I guess.&lt;/p&gt;
+&lt;p&gt;By the way, &lt;a href=&quot;https://if50.textories.com/&quot;&gt;50 Years of Text Games&lt;/a&gt; is a very cool read if you are into this
+genre, and the history of computer games in general.&lt;/p&gt;
+&lt;h3 id=&quot;basic&quot; tabindex=&quot;-1&quot;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Nevertheless, I mucked around with a Basic a bunch. Like lots of nascent programmers, I did find it really
+cool that I could give the computer commands and it would do the things I asked it do. I remember making
+little programs that would ask your name and say hello, a painstaking ASCII animation of a stickman
+throwing a ball through a basketball hoop. (The C64&#39;s ASCII variant was pretty robust) I would type in
+programs from magazines and modify them a bit.&lt;/p&gt;
+&lt;p&gt;I played a lot of text adventures back then and attempted to make my own little games. My first efforts were
+just question/answer things. Like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;You are in a cave. There is an orc here.
+
+Attack the orc? (y/n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Come to think of it, the popular Choose Your Own Adventure books and the Steve Jackson Fighting Fantasy
+books were probably also an influence/inspiration.&lt;/p&gt;
+&lt;p&gt;However, those &#39;games&#39; where extremely simplistic and never felt like &#39;real&#39; games to me.&lt;/p&gt;
+&lt;p&gt;I&#39;m not sure if I ever played any Infocom games on my C64, but I remember playing one about a pirate and
+another about a vampire, which I think must have been the ones made my &lt;a href=&quot;https://en.wikipedia.org/wiki/Adventure_International&quot;&gt;Adventure International&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Those were much cooler than my question/answer games because you typed in instructions to the game and
+the (sometimes snarky) narrator responded as though you were having a conversation with it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;You are in a cave. There is an angry orc sharpening his axe.
+
+&amp;gt; attack orc
+
+How do you attack the orc?
+
+&amp;gt; throw rock at rock
+
+You throw a rock at the rock. He yelps and runs away deeper into the cavern.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At some point I figured out how to parse strings – this is such a trivial bit of code but at the time it
+felt like a major level up to me, I was so stoked – and make a very simple two word parser. I could handle
+commands like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; west
+
+You walk to the west. There is a lantern here.
+
+&amp;gt; get lantern
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But more complicated parsing like the Infocom games did was beyond me.&lt;/p&gt;
+&lt;h3 id=&quot;but-i-had-made-a-teeny%2C-tiny-world!&quot; tabindex=&quot;-1&quot;&gt;But I had made a teeny, tiny world!&lt;/h3&gt;
+&lt;p&gt;So once I got basic parsing working, I made a teeny little game. Well, I wouldn&#39;t call it a game since there
+was nothing to do in it. A tech demo? But I scribbled down a little map of my &#39;world&#39; on graph paper (my
+first game design??). It would have been a 4x4 grid or 5x5 grid of locations. I wrote descriptions for each
+location and wrote up a little text adventure-esque thing where you could walk around and look at stuff.&lt;/p&gt;
+&lt;p&gt;But let me tell you, actually being able to WALK AROUND this little world I had created felt amazing. My
+own teeny little pocket universe.&lt;/p&gt;
+&lt;p&gt;After that, I wrote a few small text adventures where you had a goal and things to do, items and an
+inventory. They weren&#39;t very good but were fun to make.&lt;/p&gt;
+&lt;h3 id=&quot;sort-of-graphics&quot; tabindex=&quot;-1&quot;&gt;Sort of graphics&lt;/h3&gt;
+&lt;p&gt;One neat feature of the C64 was that you could replace the default in-memory font with your own. I can&#39;t
+remember exactly how it worked, but I remember discovering this and then setting out to make a &#39;graphical&#39;
+RPG. Something along the lines of &lt;a href=&quot;https://en.wikipedia.org/wiki/Phantasie&quot;&gt;Phantasie&lt;/a&gt;, I think the first
+crpg I ever played, and possibly my first exposure to rpgs at all. A family friend briefly introduced me to
+D&amp;amp;D around the same time, but I can&#39;t actually remember which happened first.&lt;/p&gt;
+&lt;p&gt;So, I created my own font and little 8x8 pixel art glyphs for trees, mountains, monsters, the player, etc.
+IIRC, I implemented basic character creature, a small wilderness area you could explore and the first
+dungeon. This wasn&#39;t a roguelike, the wilderness and dungeon were all hand-written in the Basic code.&lt;/p&gt;
+&lt;p&gt;Once again, it was absolutely thrilling having my own little, kind-of graphical world to walk around it
+with a monster or two to fight and some gold to pick up.&lt;/p&gt;
+&lt;p&gt;I wish I still had the source code for that one! In my dim memories, I kind of simulated having functions
+via GOTO statements. I was careful to have a &#39;main&#39; program and you&#39;d GOTO the combat code for fights, etc.
+Commodore Basic had only global variables so you had to be careful about everything and you wanted to avoid
+dreaded &lt;em&gt;spaghetti code&lt;/em&gt; where you GOTO everywhere and your program becomes a mess to debug. There wasn&#39;t
+even a real code editor. You&#39;d just type lines of Basic on the C64&#39;s command line and they&#39;d be added to
+whatever Basic program you had in memory. It was a pretty painstaking way to code and when I discovered
+Pascal on the Mac our high school had it was a real revelation.&lt;/p&gt;
+&lt;h3 id=&quot;ultima-iv&quot; tabindex=&quot;-1&quot;&gt;Ultima IV&lt;/h3&gt;
+&lt;p&gt;A hugely influential game was Ultima IV. I&#39;ll level with you: my copy was a pirated copy. It was just part
+of the C64 culture that you had boxes and boxes of copied 5 1/4&amp;quot; floppy disks. If your friend had a game
+you didn&#39;t, OF COURSE they&#39;d make a copy for you. What 13 year old had money for games?? Apparently on
+release in 1985 Ultima IV cost $59.95 USD :O Pretty wild how the cost of games has barely changed numerically in 40 years. I&#39;ll need to remember this when I feel sticker shock at $90 (Canadian) prices...&lt;/p&gt;
+&lt;p&gt;I&#39;m sorry Lord British, I have bought Ultima IV more than once since then and Ultima VI was one of the first
+games I ever saved up for and purchased...&lt;/p&gt;
+&lt;p&gt;But one side effect of playing a pirated copy was that I did not have the map that game with a legal copy of
+the game. I had to wander around the game world exploring, eventually getting the lay of the land and just
+discovering routes between the towns. Eventually you could get a ship and sail around and get a better sense
+of how the world was shaped.&lt;/p&gt;
+&lt;p&gt;Importantly, the act of simply exploring the world and slowly learning about it was as fascinating to me
+at the plot of the game. I&#39;d do entire sessions just walking around, fighting random monsters and seeing
+the sights. What&#39;s on the other side of those mountains? If I sail my boat up the river will I find
+some new secret?&lt;/p&gt;
+&lt;p&gt;Another 80s game I absolutely loved back then was Seven Cities of Gold. It had procedurally generated worlds
+and I had the same fascination with sailing around and uncovering its world. &amp;quot;What&#39;s over here? Does this river
+go anywhere cool?&amp;quot; In Seven Cities of Gold you were playing a Spanish conquistador and these days it
+should be regarded as rather problematic. Apparently the main designer intended the game to encourage
+friendly contact with the indigenous villages you found but...I don&#39;t remember that reflected at all in
+the gameplay...&lt;/p&gt;
+&lt;h3 id=&quot;exploration&quot; tabindex=&quot;-1&quot;&gt;Exploration&lt;/h3&gt;
+&lt;p&gt;The colour scheme I&#39;ve picked for Delve&#39;s overworld is, I&#39;m pretty sure, an echo of Ultima IV&#39;s wilderness.
+Or at least trying to recreate the feeling and texture of it. What I&#39;d would really love to recreate is that
+feeling I had of a world you could explore, that sense that there might be secrets just up the road, around
+the bend.&lt;/p&gt;
+&lt;p&gt;I don&#39;t think that game is Delve since I think I&#39;ve settled on its scope. But for a different game I wonder
+how far you could get with procedural generation without running into the
+&lt;a href=&quot;https://emshort.blog/2016/09/21/bowls-of-oatmeal-and-text-generation/&quot;&gt;10,000 bowls of oatmeal&lt;/a&gt; problem.
+I&#39;m imaging a game with a larger wilderness, several villages you could travel between and little dungeons
+and ruined towers and such. Games like Qud and Dwarf Fortress show you can generate histories, but I haven&#39;t
+played enough to know if they overcome the oatmeal.&lt;/p&gt;
+&lt;p&gt;But can you generate a dungeon that has things like So-and-so&#39;s Blade of Blading in it and then seed rumours
+among the nearby villagers? Generate micro-plots like goblins or bandits attacking the nearby village
+and the player can help out?&lt;/p&gt;
+&lt;p&gt;I think if I made a game like this, I would enjoy it, but in part because I know I&#39;ll be thrilled by having
+created a little world that my little guy can walk around in an explore. I wonder if it could be sufficiently
+to other people?&lt;/p&gt;
+&lt;p&gt;Can a world be generated that is sufficiently fresh each you play and can elements be remixed in interesting
+ways to hold up to many, many replays?&lt;/p&gt;
+&lt;p&gt;That&#39;s for the future, once Delve is post 1.0 and I don&#39;t feel guilty for not focusing my main efforts on
+that. I feel like I&#39;d need to spend a lot more time on design and planning and prototyping various systems.&lt;/p&gt;
+&lt;p&gt;Mainly, I wanted to put into words how motivating and fun just making your own little world is, even if it is
+tiny (like 16 locations in a not-quite-a-game text adventure). And also just to notice that aspect of computer
+games – exploring a fresh new world – that really appeals to me.&lt;/p&gt;
+</content>
+</entry>
+
+
+
+ <entry>
+    <title>Seven Day Roguelike Game Jam</title>
+    <link href="https://danarama.ca/posts/2026/post7/"/>
+    <updated>2026-03-08T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post7/</id>
+    <summary>I took part in my first official game jam!</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;I did it! I spent (wasted?!) an entire week making a small computer game! Being
+7DRL it was a small roguelike game, or at least something that is roguelike-adjacent...&lt;/p&gt;
+&lt;p&gt;I thought I would write up a bit of a post-mortem about it. If nothing else, it will be useful for
+me to review the next time I intend on participating in one.&lt;/p&gt;
+&lt;p&gt;First of all, I had a blast. Just taking a full week to work intensely on a personal, hobby project was a ton of
+fun. I had some vacation days to burn so I took Wednesday, Thursday, and Friday off and mostly worked all
+day long. There&#39;s also a pretty active community on bluesky and discord and it was great having other
+participants to chat and commiserate with and bounce ideas off of. If I knew some local participants and we
+had in-person events, I think it would have recalled the NaNoWriMo heydays for me!&lt;/p&gt;
+&lt;p&gt;That said, working 12-16 hours a day even for fun is pretty tiring, especially for my poor, middle-aged body and brain...&lt;/p&gt;
+&lt;h3 id=&quot;rogue-type&quot; tabindex=&quot;-1&quot;&gt;rogue type&lt;/h3&gt;
+&lt;p&gt;I talked about my concept a bunch of bluesky so I&#39;ll just give a brief summary. My idea was a
+sci-fi/cyberpunk game where you are a hacker infiltrating a secure facility to infect a mainframe with a
+virus. (The vague backstory I&#39;d had in mind was an AI gone mad and you have to destroy it). You would
+navigate the &#39;dungeon&#39; by taking control of robots and you could hop from bot to bot.&lt;/p&gt;
+&lt;p&gt;The main unique hook was that hacking would be handled by a typing contest since in shows the best hackers are the fastest typists.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/type_battle.png&quot; alt=&quot;Screen shot from showing typing challenge between player and a robot&quot;&gt;
+&lt;em&gt;Here&#39;s what a typing challenge looks like&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The plan was a game that was less kill-all-the-monsters than a classic RL with more emphasis on using robots
+solve puzzles and sneak around your environment. That was my Grand Vision anyhow!&lt;/p&gt;
+&lt;p&gt;You can play &lt;a href=&quot;https://danarama.itch.io/roguetype&quot;&gt;rogue type on itch.io&lt;/a&gt; and take a look at its (hastily written, obviously) &lt;a href=&quot;https://github.com/DanaL/RogueType&quot;&gt;source code&lt;/a&gt; on github.&lt;/p&gt;
+&lt;h3 id=&quot;but-how-did-it-go%3F&quot; tabindex=&quot;-1&quot;&gt;But how did it go?&lt;/h3&gt;
+&lt;p&gt;Unfortunately, overall I think it&#39;s pretty weak as a game. I enjoy the typing challenge parts and I&#39;m glad that part came together well
+but all in all I don&#39;t think rogue type is all that much fun. Considering it honestly, with just a week to work on the game, I wasn&#39;t
+able to really flesh out either the roguelike elements or the puzzle elements sufficiently and both aspects ended up
+pretty weak. Also, it&#39;s very easy &amp;gt;.&amp;gt; Unless you set the typing speed difficulty to be very challenging for
+you, there&#39;s not much stopping you from being able to finish.&lt;/p&gt;
+&lt;p&gt;My puzzles (mostly centered around open gates to access parts of the danger) don&#39;t have enough variety.
+I had vague ideas of security zones where you would have to figure out ways to gain access to but didn&#39;t
+get a chance to develop them.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/colour_tile_puzzle.png&quot; alt=&quot;Screen shot showing the player standing beside a 9x9 grid of colour tiles, one of the puzzles in type rogue&quot;&gt;
+&lt;em&gt;I came up with a colour tile puzzle on the last day and am pleased with how it turned out&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;One idea that I think had potential is letting you install or uninstall software packages on robots. The main
+use in the current version is deleting the movement software from a robot you are controlling so you can
+leave them parked on a floor trigger that opens a gate. It would be neat to be able to install software
+on robots that let them perform tasks independently from you as part of the puzzles, or attack and distract other robots.&lt;/p&gt;
+&lt;p&gt;If I were to really lean into the puzzle aspect, the game would be much stronger with hand-designed levels rather procedurally generated ones. You &lt;em&gt;can&lt;/em&gt; do proc-gen puzzles but I think hand-crafted ones will almost always be stronger and more interesting. Of course, that
+wouldn&#39;t really have been appropriate for this particular game jam. If I were to keep working on rogue type, hand-designed levels are
+definitely the direction I would take the game in.&lt;/p&gt;
+&lt;p&gt;All that said, &lt;em&gt;I&lt;/em&gt; have fun while playing it, but I think this may be a face-only-a-mother-can-love situation. I mean, I still just find making teeny
+little game worlds and having my little guy walking around in them is an utter delight! My reactions of &amp;quot;I MADE this! Neat-o!&amp;quot; make it hard to be
+objective.&lt;/p&gt;
+&lt;h3 id=&quot;sidebar-about-level-gen&quot; tabindex=&quot;-1&quot;&gt;Sidebar about level gen&lt;/h3&gt;
+&lt;p&gt;Roguelike developers have a bit of a preoccupation with map-making algorithms and I was surprised how many compliments I got
+when I posted screencaps of my on bluesky and Discord.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/rogue_type_dungeon.png&quot; alt=&quot;A basic dungeon for a roguelike game rendered in ascii&quot;&gt;
+&lt;em&gt;example of rogue type&#39;s dungeons&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This was unexpected and kind of funny to me because I spent almost no time on rogue type&#39;s maps. I needed the levels to be
+divided cleanly into two halves with a choke point room with a gate because I wanted to force the player to solve a puzzle to progress. To make
+make the maps, I did the simplest thing I could think of: plop down a bunch of rooms and then do a breadth-first search starting at each door
+and walking until another door was found and drawing a hallway backwards along the shortest path back to the starting door. Repeat until you&#39;ve tried to draw a corridor from each door. (With a few extra rules like tiles inside a room are impassable and stop if you reach a previously drawn corridor)&lt;/p&gt;
+&lt;p&gt;That said, I do like how the maps look and I&#39;ll probably port the level generation code into C# and use it for some of Delve&#39;s dungeons.&lt;/p&gt;
+&lt;p&gt;One thing that &lt;strong&gt;was&lt;/strong&gt; a bit of a game changer was using room templates, especially for the choke point rooms. This never occurred to me to
+do in Delve (well sort of, the buildings in the town are drawn from templates), probably because of its very iterative development. For Delve, I started out with little more than &amp;quot;Making a roguelike will be fun&amp;quot; so everything progressed in layers. I wrote the dungeon map generator with
+little thought yet to what would be in the dungeon so later on when I started adding special rooms types and encounters I had to write
+hundreds of lines of code for functions to search an already existing map for a good spot for a particular encounter or room. Rogue type&#39;s templates
+completely side-step all that and I don&#39;t think there are any downsides to this approach. It&#39;s far easier and cleaner (and likely results in better
+dungeons) to pick special rooms for a level and then build the rest of the dungeon around it.&lt;/p&gt;
+&lt;p&gt;Future roguelike projects will definitely be done this way and likely same for any new dungeons/biomes that get added to Delve.&lt;/p&gt;
+&lt;h3 id=&quot;technicalities&quot; tabindex=&quot;-1&quot;&gt;Technicalities&lt;/h3&gt;
+&lt;p&gt;Typescript as a language was fiiiiine but suffers from a lot of warts, many of which I think are its javascript underbelly showing through.
+I dislike that it lacks proper tuples, don&#39;t understand enums (they exist but you aren&#39;t supposed to use them?), and I got tripped up by for-of
+versus for-in loops so many times leading to bugs that baffled me every time. ROT.js was pretty good as a library but I felt like it (and me) were
+fighting against the inherently asynchronious nature of web browsers. Trying to fit a turn-based game and fake-out a game loop felt brittle and I
+found all that code hard to reason around. Part of that was the product of being very rushed and not wanting to spend time on the nuts-and-bolts and
+low-level game bits. I wanted to focus on content.&lt;/p&gt;
+&lt;p&gt;Maybe I&#39;ll try to extract and improve a bunch of the game &#39;engine&#39; parts so I can reuse it easily for future mini-roguelikes.&lt;/p&gt;
+&lt;p&gt;I used Claude a fair bit! I had it translate several functions from Delve&#39;s codebase into Typescript and spent a TON of time asking it,
+&amp;quot;How do I do this in typescript?&amp;quot; or &amp;quot;What&#39;s the typescript equivalent to...&amp;quot; The latter is almost mandatory these days even for
+non-vibe-coders with how much google search and Stack Overflow has decayed. To be fair, I would know Typescript much better if I struggled and
+figured out that stuff on my own, but this endeavour wasn&#39;t about learning a new programming language. I did sometimes have it write code that were
+going to be very finicky or a modifying existing code. Stuff like &amp;quot;Can you make a subclass of the Popup class that accepts a yes/no answer&amp;quot; and it
+was able to spot a few subtle bugs for me. But part of the reason I do hobby coding is simply because I find programming fun! Letting Claude write
+code I might not enjoy but need - freeing me to work on fun stuff - feels like a good use of coding agents, at least for personal projects.&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;If I sounded down on type rogue above, rest assured I had a great time this week and am pleased with my efforts. Time spent on a creative project
+is always a win for anyone, in my book. But more importantly, game design a skill and like any skill needs to be practiced. You don&#39;t usually get
+better at something without sucking first. If anything, participating has got me fired up both to get back to work on Delve and on other smaller
+projects. I might even finally start a Godot tutorial...&lt;/p&gt;
+&lt;p&gt;I haven&#39;t decided if I&#39;ll work on it after the game jam&#39;s evaluation period ends. I&#39;ll let it sit for a few weeks and seek if I have burning
+inspiration for more content for it.&lt;/p&gt;
+&lt;p&gt;Please give rogue type a try!&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
