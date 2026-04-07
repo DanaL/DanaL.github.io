@@ -13,30 +13,6 @@
 
 
  <entry>
-    <title>The game loop</title>
-    <link href="https://danarama.ca/posts/2026/post10/"/>
-    <updated>2026-04-11T00:00:00Z</updated>
-    <id>https://danarama.ca/posts/2026/post10/</id>
-    <summary>I wanted to write down some notes about Delve&#39;s game loop</summary>
-    <content xml:lang="en" type="html">&lt;p&gt;The game loop is one of the core pieces of a game and Delve&#39;s has evolved quite a bit over its development. I made some tweaks to it the other
-day and thought I&#39;d write down some notes about it while it was on my mind. It&#39;s one of those pieces that bumped against my skill level and, well,
-my IQ (for lack of a better term).&lt;/p&gt;
-&lt;p&gt;In princple, the game loop is pretty simple:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1) Handle player input
-2) Update the world/model
-3) Redraw the screen
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And the very first version of Delve&#39;s game loop was pretty much that. And in fact the Handle-player-input part was specifically,
-&amp;quot;Wait for player input, then process it&amp;quot;. This is a pretty simple first idea and for some turn-based games can get you pretty far. It&#39;s also
-pleasantly simple.&lt;/p&gt;
-&lt;p&gt;However, it&#39;s likely that you don&#39;t want the game to grind to halt while waiting for the player to tap a key and perform their next action. You
-might want to be updating the UI or perform animations or do some background processing.&lt;/p&gt;
-</content>
-</entry>
-
-
-
- <entry>
     <title>An alternative Delve</title>
     <link href="https://danarama.ca/posts/2026/post9/"/>
     <updated>2026-04-07T00:00:00Z</updated>
