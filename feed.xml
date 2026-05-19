@@ -5,11 +5,51 @@
     <id>https://danarama.ca</id>
     <link href="https://danarama.ca" rel="self"/>
     <link href="https://danarama.ca"/>
-    <updated>2026-04-24T00:19:46Z</updated>
+    <updated>2026-05-19T21:51:26Z</updated>
     <author>
         <name>Dana</name>
         <email>ywg.dana+rss@gmail.com</email>
     </author>
+
+
+ <entry>
+    <title>Delve 0.6.0</title>
+    <link href="https://danarama.ca/posts/2026/post12/"/>
+    <updated>2026-05-19T00:00:00Z</updated>
+    <id>https://danarama.ca/posts/2026/post12/</id>
+    <summary>I&#39;ve released a new version of Delve!</summary>
+    <content xml:lang="en" type="html">&lt;p&gt;It&#39;s been more than three months so time for a &lt;a href=&quot;https://danarama.itch.io/delve&quot;&gt;Delve&lt;/a&gt; update!&lt;/p&gt;
+&lt;h2 id=&quot;character-paths&quot; tabindex=&quot;-1&quot;&gt;Character Paths&lt;/h2&gt;
+&lt;p&gt;My focus (insofar as I focus) was on paths for the player to pick a play style. Builds, although I don&#39;t think you can really customize
+your character sufficiently enough to really use the term build. Pretty early on, the town priest could give you blessings that would
+buff your player. I&#39;d originally intended them to be temporary boosts. As your run progressed, more choices would be offered. But after
+I started mentioned other deities in the bits of world lore I was inserting, I thought it would be neat to have different paths for the
+different gods in the world, who offered different blessings that were appropriate for their milieu. The town priest is still a
+priest of Huntokar (which started as a joke but maybe I&#39;m stuck with it now) who offers hero/champion sorts of blessings. And now there are
+two more deities, one who offers more stealth/trickster blessings and one that is a war/beserker type. The blessings are now more or
+less permanent and you can of course follow only one deity at a time. After a certain point, you won&#39;t be able to change paths. (More
+for flavour than any mechanical reason)&lt;/p&gt;
+&lt;p&gt;You&#39;ll need to poke around a little to find access to the two new paths. One of them is a big too strong I think, but I haven&#39;t
+tested it too much. I won&#39;t worry about balance until more of the game&#39;s content is in place.&lt;/p&gt;
+&lt;h2 id=&quot;other-stuff&quot; tabindex=&quot;-1&quot;&gt;Other stuff&lt;/h2&gt;
+&lt;p&gt;There are a bunch of new items and monsters of course. A big new thing is magic arrows. A bow in Delve has unlimited ammo (I
+wrestled with this decision but decided that having to micro-manage your arrows when you want to play an archer didn&#39;t sound like that
+much fun) but I&#39;ve added arrows that explode, create webs, etc.&lt;/p&gt;
+&lt;p&gt;The town now has a tailor!&lt;/p&gt;
+&lt;p&gt;When you rest at the inn, your maximum HP increases based on how many new dungeon levels you&#39;ve explored since your last stay. Gotta
+adventure to get those gains!&lt;/p&gt;
+&lt;p&gt;There are also several new potions and a gingerbreadman cookie you can eat.&lt;/p&gt;
+&lt;p&gt;The repeat keys and arrow movement should work better on the macOS and linux builds, but there are still some glitches to work out.&lt;/p&gt;
+&lt;h2 id=&quot;up-next&quot; tabindex=&quot;-1&quot;&gt;Up next&lt;/h2&gt;
+&lt;p&gt;The next major thing I want to work on is spellcasting and making the scholar starting role a viable option. One struggle is going to
+be adding a bunch of fun, cools spells to the game but not making playing a wizard Easy Mode and the obvious best way to play.&lt;/p&gt;
+&lt;p&gt;Also, one idea that I absolutely love is the reagent system from Ultima IV, where you need to find or buy spell components and
+prepare your spells in advance. I find it very flavourful and evocative, but I&#39;m not sure if it was actually a feature people liked or
+if most saw it as tedious bookkeeping.&lt;/p&gt;
+&lt;p&gt;I don&#39;t have a timeline for 0.7.0 but I&#39;m hoping it will be less than three months.&lt;/p&gt;
+</content>
+</entry>
+
 
 
  <entry>
@@ -24,30 +64,23 @@ and it...wasn&#39;t quite that.&lt;/p&gt;
 &lt;p&gt;Don&#39;t get me wrong, it was a pretty entertaining read. The book equivalent of cheap candy. I won&#39;t criticize the writing too much
 ‐ it&#39;s serviceable ‐ but I think the book was intended to be a fun action-adventure ride so I judged it on those terms.&lt;/p&gt;
 &lt;p&gt;Dungeon Crawler Carl is litrpg: a science-fantasy story not just inspired by computer RPGs, but video game rules and structure like&lt;br&gt;
-stats, levels, achievements, and such are explicitly part of the narrative. The characters level up and know they have leveled up.
-The premise of the series is that aliens show up on Earth and transform it into an MMO dungeon and force the surviving humans to
-battle through it. Carl and Donut (his pet cat who  becomes sentient) fight monsters, level up, find loot, meet survivors. The aliens
-are broadcasting the game as an intergalatctic  TV show and Carl/Donut eventually acquire a PR agent and viewers and followers on intergalactic
-twitter.&lt;/p&gt;
-&lt;img src=&quot;/images/dcc.png&quot; alt=&quot;Cover of Dungeon Crawler Carl&quot; class=&quot;float-right ml-4 mt-4 mb-4 w-1/2 max-w-[150px]&quot;/&gt;
-I don&#39;t know if in the litRPG genre as a whole the characters are always literally in a game and aware of it, but it&#39;s DCC how is structured.
-Carl and Donut level up and make choices about where they put upgrade points, etc.
-&lt;p&gt;So yeah, overall it&#39;s a fun read; there&#39;s lots of action. I think it would be a stronger book if it were a little bit shorter. There&#39;s a bit too
-much fat and I found the battles got a bit repetitive. Carl doesn&#39;t have much of a personality: sort of generic, grumpy man but with a heart
-of gold. Donut is pompous  and vain. But they snark at each other, care for each other, and make a decent Odd Couple pair.&lt;/p&gt;
+stats, levels, achievements, and such are explicitly part of the narrative. The characters level up and know they have leveled up. The premise of the series is that aliens show up on Earth and transform it into an MMO dungeon and force the surviving humans to battle through it. Carl and Donut (his pet cat who  becomes sentient) fight monsters, level up, find loot, meet survivors. The aliens are broadcasting the game as an intergalatctic  TV show and Carl/Donut eventually acquire a PR agent and viewers and followers on intergalatic twitter.&lt;/p&gt;
+&lt;p&gt;I know if in the litRPG genre as a whole the characters are always literally in a game and aware of it, but it&#39;s DCC is structured.
+Carl and Donut level up and make choices about where they put upgrade points, etc.&lt;/p&gt;
+&lt;p&gt;So yeah, it&#39;s pretty fun; there&#39;s lots of action. I think it would be a stronger book if it were a little bit shorter. There&#39;s a bit too
+much fat and I found the battles got a bit repetitive. Carl doesn&#39;t have much of a personality: sort of generic, grumpy man but with a heart of gold. Donut is pompous  and vain. But they snark at each other, care for each other and make a decent Odd Couple pair.&lt;/p&gt;
 &lt;p&gt;Where it actually falls down a bit for me is that periodically the author decides &amp;quot;This book should be more dark and serious&amp;quot; and
 Carl will pause to remember that he had a bad childhood and/or get upset about the frankly horrific situation they find themselves
-in. The premise is bleak when you pause to think about it. 99% of humanity killed, the survivors let to fight to the death in a constructed dungeon
-for the entertainment of a bunch of aliens. Carl will be (rightly) angry and upset for a paragraph or two and then we&#39;ll get back campy,
-over-the-top fight scenes. It&#39;s jarring in that Marvel movie way where the tone whipsaws from &lt;strong&gt;Serious Movie Moment&lt;/strong&gt; to &lt;strong&gt;Time For A Gag!&lt;/strong&gt;
-A book can have both funny and serious moments of course but there should be an effort to blend them better. In DCC it felt like, &amp;quot;We pause
-now for a Dramatic Moment. Slapstick comedy will begin again shortly.&amp;quot;&lt;/p&gt;
-&lt;p&gt;The book introduces crumbs of a larger world. There is political manoeuvring among the various factions in the Galatic Syndicate
+in. 99% of humanity killed, the surivivors let to fight to the death in a constructed dungeon for the entertainment of a bunch
+of aliens. Carl will be (rightly) angry and upset for a paragraph or two and then we&#39;ll get back campy, over-the-top fight scenes.
+It&#39;s jarring in that Marvel movie way where the tone whipsaws from &lt;strong&gt;Serious Movie Moment&lt;/strong&gt; to &lt;strong&gt;Time For A Gag!&lt;/strong&gt; A book can have both
+funny and serious moments of course but there should be an effort to blend them better. In DCC it felt like, &amp;quot;We pause now for
+a Dramatic Moment. Slapstick comedy will begin again shortly.&amp;quot;&lt;/p&gt;
+&lt;p&gt;The book introduces crumbs of a larger world. There is political maneuvering among the various factions in the Galatic Syndicate
 that runs the game and from what I&#39;d heard this becomes more important as the books go on, which should be interesting. And good to
-know. I couldn&#39;t imagine how the series might have kept its legs for thousands of pages if it were just narrating a romp through
+know. I couldn&#39;t imagine how a series might have kept its legs for thousands of pages if it were just narrativing a romp through
 a dungeon crawl.&lt;/p&gt;
-&lt;p&gt;I&#39;ll continue reading the series (it looks like my local library has the whole series!) although I&#39;m not in a huge rush. But something to reach when
-when I&#39;m in the mood for a fun, silly read.&lt;/p&gt;
+&lt;p&gt;I&#39;ll continue reading - it looks like my local library has the whole series although I&#39;m not in a huge rush. But a good series when I&#39;m looking for something fun and silly to read, I think.&lt;/p&gt;
 &lt;p&gt;And now I&#39;m returning to Circe!&lt;/p&gt;
 </content>
 </entry>
