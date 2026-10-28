@@ -635,8 +635,20 @@ video {
   width: 50%;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .max-w-\[150px\] {
   max-width: 150px;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+
+.max-w-\[600px\] {
+  max-width: 600px;
 }
 
 .grow {
@@ -653,6 +665,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .whitespace-nowrap {
@@ -832,6 +848,12 @@ pre {
 .hover\:text-green-800:hover {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 768px) {
